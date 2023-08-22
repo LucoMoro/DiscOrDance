@@ -16,6 +16,7 @@ BaselineOfDiscOrDance >> baseline: spec [
 			"Dependencies"
 			self vizor: spec.
 			self discordST: spec.
+			self mocketry: spec.
 
 			"Packages"
 			spec
@@ -61,6 +62,12 @@ BaselineOfDiscOrDance >> incompatiblePharoVersion: packageLoader [
 		messageText: message;
 		signal.
 
+]
+
+{ #category : #baselines }
+BaselineOfDiscOrDance >> mocketry: spec [
+	spec baseline: 'Mocketry'
+		with: [ spec repository: 'github://dionisiydk/Mocketry:v4.0.x' ].
 ]
 
 { #category : #baselines }
