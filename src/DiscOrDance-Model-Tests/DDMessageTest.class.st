@@ -427,6 +427,70 @@ DDMessageTest >> testIsReply2 [
 ]
 
 { #category : #tests }
+DDMessageTest >> testLastEditedAt [
+	"This test checks if lastEditedAt's setter and getter works without giving any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	self assert: (aDDMessage lastEditedAt) equals: nil.
+]
+
+{ #category : #tests }
+DDMessageTest >> testLastEditedAt2 [
+	"This test checks if lastEditedAt's setter and getter works given an input input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage lastEditedAt: 'message-lastEditedAt'.
+	
+	self assert: (aDDMessage lastEditedAt) equals: 'message-lastEditedAt'.
+]
+
+{ #category : #tests }
+DDMessageTest >> testLineCount [
+	"This test checks if lineCount's setter and getter works without giving any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage content: ' '.
+	
+	self assert: (aDDMessage lineCount) equals: 1.
+]
+
+{ #category : #tests }
+DDMessageTest >> testLineCount2 [
+	"This test checks if lineCount's setter and getter works without giving any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage content: 'line 1
+	line 2
+	line 3'.
+	
+	self assert: (aDDMessage lineCount) equals: 3.
+]
+
+{ #category : #tests }
+DDMessageTest >> testMentions [
+	"This test checks if mentions' setter and getter works without giving any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+
+	self assert: (aDDMessage mentions) equals: OrderedCollection new.
+]
+
+{ #category : #tests }
+DDMessageTest >> testMentions2 [
+	"This test checks if mentions' setter and getter works given an input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage mentions: 'message-mention'.
+
+	self assert: (aDDMessage mentions) equals: 'message-mention'.
+]
+
+{ #category : #tests }
 DDMessageTest >> testNaturalLanguageContent [
 	"This test checks if there is some natural language in the sent aDDMessage"
 	| aDDMessage aDDCodeMock|
@@ -456,16 +520,16 @@ DDMessageTest >> testPointsOfInterest [
 	self assert: (aDDMessage pointsOfInterest) equals: 'message-POIs'.
 ]
 
-{ #category : #test }
+{ #category : #tests }
 DDMessageTest >> testQuotes [
-	| msg expected |
-	msg := DDMessage new.
+	| aDDMessage expected |
+	aDDMessage := DDMessage new.
 	expected := {
 	'> this is a quote' .
 	'> this another' .
 	'> some larger' , String cr , '> quoted text' , String cr , '> with multilines'
 	} asOrderedCollection.
-	msg content:
+	aDDMessage content:
 '
 
 >notquote
@@ -483,7 +547,119 @@ text > with this
 
 somefinaltext'.
 	
-	self assertCollection: msg quotes equals: expected.
+	self assertCollection: aDDMessage quotes equals: expected.
+]
+
+{ #category : #tests }
+DDMessageTest >> testReactions [
+	"This test checks if reactions's setter and getter works without giving any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+
+	self assert: (aDDMessage reactions) equals: nil.
+]
+
+{ #category : #tests }
+DDMessageTest >> testReactions2 [
+	"This test checks if reactions's setter and getter works given an input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage reactions: 'message-reactions'.
+	
+	self assert: (aDDMessage reactions) equals: 'message-reactions'.
+]
+
+{ #category : #tests }
+DDMessageTest >> testReplies [
+	"This test checks if replies works without giving any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+
+	self assert: (aDDMessage replies) equals: OrderedCollection new.
+]
+
+{ #category : #tests }
+DDMessageTest >> testRepliesTo [
+	"This test checks if repliesTo's setter and getter works without giving any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+
+	self assert: (aDDMessage repliesTo) equals: nil.
+]
+
+{ #category : #tests }
+DDMessageTest >> testRepliesTo2 [
+	"This test checks if repliesTo's setter and getter works without given an input"
+	| aDDMessage aSecondDDMessage |
+	aDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	
+	aDDMessage repliesTo: aSecondDDMessage.
+	
+	self assert: (aDDMessage repliesTo) equals: aSecondDDMessage.
+]
+
+{ #category : #tests }
+DDMessageTest >> testRoleMentions [
+	"This test checks if roleMentions's setter and getter works without giving any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+
+	self assert: (aDDMessage roleMentions) equals: OrderedCollection new.
+]
+
+{ #category : #tests }
+DDMessageTest >> testRoleMentions2 [
+	"This test checks if roleMentions's setter and getter works given an input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage roleMentions: 'message-role'.
+
+	self assert: (aDDMessage roleMentions) equals: 'message-role'.
+]
+
+{ #category : #tests }
+DDMessageTest >> testSpecialMentions [
+	"This test checks if specialMentions' setter and getter works without any input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+
+	self assert: (aDDMessage specialMentions) equals: OrderedCollection new.
+]
+
+{ #category : #tests }
+DDMessageTest >> testSpecialMentions2 [
+	"This test checks if specialMentions' setter and getter works with an input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage specialMentions: 'message-specialMention'.
+
+	self assert: (aDDMessage specialMentions) equals: 'message-specialMention'.
+]
+
+{ #category : #tests }
+DDMessageTest >> testUncompressedContentSize [
+	"This test checks if uncompressedContentSize works with an input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage content: 'message'.
+
+	self assert: (aDDMessage uncompressedContentSize) equals: 7.
+]
+
+{ #category : #tests }
+DDMessageTest >> testUserMentions [
+	"This test checks if userMentions' setter and getter works with an input"
+	| aDDMessage |
+	aDDMessage := DDMessage new.
+	
+	aDDMessage content: 'message'.
+
+	self assert: (aDDMessage uncompressedContentSize) equals: 7.
 ]
 
 { #category : #tests }
