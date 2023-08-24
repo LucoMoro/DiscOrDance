@@ -42,6 +42,25 @@ DDCodeTest >> testCodeSource2 [
 ]
 
 { #category : #test }
+DDCodeTest >> testIsSourceCode [
+	"This method checks if isSourceCode works properly given an input"
+	| aDDCode aDDSyntaxHighlightColorMetric |
+	aDDCode := DDCode new.
+	aDDSyntaxHighlightColorMetric := Mock new.
+	
+	(aDDSyntaxHighlightColorMetric stub highlightDictionary)
+		willReturn: OrderedCollection new.
+		
+	aDDCode codeSource: ' Person {
+    	private String name;
+    	private int age;
+    	}'.
+	
+	self assert: (aDDCode isSourceCode) equals: false.
+	
+]
+
+{ #category : #test }
 DDCodeTest >> testMessage [
 	"This method checks if message's getter and setter of aDDCode works without giving any input"
 	| aDDCode |

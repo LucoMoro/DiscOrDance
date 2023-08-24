@@ -29,7 +29,7 @@ DDMergedAuthorTest >> testAliases2 [
 
 { #category : #test }
 DDMergedAuthorTest >> testAuthors [
-	"This method checks if authors' getter and setter of aDDAttachment works without giving any input"
+	"This method checks if authors' getter and setter of aDDMergedAuthor works without giving any input"
 	| aDDMergedAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
 	
