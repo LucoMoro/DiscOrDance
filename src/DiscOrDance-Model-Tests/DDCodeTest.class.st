@@ -9,7 +9,7 @@ Class {
 
 { #category : #test }
 DDCodeTest >> testCodeClasses [
-	"This method checks if codeSource's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if codeSource's getter and setter of aDDCode works without giving any input"
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -21,7 +21,7 @@ DDCodeTest >> testCodeClasses [
 
 { #category : #test }
 DDCodeTest >> testCodeSource [
-	"This method checks if codeSource's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if codeSource's getter and setter of aDDCode works without giving any input"
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -31,7 +31,7 @@ DDCodeTest >> testCodeSource [
 
 { #category : #test }
 DDCodeTest >> testCodeSource2 [
-	"This method checks if codeSource's getter and setter of aDDAttachment works given an giving any input"
+	"This method checks if codeSource's getter and setter of aDDCode works given an giving any input"
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -43,7 +43,7 @@ DDCodeTest >> testCodeSource2 [
 
 { #category : #test }
 DDCodeTest >> testMessage [
-	"This method checks if message's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if message's getter and setter of aDDCode works without giving any input"
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -53,7 +53,7 @@ DDCodeTest >> testMessage [
 
 { #category : #test }
 DDCodeTest >> testMessage2 [
-	"This method checks if message's getter and setter of aDDAttachment works given an input"
+	"This method checks if message's getter and setter of aDDCode works given an input"
 	| aDDCode |
 	aDDCode := DDCode new.
 	
