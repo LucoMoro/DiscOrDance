@@ -177,3 +177,97 @@ DDServerTest >> testAlphaSortedAuthors [
 	self assert: (aDDServer authors) equals: aSet.
 
 ]
+
+{ #category : #test }
+DDServerTest >> testAuthors [
+	"Tist test checks if authors' getter and setter works without giving any input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	self assert: (aDDServer authors) equals: Set new.
+
+]
+
+{ #category : #test }
+DDServerTest >> testAuthors2 [
+	"Tist test checks if authors' getter and setter works given an input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	aDDServer authors: 'server-author'.
+	
+	self assert: (aDDServer authors) equals: 'server-author'.
+
+]
+
+{ #category : #test }
+DDServerTest >> testAuthorsNamed [
+	"Tist test checks if authorsNamed function works properly without initializing the array"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	self assert: (aDDServer authorsNamed: 'author-name') equals: Set new.
+
+]
+
+{ #category : #test }
+DDServerTest >> testAuthorsNamed2 [
+	"Tist test checks if authorsNamed function works properly if the array is initialized"
+	| aDDServer aDDAuthorMock aSet|
+	aDDServer := DDServer new.
+	aDDAuthorMock := Mock new.
+	aSet := Set new.
+	
+	aSet add: aDDAuthorMock.
+	aDDAuthorMock name: 'author-name'.
+	aDDServer authors: aSet.
+	
+	(aDDAuthorMock stub name) willReturn: 'author-name'.
+	
+	self assert: (aDDServer authorsNamed: 'author-name') equals: aSet.
+
+]
+
+{ #category : #test }
+DDServerTest >> testCategories [
+	"Tist test checks if categories' getter and setter works without giving any input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	self assert: (aDDServer categories) equals: OrderedCollection new.
+
+]
+
+{ #category : #test }
+DDServerTest >> testCategories2 [
+	"Tist test checks if categories' getter and setter works without giving any input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	aDDServer categories: 'server-category'.
+	
+	self assert: (aDDServer categories) equals: 'server-category'.
+
+]
+
+{ #category : #test }
+DDServerTest >> testConversations [
+	"Tist test checks if conversations' getter and setter works without giving any input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	self assert: (aDDServer conversations) equals: nil.
+
+]
+
+{ #category : #test }
+DDServerTest >> testConversations2 [
+	"Tist test checks if conversations' getter and setter works given an input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	aDDServer conversations: 'server-conversations'.
+	
+	self assert: (aDDServer conversations) equals: 'server-conversations'.
+
+]
