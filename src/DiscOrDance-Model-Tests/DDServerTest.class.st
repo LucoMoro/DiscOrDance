@@ -271,3 +271,160 @@ DDServerTest >> testConversations2 [
 	self assert: (aDDServer conversations) equals: 'server-conversations'.
 
 ]
+
+{ #category : #test }
+DDServerTest >> testDomain [
+	"Tist test checks if domain's getter and setter works without giving any input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	aDDServer domain.
+	
+	self assert: (true).
+
+]
+
+{ #category : #test }
+DDServerTest >> testEmojis [
+	"Tist test checks if emojis' getter and setter works without giving any input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	self assert: (aDDServer emojis) equals: Set new.
+
+]
+
+{ #category : #test }
+DDServerTest >> testEmojis2 [
+	"Tist test checks if emojis' getter and setter works without giving any input"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	aDDServer emojis: 'server-emojis'.
+	
+	self assert: (aDDServer emojis) equals: 'server-emojis'.
+
+]
+
+{ #category : #test }
+DDServerTest >> testGetActiveAuthorLike [
+	"Tist test checks if getActiveAuthorLike works properly without initializing the array"
+	| aDDServer |
+	aDDServer := DDServer new.
+
+	self assert: (aDDServer activeAuthors) equals: Set new.
+
+]
+
+{ #category : #test }
+DDServerTest >> testGetActiveAuthorLike2 [
+	"Tist test checks if getActiveAuthorLike works properly initializing the array"
+	| aDDServer aDDAuthor|
+	aDDServer := DDServer new.
+	aDDAuthor := DDAuthor new.
+
+	aDDServer addActiveAuthor: aDDAuthor.
+
+	self assert: (aDDServer getActiveAuthorLike: aDDAuthor) equals: aDDAuthor.
+
+]
+
+{ #category : #test }
+DDServerTest >> testGetAuthorWithId [
+	"Tist test checks if getAuthorWithId  works properly"
+	| aDDServer aDDAuthorMock aSet|
+	aDDServer := DDServer new.
+	aDDAuthorMock := Mock new.
+	aSet := Set new.
+
+	aSet add: aDDAuthorMock.
+	aDDServer authors: aSet.
+	
+	(aDDAuthorMock stub id) willReturn: 'author-id'.
+	
+	self assert: (aDDServer getAuthorWithId: 'author-id') equals: aDDAuthorMock.
+
+]
+
+{ #category : #test }
+DDServerTest >> testGetEmojiWithId [
+	"Tist test checks if getEmojiWithId works properly"
+	| aDDServer aDDEmojiMock aSet|
+	aDDServer := DDServer new.
+	aDDEmojiMock := Mock new.
+	aSet := Set new.
+
+	aSet add: aDDEmojiMock.
+	aDDServer emojis: aSet.
+	
+	(aDDEmojiMock stub id) willReturn: 'emoji-id'.
+	
+	self assert: (aDDServer getEmojiWithId: 'emoji-id') equals: aDDEmojiMock.
+
+]
+
+{ #category : #test }
+DDServerTest >> testGetRoleWithId [
+	"Tist test checks if getRoleWithId first branch  works properly"
+	| aDDServer aDDRoleMock aSet|
+	aDDServer := DDServer new.
+	aDDRoleMock := Mock new.
+	aSet := Set new.
+
+	aSet add: aDDRoleMock.
+	aDDServer roles: aSet.
+	
+	(aDDRoleMock stub id) willReturn: 'role-id'.
+	
+	self assert: (aDDServer getRoleWithId: 'role-id') equals: aDDRoleMock.
+
+]
+
+{ #category : #test }
+DDServerTest >> testGetRoleWithId2 [
+	"Tist test checks if getRoleWithId second branch  works properly"
+	| aDDServer aDDRoleMock |
+	aDDServer := DDServer new.
+	aDDRoleMock := Mock new.
+	
+	(aDDRoleMock stub id) willReturn: 'role-id'.
+	
+	self assert: (aDDServer getRoleWithId: 'role-id') equals: aDDRoleMock.
+
+]
+
+{ #category : #test }
+DDServerTest >> testInactiveMembers [
+	"Tist test checks if inactiveMembers works properly without initializing the array"
+	| aDDServer aDDAuthorMock |
+	aDDServer := DDServer new.
+	aDDAuthorMock := Mock new.
+
+	aDDServer addAuthor: aDDAuthorMock.
+	aDDServer addActiveAuthor: aDDAuthorMock.
+	
+	self assert: (aDDServer inactiveMembers) equals: Set new.
+
+]
+
+{ #category : #test }
+DDServerTest >> testIsCustomEdited [
+	"Tist test checks if isCustomEdited works properly"
+	| aDDServer |
+	aDDServer := DDServer new.
+
+	self assert: (aDDServer isCustomEdited) equals: false.
+
+]
+
+{ #category : #test }
+DDServerTest >> testManualCustomize [
+	"Tist test checks if manualCustomize works properly"
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	aDDServer manualCustomize.
+	 
+	self assert: (aDDServer isCustomEdited) equals: true.
+
+]
