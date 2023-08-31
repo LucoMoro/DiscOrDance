@@ -9,12 +9,12 @@ Class {
 
 { #category : #test }
 DDStatisticsTest >> testActivityStats [
-	"This method checks if activityStats' getter and setter works without giving any input"
+	"This method checks if activityStats' getter works without giving any input"
 	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
-	self assert: (aDDStatistics activityStats) equals: Dictionary new.
+	self assert: aDDStatistics activityStats equals: Dictionary new.
 ]
 
 { #category : #test }
@@ -26,17 +26,17 @@ DDStatisticsTest >> testActivityStats2 [
 	
 	aDDStatistics activityStats: 'statistics-activityStats'.
 
-	self assert: (aDDStatistics activityStats) equals: 'statistics-activityStats'.
+	self assert: aDDStatistics activityStats equals: 'statistics-activityStats'.
 ]
 
 { #category : #test }
 DDStatisticsTest >> testAuthorStats [
-	"This method checks if authorStats' getter and setter works without giving any input"
+	"This method checks if authorStats' getter works without giving any input"
 	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
-	self assert: (aDDStatistics authorStats) equals: Dictionary new.
+	self assert: aDDStatistics authorStats equals: Dictionary new.
 ]
 
 { #category : #test }
@@ -48,17 +48,17 @@ DDStatisticsTest >> testAuthorStats2 [
 	
 	aDDStatistics authorStats: 'statistics-authorStats'.
 
-	self assert: (aDDStatistics authorStats) equals: 'statistics-authorStats'.
+	self assert: aDDStatistics authorStats equals: 'statistics-authorStats'.
 ]
 
 { #category : #test }
 DDStatisticsTest >> testConversationStats [
-	"This method checks if conversationStats' getter and setter works without giving any input"
+	"This method checks if conversationStats' getter works without giving any input"
 	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
-	self assert: (aDDStatistics conversationStats) equals: Dictionary new.
+	self assert: aDDStatistics conversationStats equals: Dictionary new.
 ]
 
 { #category : #test }
@@ -70,17 +70,17 @@ DDStatisticsTest >> testConversationStats2 [
 	
 	aDDStatistics conversationStats: 'statistics-conversationStats'.
 
-	self assert: (aDDStatistics conversationStats) equals: 'statistics-conversationStats'.
+	self assert: aDDStatistics conversationStats equals: 'statistics-conversationStats'.
 ]
 
 { #category : #test }
 DDStatisticsTest >> testMessageStats [
-	"This method checks if messageStats' getter and setter works without giving any input"
+	"This method checks if messageStats' getter works without giving any input"
 	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
-	self assert: (aDDStatistics messageStats) equals: Dictionary new.
+	self assert: aDDStatistics messageStats equals: Dictionary new.
 ]
 
 { #category : #test }
@@ -92,17 +92,17 @@ DDStatisticsTest >> testMessageStats2 [
 	
 	aDDStatistics messageStats: 'statistics-messageStats'.
 
-	self assert: (aDDStatistics messageStats) equals: 'statistics-messageStats'.
+	self assert: aDDStatistics messageStats equals: 'statistics-messageStats'.
 ]
 
 { #category : #test }
 DDStatisticsTest >> testServer [
-	"This method checks if server's getter and setter works without giving any input"
+	"This method checks if server's getter works without giving any input"
 	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
-	self assert: (aDDStatistics server) equals: nil.
+	self assert: aDDStatistics server equals: nil.
 ]
 
 { #category : #test }
@@ -114,17 +114,17 @@ DDStatisticsTest >> testServer2 [
 
 	aDDStatistics server: 'statistics-server'.
 	
-	self assert: (aDDStatistics server) equals: 'statistics-server'.
+	self assert: aDDStatistics server equals: 'statistics-server'.
 ]
 
 { #category : #test }
 DDStatisticsTest >> testServerStats [
-	"This method checks if serverStats' getter and setter works without giving any input"
+	"This method checks if serverStats' getter works without giving any input"
 	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
-	self assert: (aDDStatistics serverStats) equals: Dictionary new.
+	self assert: aDDStatistics serverStats equals: Dictionary new.
 ]
 
 { #category : #test }
@@ -136,5 +136,5 @@ DDStatisticsTest >> testServerStats2 [
 	
 	aDDStatistics serverStats: 'statistics-serverStats'.
 
-	self assert: (aDDStatistics serverStats) equals: 'statistics-serverStats'.
+	self assert: aDDStatistics serverStats equals: 'statistics-serverStats'.
 ]

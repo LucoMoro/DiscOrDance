@@ -16,17 +16,17 @@ DDMethodElementTest >> testName [
 	
 	aDDMethodElement referencedMethodName: 'methodElement-referencedMethodName'.
 
-	self assert: (aDDMethodElement name) equals: 'methodElement-referencedMethodName'.
+	self assert: aDDMethodElement name equals: 'methodElement-referencedMethodName'.
 ]
 
 { #category : #test }
 DDMethodElementTest >> testReferencedMethodName [
-	"This method checks if referencedMethodName's getter and setter works without giving any input"
+	"This method checks if referencedMethodName's getter works without giving any input"
 	
 	| aDDMethodElement |
 	aDDMethodElement  := DDMethodElement new.
 
-	self assert: (aDDMethodElement referencedMethodName) equals: nil.
+	self assert: aDDMethodElement referencedMethodName equals: nil.
 ]
 
 { #category : #test }
@@ -38,5 +38,5 @@ DDMethodElementTest >> testReferencedMethodName2 [
 	
 	aDDMethodElement referencedMethodName: 'methodElement-referencedMethodName'.
 
-	self assert: (aDDMethodElement referencedMethodName) equals: 'methodElement-referencedMethodName'.
+	self assert: aDDMethodElement referencedMethodName equals: 'methodElement-referencedMethodName'.
 ]

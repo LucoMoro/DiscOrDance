@@ -9,18 +9,18 @@ Class {
 
 { #category : #test }
 DDServerTest >> testActiveAuthors [
-	"Tist test checks if activeAuthors' geteter and setter works withput giving any input"
+	"Tist method checks if activeAuthors' geteter works withput giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer activeAuthors) equals: Set new.
+	self assert: aDDServer activeAuthors equals: Set new.
 
 ]
 
 { #category : #test }
 DDServerTest >> testActiveAuthors2 [
-	"Tist test checks if activeAuthors' geteter and setter works ginve an input"
+	"Tist method checks if activeAuthors' getter and setter works ginve an input"
 	
 	| aDDServer aDDAuthor |
 	aDDServer := DDServer new.
@@ -28,13 +28,13 @@ DDServerTest >> testActiveAuthors2 [
 	
 	aDDServer activeAuthors: aDDAuthor.
 	
-	self assert: (aDDServer activeAuthors) equals: aDDAuthor.
+	self assert: aDDServer activeAuthors equals: aDDAuthor.
 
 ]
 
 { #category : #test }
 DDServerTest >> testActiveMembers [
-	"Tist test checks if activeMembers works properly"
+	"Tist method checks if activeMembers works properly"
 	
 	| aDDServer aDDAuthor aSet|
 	aDDServer := DDServer new.
@@ -45,13 +45,13 @@ DDServerTest >> testActiveMembers [
 	aDDServer members: aSet.
 	aDDServer activeAuthors: aSet.
 	
-	self assert: (aDDServer activeMembers) equals: aSet.
+	self assert: aDDServer activeMembers equals: aSet.
 
 ]
 
 { #category : #test }
 DDServerTest >> testActiveMembers2 [
-	"Tist test checks if activeMembers works properly"
+	"Tist method checks if activeMembers works properly"
 	
 	| aDDServer aDDAuthor aSecondDDAuthor aSet aSecondSet|
 	aDDServer := DDServer new.
@@ -66,13 +66,13 @@ DDServerTest >> testActiveMembers2 [
 	aDDServer members: aSet.
 	aDDServer activeAuthors: aSecondSet.
 	
-	self assert: (aDDServer activeMembers) equals: aSecondSet.
+	self assert: aDDServer activeMembers equals: aSecondSet.
 
 ]
 
 { #category : #test }
 DDServerTest >> testActivitySortedAuthors [
-	"Tist test checks if activitySortedAuthors works properly"
+	"Tist method checks if activitySortedAuthors works properly"
 	
 	| aDDServer aDDAuthorMock aSet|
 	aDDServer := DDServer new.
@@ -82,13 +82,13 @@ DDServerTest >> testActivitySortedAuthors [
 	aSet add: aDDAuthorMock.
 	(aDDAuthorMock stub activitySorted: aSet) willReturn: OrderedCollection new.
 	
-	self assert: (aDDServer activitySortedAuthors) equals: OrderedCollection new.
+	self assert: aDDServer activitySortedAuthors equals: OrderedCollection new.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAddActiveAuthor [
-	"Tist test checks if addActiveAuthor works properly without initializing the array"
+	"Tist method checks if addActiveAuthor works properly without initializing the array"
 	
 	| aDDServer aDDAuthor aSet |
 	aDDServer := DDServer new.
@@ -99,13 +99,13 @@ DDServerTest >> testAddActiveAuthor [
 	aDDServer addActiveAuthor: aDDAuthor.
 	aSet add: aDDAuthor.
 	
-	self assert: (aDDServer activeAuthors) equals: aSet.
+	self assert: aDDServer activeAuthors equals: aSet.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAddActiveAuthor2 [
-	"Tist test checks if addActiveAuthor works properly with an initialized array"
+	"Tist method checks if addActiveAuthor works properly with an initialized array"
 	
 	| aDDServer aDDAuthor aSecondDDAuthor aSet aSetOfDDAuthors|
 	aDDServer := DDServer new.
@@ -120,24 +120,24 @@ DDServerTest >> testAddActiveAuthor2 [
 	aSet add: aDDAuthor.
 	aSet add: aSecondDDAuthor.
 	
-	self assert: (aDDServer activeAuthors) equals: aSet.
+	self assert: aDDServer activeAuthors equals: aSet.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAddAuthor [
-	"Tist test checks if addAuthor works properly without initializing the array"
+	"Tist method checks if addAuthor works properly without initializing the array"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer authors) equals: Set new.
+	self assert: aDDServer authors equals: Set new.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAddAuthor2 [
-	"Tist test checks if addAuthor works properly without initializing the array"
+	"Tist method checks if addAuthor works properly without initializing the array"
 	
 	| aDDServer aDDAuthor aSet |
 	aDDServer := DDServer new.
@@ -147,13 +147,13 @@ DDServerTest >> testAddAuthor2 [
 	aDDServer addAuthor: aDDAuthor.
 	aSet add: aDDAuthor.
 		
-	self assert: (aDDServer authors) equals: aSet.
+	self assert: aDDServer authors equals: aSet.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAddEmoji [
-	"Tist test checks if addAuthor works properly with an initialized array"
+	"Tist method checks if adEmoji works properly with an initialized array"
 	
 	| aDDServer aDDEmoji aSet |
 	aDDServer := DDServer new.
@@ -163,13 +163,13 @@ DDServerTest >> testAddEmoji [
 	aDDServer addEmoji: aDDEmoji.
 	aSet add: aDDEmoji.
 	
-	self assert: (aDDServer emojis) equals: aSet.
+	self assert: aDDServer emojis equals: aSet.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAlphaSortedAuthors [
-	"Tist test checks if alphaSortedAuthors works properly with an initialized array"
+	"Tist method checks if alphaSortedAuthors works properly with an initialized array"
 	
 	| aDDServer aDDAuthorMock aSet |
 	aDDServer := DDServer new.
@@ -181,37 +181,37 @@ DDServerTest >> testAlphaSortedAuthors [
 	(aDDAuthorMock stub alphaSorted: aSet) willReturn: aSet.
 	aDDServer alphaSortedAuthors.
 	
-	self assert: (aDDServer authors) equals: aSet.
+	self assert: aDDServer authors equals: aSet.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAuthors [
-	"Tist test checks if authors' getter and setter works without giving any input"
+	"Tist method checks if authors' getter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer authors) equals: Set new.
+	self assert: aDDServer authors equals: Set new.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAuthors2 [
-	"Tist test checks if authors' getter and setter works given an input"
+	"Tist method checks if authors' getter and setter works given an input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer authors: 'server-author'.
 	
-	self assert: (aDDServer authors) equals: 'server-author'.
+	self assert: aDDServer authors equals: 'server-author'.
 
 ]
 
 { #category : #test }
 DDServerTest >> testAuthorsNamed [
-	"Tist test checks if authorsNamed function works properly without initializing the array"
+	"Tist method checks if authorsNamed function works properly without initializing the array"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
@@ -222,7 +222,7 @@ DDServerTest >> testAuthorsNamed [
 
 { #category : #test }
 DDServerTest >> testAuthorsNamed2 [
-	"Tist test checks if authorsNamed function works properly if the array is initialized"
+	"Tist method checks if authorsNamed function works properly if the array is initialized"
 	
 	| aDDServer aDDAuthorMock aSet|
 	aDDServer := DDServer new.
@@ -240,79 +240,79 @@ DDServerTest >> testAuthorsNamed2 [
 
 { #category : #test }
 DDServerTest >> testCategories [
-	"Tist test checks if categories' getter and setter works without giving any input"
+	"Tist method checks if categories' getter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer categories) equals: OrderedCollection new.
+	self assert: aDDServer categories equals: OrderedCollection new.
 
 ]
 
 { #category : #test }
 DDServerTest >> testCategories2 [
-	"Tist test checks if categories' getter and setter works without giving any input"
+	"Tist method checks if categories' getter and setter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer categories: 'server-category'.
 	
-	self assert: (aDDServer categories) equals: 'server-category'.
+	self assert: aDDServer categories equals: 'server-category'.
 
 ]
 
 { #category : #test }
 DDServerTest >> testConversations [
-	"Tist test checks if conversations' getter and setter works without giving any input"
+	"Tist method checks if conversations' getter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer conversations) equals: nil.
+	self assert: aDDServer conversations equals: nil.
 
 ]
 
 { #category : #test }
 DDServerTest >> testConversations2 [
-	"Tist test checks if conversations' getter and setter works given an input"
+	"Tist method checks if conversations' getter and setter works given an input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer conversations: 'server-conversations'.
 	
-	self assert: (aDDServer conversations) equals: 'server-conversations'.
+	self assert: aDDServer conversations equals: 'server-conversations'.
 
 ]
 
 { #category : #test }
 DDServerTest >> testEmojis [
-	"Tist test checks if emojis' getter and setter works without giving any input"
+	"Tist method checks if emojis' getter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer emojis) equals: Set new.
+	self assert: aDDServer emojis equals: Set new.
 
 ]
 
 { #category : #test }
 DDServerTest >> testEmojis2 [
-	"Tist test checks if emojis' getter and setter works without giving any input"
+	"Tist method checks if emojis' getter and setter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer emojis: 'server-emojis'.
 	
-	self assert: (aDDServer emojis) equals: 'server-emojis'.
+	self assert: aDDServer emojis equals: 'server-emojis'.
 
 ]
 
 { #category : #test }
 DDServerTest >> testFlatChannels [
-	"This test checks if flatChannels works properly returning an empty array for Mock"
+	"This method checks if flatChannels works properly returning an empty array for Mock"
 	
 	| aDDServer aDDCategoryMock aSet |
 	aDDServer := DDServer new.
@@ -323,12 +323,12 @@ DDServerTest >> testFlatChannels [
 	aDDServer categories: aSet.
 	(aDDCategoryMock stub channels) willReturn: Set new.
 	
-	self assert: (aDDServer flatChannels) equals: OrderedCollection new.
+	self assert: aDDServer flatChannels equals: OrderedCollection new.
 ]
 
 { #category : #test }
 DDServerTest >> testFlatChannels2 [
-	"This test checks if flatChannels works properly returning an initialized array for Mock"
+	"This method checks if flatChannels works properly returning an initialized array for Mock"
 	
 	| aDDServer aDDCategoryMock aSet aChannelSet anOrderedCollectionResult aDDChannel|
 	aDDServer := DDServer new.
@@ -344,22 +344,22 @@ DDServerTest >> testFlatChannels2 [
 	aDDServer categories: aSet.
 	(aDDCategoryMock stub channels) willReturn: aChannelSet.
 	
-	self assert: (aDDServer flatChannels) equals: anOrderedCollectionResult.
+	self assert: aDDServer flatChannels equals: anOrderedCollectionResult.
 ]
 
 { #category : #test }
 DDServerTest >> testGetActiveAuthorLike [
-	"Tist test checks if getActiveAuthorLike works properly without initializing the array"
+	"Tist method checks if getActiveAuthorLike works properly without initializing the array"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 
-	self assert: (aDDServer activeAuthors) equals: Set new.
+	self assert: aDDServer activeAuthors equals: Set new.
 ]
 
 { #category : #test }
 DDServerTest >> testGetActiveAuthorLike2 [
-	"Tist test checks if getActiveAuthorLike works properly initializing the array"
+	"Tist method checks if getActiveAuthorLike works properly initializing the array"
 	
 	| aDDServer aDDAuthor|
 	aDDServer := DDServer new.
@@ -372,7 +372,7 @@ DDServerTest >> testGetActiveAuthorLike2 [
 
 { #category : #test }
 DDServerTest >> testGetAuthorWithId [
-	"Tist test checks if getAuthorWithId  works properly"
+	"Tist method checks if getAuthorWithId works properly"
 	
 	| aDDServer aDDAuthorMock aSet|
 	aDDServer := DDServer new.
@@ -389,7 +389,7 @@ DDServerTest >> testGetAuthorWithId [
 
 { #category : #test }
 DDServerTest >> testGetEmojiWithId [
-	"Tist test checks if getEmojiWithId works properly"
+	"Tist method checks if getEmojiWithId works properly"
 	
 	| aDDServer aDDEmojiMock aSet|
 	aDDServer := DDServer new.
@@ -406,7 +406,7 @@ DDServerTest >> testGetEmojiWithId [
 
 { #category : #test }
 DDServerTest >> testGetRoleWithId [
-	"Tist test checks if getRoleWithId first branch  works properly"
+	"Tist method checks if getRoleWithId first branch works properly"
 	
 	| aDDServer aDDRoleMock aSet|
 	aDDServer := DDServer new.
@@ -423,7 +423,7 @@ DDServerTest >> testGetRoleWithId [
 
 { #category : #test }
 DDServerTest >> testGetRoleWithId2 [
-	"Tist test checks if getRoleWithId second branch  works properly"
+	"Tist method checks if getRoleWithId second branch works properly"
 	
 	| aDDServer aDDRoleMock |
 	aDDServer := DDServer new.
@@ -437,7 +437,7 @@ DDServerTest >> testGetRoleWithId2 [
 
 { #category : #test }
 DDServerTest >> testInactiveMembers [
-	"Tist test checks if inactiveMembers works properly without initializing the array"
+	"Tist method checks if inactiveMembers works properly without initializing the array"
 	
 	| aDDServer aDDAuthorMock |
 	aDDServer := DDServer new.
@@ -446,34 +446,34 @@ DDServerTest >> testInactiveMembers [
 	aDDServer addAuthor: aDDAuthorMock.
 	aDDServer addActiveAuthor: aDDAuthorMock.
 	
-	self assert: (aDDServer inactiveMembers) equals: Set new.
+	self assert: aDDServer inactiveMembers equals: Set new.
 ]
 
 { #category : #test }
 DDServerTest >> testIsCustomEdited [
-	"Tist test checks if isCustomEdited works properly"
+	"Tist method checks if isCustomEdited works properly"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 
-	self assert: (aDDServer isCustomEdited) equals: false.
+	self assert: aDDServer isCustomEdited equals: false.
 ]
 
 { #category : #test }
 DDServerTest >> testManualCustomize [
-	"Tist test checks if manualCustomize works properly"
+	"Tist method checks if manualCustomize works properly"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer manualCustomize.
 	 
-	self assert: (aDDServer isCustomEdited) equals: true.
+	self assert: aDDServer isCustomEdited equals: true.
 ]
 
 { #category : #test }
 DDServerTest >> testMaxActiveChannelsForAuthors [
-	"This test checks if maxActiveChannelsForAuthors works properly given an empty array"
+	"This method checks if maxActiveChannelsForAuthors works properly given an empty array"
 	
 	| aDDServer aDDAuthorMock aSet |
 	aDDServer := DDServer new.
@@ -484,12 +484,12 @@ DDServerTest >> testMaxActiveChannelsForAuthors [
 	aDDServer authors: aSet.
 	(aDDAuthorMock stub activeChannels) willReturn: Set new.
 	
-	self assert: (aDDServer maxActiveChannelsForAuthors) equals: 0.
+	self assert: aDDServer maxActiveChannelsForAuthors equals: 0.
 ]
 
 { #category : #test }
 DDServerTest >> testMaxActiveChannelsForAuthors2 [
-	"This test checks if maxActiveChannelsForAuthors works properly given an initialized array of 	messages"
+	"This method checks if maxActiveChannelsForAuthors works properly given an initialized array of 	messages"
 	
 	| aDDServer aDDAuthorMock aSet aChannelSet |
 	aDDServer := DDServer new.
@@ -502,12 +502,12 @@ DDServerTest >> testMaxActiveChannelsForAuthors2 [
 	aDDServer authors: aSet.
 	(aDDAuthorMock stub activeChannels) willReturn: aChannelSet.
 	
-	self assert: (aDDServer maxActiveChannelsForAuthors) equals: 1.
+	self assert: aDDServer maxActiveChannelsForAuthors equals: 1.
 ]
 
 { #category : #test }
 DDServerTest >> testMaxMessagesForAuthors [
-	"This test checks if maxMessagesForAuthors works properly given an empty array"
+	"This method checks if maxMessagesForAuthors works properly given an empty array"
 	
 	| aDDServer aDDAuthorMock aSet |
 	aDDServer := DDServer new.
@@ -518,12 +518,12 @@ DDServerTest >> testMaxMessagesForAuthors [
 	aDDServer authors: aSet.
 	(aDDAuthorMock stub sentMessages) willReturn: Set new.
 	
-	self assert: (aDDServer maxMessagesForAuthors) equals: 0.
+	self assert: aDDServer maxMessagesForAuthors equals: 0.
 ]
 
 { #category : #test }
 DDServerTest >> testMaxMessagesForAuthors2 [
-	"This test checks if maxMessagesForAuthors works properly given an initialized array of messages"
+	"This method checks if maxMessagesForAuthors works properly given an initialized array of messages"
 	
 	| aDDServer aDDAuthorMock aSet aMessageSet |
 	aDDServer := DDServer new.
@@ -536,12 +536,12 @@ DDServerTest >> testMaxMessagesForAuthors2 [
 	aDDServer authors: aSet.
 	(aDDAuthorMock stub sentMessages) willReturn: aMessageSet.
 	
-	self assert: (aDDServer maxMessagesForAuthors) equals: 1.
+	self assert: aDDServer maxMessagesForAuthors equals: 1.
 ]
 
 { #category : #test }
 DDServerTest >> testMaxMessagesInChannels [ 
-	"This test checks if maxMessagesInChannels works properly"
+	"This method checks if maxMessagesInChannels works properly"
 	
 	| aDDServer aDDCategoryMock aSet |
 	aDDServer := DDServer new.
@@ -552,64 +552,64 @@ DDServerTest >> testMaxMessagesInChannels [
 	aDDServer categories: aSet.
 	(aDDCategoryMock stub maxMessagesInChannels) willReturn: 3.
 	
-	self assert: (aDDServer maxMessagesInChannels) equals: 3.
+	self assert: aDDServer maxMessagesInChannels equals: 3.
 ]
 
 { #category : #test }
 DDServerTest >> testMembers [
-	"Tist test checks if members' getter and setter works without giving any input"
+	"Tist method checks if members' getter and setter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer members) equals: Set new.
+	self assert: aDDServer members equals: Set new.
 ]
 
 { #category : #test }
 DDServerTest >> testMembers2 [
-	"Tist test checks if members' getter and setter works given an input"
+	"Tist method checks if members' getter and setter works given an input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer members: 'server-member'.
 	
-	self assert: (aDDServer members) equals: 'server-member'.
+	self assert: aDDServer members equals: 'server-member'.
 ]
 
 { #category : #test }
 DDServerTest >> testMessagesWithCodeBlocks [
-	"Tist test checks if messagesWithCodeBlocks works without inizialiting the messages array"
+	"Tist method checks if messagesWithCodeBlocks works without inizialiting the messages array"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer messagesWithCodeBlocks) equals: OrderedCollection new.
+	self assert: aDDServer messagesWithCodeBlocks equals: OrderedCollection new.
 ]
 
 { #category : #test }
 DDServerTest >> testMessagesWithEmbeds [
-	"Tist test checks if messagesWithEmbeds works without inizialiting the messages array"
+	"Tist method checks if messagesWithEmbeds works without inizialiting the messages array"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer messagesWithEmbeds) equals: OrderedCollection new.
+	self assert: aDDServer messagesWithEmbeds equals: OrderedCollection new.
 ]
 
 { #category : #test }
 DDServerTest >> testNumberOfCategories [
-	"Tist test checks if numberOfCategories works without inizialiting the categories"
+	"Tist method checks if numberOfCategories works without inizialiting the categories"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer numberOfCategories) equals: 0.
+	self assert: aDDServer numberOfCategories equals: 0.
 ]
 
 { #category : #test }
 DDServerTest >> testNumberOfCategories2 [
-	"Tist test checks if numberOfCategories works inizialiting the categories"
+	"Tist method checks if numberOfCategories works inizialiting the categories"
 	
 	| aDDServer aSet|
 	aDDServer := DDServer new.
@@ -618,12 +618,12 @@ DDServerTest >> testNumberOfCategories2 [
 	aSet add: DDCategory new.
 	aDDServer categories: aSet.
 	
-	self assert: (aDDServer numberOfCategories) equals: 1.
+	self assert: aDDServer numberOfCategories equals: 1.
 ]
 
 { #category : #test }
 DDServerTest >> testNumberOfChannels [
-	"This test checks if numberOfChannels works properly returning an empty array for Mock"
+	"This method checks if numberOfChannels works properly returning an empty array for Mock"
 	
 	| aDDServer aDDCategoryMock aSet |
 	aDDServer := DDServer new.
@@ -634,12 +634,12 @@ DDServerTest >> testNumberOfChannels [
 	aDDServer categories: aSet.
 	(aDDCategoryMock stub channels) willReturn: Set new.
 	
-	self assert: (aDDServer numberOfChannels) equals: 0.
+	self assert: aDDServer numberOfChannels equals: 0.
 ]
 
 { #category : #test }
 DDServerTest >> testNumberOfChannels2 [
-	"This test checks if numberOfChannels works properly returning an initialized array for Mock"
+	"This method checks if numberOfChannels works properly returning an initialized array for Mock"
 	
 	| aDDServer aDDCategoryMock aSet aChannelSet anOrderedCollectionResult aDDChannel|
 	aDDServer := DDServer new.
@@ -655,22 +655,22 @@ DDServerTest >> testNumberOfChannels2 [
 	aDDServer categories: aSet.
 	(aDDCategoryMock stub channels) willReturn: aChannelSet.
 	
-	self assert: (aDDServer numberOfChannels) equals: 1
+	self assert: aDDServer numberOfChannels equals: 1
 ]
 
 { #category : #test }
 DDServerTest >> testPreviouslyActiveAuthors [
-	"This test checks if previouslyActiveAuthors works properly without initializing the activeAuthors 	array"
+	"This method checks if previouslyActiveAuthors works properly without initializing the activeAuthors 	array"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer previouslyActiveAuthors) equals: Set new.
+	self assert: aDDServer previouslyActiveAuthors equals: Set new.
 ]
 
 { #category : #test }
 DDServerTest >> testPreviouslyActiveAuthors2 [
-	"This test checks if previouslyActiveAuthors works properly initializing the activeAuthors array"
+	"This method checks if previouslyActiveAuthors works properly initializing the activeAuthors array"
 	
 	| aDDServer aSet aDDAuthor |
 	aDDServer := DDServer new.
@@ -680,78 +680,78 @@ DDServerTest >> testPreviouslyActiveAuthors2 [
 	aSet add: aDDAuthor.
 	aDDServer addActiveAuthor: aDDAuthor.
 	
-	self assert: (aDDServer previouslyActiveAuthors) equals: aSet.
+	self assert: aDDServer previouslyActiveAuthors equals: aSet.
 ]
 
 { #category : #test }
 DDServerTest >> testRoles [
-	"Tist test checks if roles' getter and setter works without giving any input"
+	"Tist method checks if roles' getter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer roles) equals: Set new.
+	self assert: aDDServer roles equals: Set new.
 ]
 
 { #category : #test }
 DDServerTest >> testRoles2 [
-	"Tist test checks if roles' getter and setter works given an input"
+	"Tist method checks if roles' getter and setter works given an input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer roles: 'server-role'.
 	
-	self assert: (aDDServer roles) equals: 'server-role'.
+	self assert: aDDServer roles equals: 'server-role'.
 ]
 
 { #category : #test }
 DDServerTest >> testSnapshotDate [
-	"Tist test checks if shanpshotDate's getter and setter works without giving any input"
+	"Tist method checks if shanpshotDate's getter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer snapshotDate) equals: nil.
+	self assert: aDDServer snapshotDate equals: nil.
 ]
 
 { #category : #test }
 DDServerTest >> testSnapshotDate2 [
-	"Tist test checks if shanpshotDate's getter and setter works given an input"
+	"Tist method checks if shanpshotDate's getter and setter works given an input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer snapshotDate: 'server-shanpshotDate'.
 	
-	self assert: (aDDServer snapshotDate) equals: 'server-shanpshotDate'.
+	self assert: aDDServer snapshotDate equals: 'server-shanpshotDate'.
 ]
 
 { #category : #test }
 DDServerTest >> testStatistics [
-	"Tist test checks if statistics' getter and setter works without giving any input"
+	"Tist method checks if statistics' getter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer statistics) equals: nil.
+	self assert: aDDServer statistics equals: nil.
 ]
 
 { #category : #test }
 DDServerTest >> testStatistics2 [
-	"Tist test checks if statistics' getter and setter works given an input"
+	"Tist method checks if statistics' getter works given an input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
 	aDDServer statistics: 'server-statistic'.
 	
-	self assert: (aDDServer statistics) equals: 'server-statistic'.
+	self assert: aDDServer statistics equals: 'server-statistic'.
 ]
 
 { #category : #test }
 DDServerTest >> testTextChannels [
-	"This test checks if textChannels works properly returning an empty array for Mock"
+	"This method checks if textChannels works properly returning an empty array for Mock"
 	
 	| aDDServer aDDCategoryMock aSet |
 	aDDServer := DDServer new.
@@ -762,12 +762,12 @@ DDServerTest >> testTextChannels [
 	aDDServer categories: aSet.
 	(aDDCategoryMock stub channels) willReturn: Set new.
 	
-	self assert: (aDDServer textChannels) equals: OrderedCollection new.
+	self assert: aDDServer textChannels equals: OrderedCollection new.
 ]
 
 { #category : #test }
 DDServerTest >> testTextChannels2 [
-	"This test checks if flatChannels works properly returning an initialized array for Mock"
+	"This method checks if flatChannels works properly returning an initialized array for Mock"
 	
 	| aDDServer aDDCategoryMock aSet aChannelSet anOrderedCollectionResult aDDChannelMock|
 	aDDServer := DDServer new.
@@ -784,23 +784,23 @@ DDServerTest >> testTextChannels2 [
 	(aDDCategoryMock stub channels) willReturn: aChannelSet.
 	(aDDChannelMock stub isTextChannel) willReturn: true.
 	
-	self assert: (aDDServer textChannels) equals: anOrderedCollectionResult.
+	self assert: aDDServer textChannels equals: anOrderedCollectionResult.
 ]
 
 { #category : #test }
 DDServerTest >> testTopLevelChannels [
-	"Tist test checks if topLevelChannels' getter and setter works without giving any input"
+	"Tist method checks if topLevelChannels' getter works without giving any input"
 	
 	| aDDServer |
 	aDDServer := DDServer new.
 	
-	self assert: (aDDServer topLevelChannels) equals: OrderedCollection new.
+	self assert: aDDServer topLevelChannels equals: OrderedCollection new.
 
 ]
 
 { #category : #test }
 DDServerTest >> testTopLevelChannels2 [
-	"Tist test checks if topLevelChannels' getter and setter works given an input"
+	"Tist method checks if topLevelChannels' getter works given an input"
 	
 	| aDDServer aSet aDDChannel|
 	aDDServer := DDServer new.
@@ -810,5 +810,5 @@ DDServerTest >> testTopLevelChannels2 [
 	aSet add: aDDChannel.	
 	aDDServer topLevelChannels: aSet.
 	
-	self assert: (aDDServer topLevelChannels) equals: aSet.
+	self assert: aDDServer topLevelChannels equals: aSet.
 ]

@@ -9,7 +9,7 @@ Class {
 
 { #category : #test }
 DDRoleTest >> testEquals [
-	"This method checks if id's getter and setter works given an input"
+	"This method checks if equals's getter works given an input"
 	
 	| aDDRole aSecondDDRole |
 	aDDRole  := DDRole new.
@@ -21,12 +21,12 @@ DDRoleTest >> testEquals [
 
 { #category : #test }
 DDRoleTest >> testId [
-	"This method checks if id's getter and setter works without giving any input"
+	"This method checks if id's getter works without giving any input"
 	
 	| aDDRole |
 	aDDRole  := DDRole new.
 
-	self assert: (aDDRole id) equals: nil.
+	self assert: aDDRole id equals: nil.
 ]
 
 { #category : #test }
@@ -38,5 +38,5 @@ DDRoleTest >> testId2 [
 	
 	aDDRole id: 'role-id'.
 
-	self assert: (aDDRole id) equals: 'role-id'.
+	self assert: aDDRole id equals: 'role-id'.
 ]
