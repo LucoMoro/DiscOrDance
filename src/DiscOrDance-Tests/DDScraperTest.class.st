@@ -3,7 +3,9 @@ Class {
 	#superclass : #DDTestCase,
 	#instVars : [
 		'scraper',
-		'workingDir'
+		'workingDir',
+		'isTokenPresent',
+		'tokenValue'
 	],
 	#category : #'DiscOrDance-Tests-Scraper'
 }
@@ -15,6 +17,8 @@ DDScraperTest >> setUp [
 	super setUp.
 	scraper := DDScraper new.
 	workingDir := FileSystem disk workingDirectory.
+	isTokenPresent := false.
+	tokenValue := nil.
 	modelsDir := workingDir / 'models'.
 	
 	"Backup files in models folder (if present)"
@@ -32,6 +36,13 @@ DDScraperTest >> setUp [
 		ifFalse: [
 			"Do nothing"
 		].
+	
+	"Backup Discord token"
+	Smalltalk os environment at: 'DISCORD_API_TOKEN' ifPresent: [ :value | 
+		isTokenPresent := true. 
+		tokenValue := value.
+		Smalltalk os environment removeKey: 'DISCORD_API_TOKEN'.
+	].
 
 ]
 
@@ -68,7 +79,29 @@ DDScraperTest >> tearDown [
 		ifFalse: [
 		].
 	
+	"Restore Discord token"
+	Smalltalk os environment at: 'DISCORD_API_TOKEN' ifPresent: [ :value | 
+		Smalltalk os environment removeKey: 'DISCORD_API_TOKEN'.
+	].
+	isTokenPresent 
+		ifTrue: [ 
+			Smalltalk os environment at: 'DISCORD_API_TOKEN' put: tokenValue.
+		].
+	
 	super tearDown. 
+]
+
+{ #category : #test }
+DDScraperTest >> testBot [
+	"Test with no Discord API token"
+	self should: [ scraper bot ] raise: Error.
+]
+
+{ #category : #tests }
+DDScraperTest >> testBot2 [
+	"Test with Discord API token"
+	Smalltalk os environment at: 'DISCORD_API_TOKEN' put: 'test-token'.
+	self assert: scraper bot token equals: 'test-token'.
 ]
 
 { #category : #tests }
