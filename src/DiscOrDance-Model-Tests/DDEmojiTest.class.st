@@ -15,7 +15,7 @@ DDEmojiTest >> testEquals [
 	aDDEmoji := DDEmoji new.
 	anObject := Object new.
 	
-	self assert: (	aDDEmoji = anObject) equals: false.
+	self assert: (aDDEmoji = anObject) equals: false.
 ]
 
 { #category : #test }
@@ -26,27 +26,27 @@ DDEmojiTest >> testEquals2 [
 	aDDEmoji := DDEmoji new.
 	aSecondDDEmoji := Object new.
 	
-	self assert: (	aDDEmoji = aSecondDDEmoji) equals: false.
+	self assert: (aDDEmoji = aSecondDDEmoji) equals: false.
 ]
 
 { #category : #test }
 DDEmojiTest >> testId [
-	"This method checks if url's getter and setter works without giving any input"
+	"This method checks if id's getter works without giving any input"
 	
 	| aDDEmoji |
 	aDDEmoji  := DDEmoji new.
 
-	self assert: (aDDEmoji id) equals: nil.
+	self assert: aDDEmoji id equals: nil.
 ]
 
 { #category : #test }
 DDEmojiTest >> testId2 [
-	"This method checks if url's getter and setter works given an input"
+	"This method checks if id's getter and setter works given an input"
 	
 	| aDDEmoji |
 	aDDEmoji  := DDEmoji new.
 	
 	aDDEmoji id: 'emoji-id'.
 
-	self assert: (aDDEmoji id) equals: 'emoji-id'.
+	self assert: aDDEmoji id equals: 'emoji-id'.
 ]

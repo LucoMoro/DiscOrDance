@@ -9,12 +9,12 @@ Class {
 
 { #category : #test }
 DDDomainTest >> testLanguage [
-	"This method checks if language's getter and setter works without giving any input"
+	"This method checks if language's getter works without giving any input"
 	
 	| aDDDomain |
 	aDDDomain := DDDomain new.
 
-	self assert: (aDDDomain language) equals: 'english'.
+	self assert: aDDDomain language equals: 'english'.
 ]
 
 { #category : #test }
@@ -26,17 +26,17 @@ DDDomainTest >> testLanguage2 [
 	
 	aDDDomain language: 'italian'.
 
-	self assert: (aDDDomain language) equals: 'italian'.
+	self assert: aDDDomain language equals: 'italian'.
 ]
 
 { #category : #test }
 DDDomainTest >> testPunctuation [
-	"This method checks if punctuation's getter and setter works without giving any input"
+	"This method checks if punctuation's getter works without giving any input"
 	
 	| aDDDomain |
 	aDDDomain := DDDomain new.
 
-	self assert: (aDDDomain punctuation) equals: DDDomain defaultPunctuation.
+	self assert: aDDDomain punctuation equals: DDDomain defaultPunctuation.
 ]
 
 { #category : #test }
@@ -48,17 +48,17 @@ DDDomainTest >> testPunctuation2 [
 	
 	aDDDomain punctuation: '?'.
 
-	self assert: (aDDDomain punctuation) equals: '?'.
+	self assert: aDDDomain punctuation equals: '?'.
 ]
 
 { #category : #test }
 DDDomainTest >> testStopwords [
-	"This method checks if stopwords's getter and setter works  without giving any input"
+	"This method checks if stopwords's getter works without giving any input"
 	
 	| aDDDomain |
 	aDDDomain := DDDomain new.
 
-	self assert: (aDDDomain stopwords) equals: DDDomain defaultStopwords.
+	self assert: aDDDomain stopwords equals: DDDomain defaultStopwords.
 ]
 
 { #category : #test }
@@ -70,5 +70,5 @@ DDDomainTest >> testStopwords2 [
 	
 	aDDDomain stopwords: 'domain-stopwords'.
 
-	self assert: (aDDDomain stopwords) equals: 'domain-stopwords'.
+	self assert: aDDDomain stopwords equals: 'domain-stopwords'.
 ]

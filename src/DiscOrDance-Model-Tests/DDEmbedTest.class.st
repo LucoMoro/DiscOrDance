@@ -9,12 +9,12 @@ Class {
 
 { #category : #test }
 DDEmbedTest >> testDescription [
-	"This method checks if description's getter and setter works without giving any input"
+	"This method checks if description's getter works without giving any input"
 	
 	| aDDEmbed |
 	aDDEmbed := DDEmbed new.
 
-	self assert: (aDDEmbed description) equals: nil.
+	self assert: aDDEmbed description equals: nil.
 ]
 
 { #category : #test }
@@ -26,17 +26,17 @@ DDEmbedTest >> testDescription2 [
 	
 	aDDEmbed description: 'embed-description'.
 
-	self assert: (aDDEmbed description) equals: 'embed-description'.
+	self assert: aDDEmbed description equals: 'embed-description'.
 ]
 
 { #category : #test }
 DDEmbedTest >> testFields [
-	"This method checks if fields' getter and setter works without giving any input"
+	"This method checks if fields' getter works without giving any input"
 	
 	| aDDEmbed |
 	aDDEmbed := DDEmbed new.
 
-	self assert: (aDDEmbed fields) equals: nil.
+	self assert: aDDEmbed fields equals: nil.
 ]
 
 { #category : #test }
@@ -48,17 +48,17 @@ DDEmbedTest >> testFields2 [
 	
 	aDDEmbed fields: 'embed-fields'.
 
-	self assert: (aDDEmbed fields) equals: 'embed-fields'.
+	self assert: aDDEmbed fields equals: 'embed-fields'.
 ]
 
 { #category : #test }
 DDEmbedTest >> testTimestamp [
-	"This method checks if timestamp's getter and setter works without giving any input"
+	"This method checks if timestamp's getter works without giving any input"
 	
 	| aDDEmbed |
 	aDDEmbed := DDEmbed new.
 
-	self assert: (aDDEmbed timestamp) equals: nil.
+	self assert: aDDEmbed timestamp equals: nil.
 ]
 
 { #category : #test }
@@ -70,17 +70,17 @@ DDEmbedTest >> testTimestamp2 [
 	
 	aDDEmbed timestamp: 'embed-timestamp'.
 
-	self assert: (aDDEmbed timestamp) equals: 'embed-timestamp'.
+	self assert: aDDEmbed timestamp equals: 'embed-timestamp'.
 ]
 
 { #category : #test }
 DDEmbedTest >> testType [
-	"This method checks if type's getter and setter works without giving any input"
+	"This method checks if type's getter works without giving any input"
 	
 	| aDDEmbed |
 	aDDEmbed := DDEmbed new.
 
-	self assert: (aDDEmbed type) equals: nil.
+	self assert: aDDEmbed type equals: nil.
 ]
 
 { #category : #test }
@@ -92,17 +92,17 @@ DDEmbedTest >> testType2 [
 	
 	aDDEmbed type: 'embed-type'.
 
-	self assert: (aDDEmbed type) equals: 'embed-type'.
+	self assert: aDDEmbed type equals: 'embed-type'.
 ]
 
 { #category : #test }
 DDEmbedTest >> testUrl [
-	"This method checks if url's getter and setter works without giving any input"
+	"This method checks if url's getter works without giving any input"
 	
 	| aDDEmbed |
 	aDDEmbed := DDEmbed new.
 
-	self assert: (aDDEmbed url) equals: nil.
+	self assert: aDDEmbed url equals: nil.
 ]
 
 { #category : #test }
@@ -114,5 +114,5 @@ DDEmbedTest >> testUrl2 [
 	
 	aDDEmbed url: 'embed-url'.
 
-	self assert: (aDDEmbed url) equals: 'embed-url'.
+	self assert: aDDEmbed url equals: 'embed-url'.
 ]

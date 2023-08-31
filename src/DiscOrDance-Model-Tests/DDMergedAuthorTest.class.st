@@ -9,39 +9,39 @@ Class {
 
 { #category : #test }
 DDMergedAuthorTest >> testAliases [
-	"This method checks if aliases's getter and setter of aDDMergedAuthor works without giving any input"
+	"This method checks if aliases's getter works without giving any input"
 	
 	| aDDMergedAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
 	
-	self assert: (aDDMergedAuthor aliases) equals: Set new.
+	self assert: aDDMergedAuthor aliases equals: Set new.
 ]
 
 { #category : #test }
 DDMergedAuthorTest >> testAliases2 [
-	"This method checks if aliases's getter and setter of aDDMergedAuthor works given an input"
+	"This method checks if aliases's getter and setter works given an input"
 	
 	| aDDMergedAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
 	
 	aDDMergedAuthor aliases: 'mergedAuthor-aliases'.
 	
-	self assert: (aDDMergedAuthor aliases) equals: 'mergedAuthor-aliases'.
+	self assert: aDDMergedAuthor aliases equals: 'mergedAuthor-aliases'.
 ]
 
 { #category : #test }
 DDMergedAuthorTest >> testAuthors [
-	"This method checks if authors' getter and setter of aDDMergedAuthor works without giving any input"
+	"This method checks if authors' getter works without giving any input"
 	
 	| aDDMergedAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
 	
-	self assert: (aDDMergedAuthor authors) equals: Set new.
+	self assert: aDDMergedAuthor authors equals: Set new.
 ]
 
 { #category : #test }
 DDMergedAuthorTest >> testAuthors2 [
-	"This method checks if authors' getter and setter of aDDMergedAuthor works given an input"
+	"This method checks if authors' getter and setter works given an input"
 	
 	| aDDMergedAuthor aDDAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
@@ -49,5 +49,5 @@ DDMergedAuthorTest >> testAuthors2 [
 	
 	aDDMergedAuthor authors: aDDAuthor.
 	
-	self assert: (aDDMergedAuthor authors) equals: aDDAuthor.
+	self assert: aDDMergedAuthor authors equals: aDDAuthor.
 ]

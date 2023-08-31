@@ -9,7 +9,7 @@ Class {
 
 { #category : #tests }
 DDMessageTest >> testAddMention [
-	"This test checks the first branch of DDMessage's testAddMention method"
+	"This method checks if addMessage's first branch"
 	
 	| aDDMessage aDDMentionMock anOrderedCollection |
 	aDDMessage := DDMessage new.
@@ -20,14 +20,14 @@ DDMessageTest >> testAddMention [
 	aDDMessage addMention: aDDMentionMock.
 	anOrderedCollection add: aDDMentionMock.
 	
-	self assert: (aDDMessage roleMentions) equals: anOrderedCollection.
+	self assert: aDDMessage roleMentions equals: anOrderedCollection.
 	
 
 ]
 
 { #category : #tests }
 DDMessageTest >> testAddMention2 [
-	"This test checks the second branch of DDMessage's testAddMention method"
+	"This method checks if addMessage's second branch"
 	
 	| aDDMessage aDDMentionMock anOrderedCollection |
 	aDDMessage := DDMessage new.
@@ -38,14 +38,14 @@ DDMessageTest >> testAddMention2 [
 	aDDMessage addMention: aDDMentionMock.
 	anOrderedCollection add: aDDMentionMock.
 	
-	self assert: (aDDMessage channelMentions) equals: anOrderedCollection.
+	self assert: aDDMessage channelMentions equals: anOrderedCollection.
 	
 
 ]
 
 { #category : #tests }
 DDMessageTest >> testAddMention3 [
-	"This test checks the third branch of DDMessage's testAddMention method"
+	"This method checks if addMessage's third branch"
 	
 	| aDDMessage aDDMentionMock anOrderedCollection |
 	aDDMessage := DDMessage new.
@@ -56,14 +56,14 @@ DDMessageTest >> testAddMention3 [
 	aDDMessage addMention: aDDMentionMock.
 	anOrderedCollection add: aDDMentionMock.
 	
-	self assert: (aDDMessage userMentions) equals: anOrderedCollection.
+	self assert: aDDMessage userMentions equals: anOrderedCollection.
 	
 
 ]
 
 { #category : #tests }
 DDMessageTest >> testAddMention4 [
-	"This test checks the fourth branch of DDMessage's testAddMention method"
+	"This method checks if addMessage's fourth branch"
 	
 	| aDDMessage aDDMentionMock anOrderedCollection |
 	aDDMessage := DDMessage new.
@@ -74,24 +74,24 @@ DDMessageTest >> testAddMention4 [
 	aDDMessage addMention: aDDMentionMock.
 	anOrderedCollection add: aDDMentionMock.
 	
-	self assert: (aDDMessage specialMentions) equals: anOrderedCollection.
+	self assert: aDDMessage specialMentions equals: anOrderedCollection.
 	
 
 ]
 
 { #category : #tests }
 DDMessageTest >> testAddReply [
-	"This test checks if aDDMessage's addReply creates an empty array of replies without initializing it"
+	"This method checks if addReply creates an empty array of replies without initializing it"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage replies) equals: OrderedCollection new.
+	self assert: aDDMessage replies equals: OrderedCollection new.
 ]
 
 { #category : #tests }
 DDMessageTest >> testAddReply2 [
-	"This test checks if aDDMessage's addReply creates an array of replies if initialized"
+	"This method checks if addReply creates an array of replies if initialized"
 	
 	| aDDMessage aDDMessageReply anOrderedCollection |
 	aDDMessage := DDMessage new.
@@ -101,12 +101,12 @@ DDMessageTest >> testAddReply2 [
 	aDDMessage addReply: aDDMessageReply.
 	anOrderedCollection add: aDDMessageReply.
 	
-	self assert: (aDDMessage replies) equals: anOrderedCollection.
+	self assert: aDDMessage replies equals: anOrderedCollection.
 ]
 
 { #category : #tests }
 DDMessageTest >> testAttachments [
-	"This test checks if addAttachments' getter and setter works without giving any input"
+	"This method checks if addAttachments' getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
@@ -116,85 +116,85 @@ DDMessageTest >> testAttachments [
 
 { #category : #tests }
 DDMessageTest >> testAttachments2 [
-	"This test checks if addAttachments' getter and setter works given an input"
+	"This method checks if addAttachments' getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage attachments: 'message-attachment'.
 	
-	self assert: (aDDMessage attachments) equals: 'message-attachment'.
+	self assert: aDDMessage attachments equals: 'message-attachment'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testAuthor [
-	"This test checks if author's getter and setter works without giving anyy input"
+	"This method checks if author's getter works without giving anyy input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
-	self assert: (aDDMessage author) equals: nil.
+	self assert: aDDMessage author equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testAuthor2 [
-	"This test checks if author's getter and setter works given an input"
+	"This method checks if author's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage author: 'message-author'.
 	
-	self assert: (aDDMessage author) equals: 'message-author'.
+	self assert: aDDMessage author equals: 'message-author'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testChannelMentions [
-	"This test checks if channelMentions' getter and setter works without giving any input"
+	"This method checks if channelMentions' getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage channelMentions) equals: OrderedCollection new.
+	self assert: aDDMessage channelMentions equals: OrderedCollection new.
 ]
 
 { #category : #tests }
 DDMessageTest >> testChannelMentions2 [
-	"This test checks if channelMentions' getter and setter works given an input"
+	"This method checks if channelMentions' getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage channelMentions: 'message-channelMentions'.
 	
-	self assert: (aDDMessage channelMentions) equals: 'message-channelMentions'.
+	self assert: aDDMessage channelMentions equals: 'message-channelMentions'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testCodeBlocks [
-	"This test checks if codeBlocks' getter and setter works without giving any input"
+	"This method checks if codeBlocks' getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage codeBlocks) equals: nil.
+	self assert: aDDMessage codeBlocks equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testCodeBlocks2 [
-	"This test checks if codeBlocks' getter and setter works without given an input"
+	"This method checks if codeBlocks' getter and setter works without given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage codeBlocks: 'message-codeBlock'.
 	
-	self assert: (aDDMessage codeBlocks) equals: 'message-codeBlock'.
+	self assert: aDDMessage codeBlocks equals: 'message-codeBlock'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testCodeElementsForClasses [
-	"This test checks if there are code elements for a class in aDDMessage"
+	"This method checks if codeElementsForClass works properly"
 	
 	| aDDMessage anOrderedCollection aDDCodeMock|
 	aDDMessage := DDMessage new.
@@ -209,112 +209,112 @@ DDMessageTest >> testCodeElementsForClasses [
 	anOrderedCollection add: aDDMessage codeBlocks.
 	aDDMessage codeElementsForClasses: anOrderedCollection.
 	
-	self assert: (aDDMessage codeBlocks) equals: aDDCodeMock.
+	self assert: aDDMessage codeBlocks equals: aDDCodeMock.
 ]
 
 { #category : #tests }
 DDMessageTest >> testContainerChannel [
-	"This test checks if containerChannel's setter and getter works without giving any input"
+	"This method checks if containerChannel's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage containerChannel) equals: nil.
+	self assert: aDDMessage containerChannel equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testContainerChannel2 [
-	"This test checks if containerChannel's setter and getter works given an input"
+	"This method checks if containerChannel's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage containerChannel: 'message-container'.
 	
-	self assert: (aDDMessage containerChannel) equals: 'message-container'.
+	self assert: aDDMessage containerChannel equals: 'message-container'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testContent [
-	"This test checks if content's setter and getter works without giving any input"
+	"This method checks if content's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage content) equals: nil.
+	self assert: aDDMessage content equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testContent2 [
-	"This test checks if content's setter and getter works given an input"
+	"This method checks if content's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage content: 'message-content'.
 	
-	self assert: (aDDMessage content) equals: 'message-content'.
+	self assert: aDDMessage content equals: 'message-content'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testCreatedAt [
-	"This test checks if createdAt's setter and getter works without giving any input"
+	"This method checks if createdAt's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage createdAt) equals: nil.
+	self assert: aDDMessage createdAt equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testCreatedAt2 [
-	"This test checks if createdAt's setter and getter works given an input"
+	"This method checks if createdAt's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage createdAt: 'message-creation-time'.
 	
-	self assert: (aDDMessage createdAt) equals: 'message-creation-time'.
+	self assert: aDDMessage createdAt equals: 'message-creation-time'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testCreationDateAndTime [
-	"This test checks if createdAt value can be a dateTime given an input"
+	"This method checks if creationDateAndTime value can be a dateTime given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage createdAt: '12/08/23'.
 	
-	self assert: (aDDMessage creationDateAndTime) equals: '12/08/23' asDateAndTime.
+	self assert: aDDMessage creationDateAndTime equals: '12/08/23' asDateAndTime.
 ]
 
 { #category : #tests }
 DDMessageTest >> testEmbeds [
-	"This test checks if id's setter and getter works without giving any input"
+	"This method checks if embeds's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage id) equals: nil.
+	self assert: aDDMessage id equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testEmbeds2 [
-	"This test checks if embeds's setter and getter works given an input"
+	"This method checks if embeds's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage embeds: 'message-embeds'.
 	
-	self assert: (aDDMessage embeds) equals: 'message-embeds'.
+	self assert: aDDMessage embeds equals: 'message-embeds'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testHasCodeBlocks [
-	"This test checks if hasCodeBlocks works properly if codeBlocks is initialized"
+	"This method checks if hasCodeBlocks works properly if codeBlocks is initialized"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
@@ -324,36 +324,36 @@ DDMessageTest >> testHasCodeBlocks [
     	private int age;
     	}'.
 	
-	self assert: (aDDMessage hasCodeBlocks) equals: true.
+	self assert: aDDMessage hasCodeBlocks equals: true.
 ]
 
 { #category : #tests }
 DDMessageTest >> testHasEmbeds [
-	"This test checks if hasEmbeds works properly if embeds is initialized"
+	"This method checks if hasEmbeds works properly if embeds is initialized"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage embeds: 'message-embeds'.
 	
-	self assert: (aDDMessage hasEmbeds) equals: true.
+	self assert: aDDMessage hasEmbeds equals: true.
 ]
 
 { #category : #tests }
 DDMessageTest >> testHasPointsOfInterest [
-	"This test checks if hasPointsOfInterest works properly if oointsOfInterest is initialized"
+	"This method checks if hasPointsOfInterest works properly if oointsOfInterest is initialized"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage pointsOfInterest: 'message-POIs'.
 	
-	self assert: (aDDMessage hasPointsOfInterest) equals: true.
+	self assert: aDDMessage hasPointsOfInterest equals: true.
 ]
 
 { #category : #tests }
 DDMessageTest >> testHasSourceCode [
-	"This test checks if hasSourceCode works properly if codeBlocks is initialized"
+	"This method checks if hasSourceCode works properly if codeBlocks is initialized"
 	
 	| aDDMessage aDDCodeMock |
 	aDDMessage := DDMessage new.
@@ -362,34 +362,34 @@ DDMessageTest >> testHasSourceCode [
 	(aDDCodeMock stub isSourceCode) willReturn: false.
 	aDDMessage codeBlocks: aDDCodeMock.
 	
-	self assert: (aDDMessage hasSourceCode) equals: false.
+	self assert: aDDMessage hasSourceCode equals: false.
 ]
 
 { #category : #tests }
 DDMessageTest >> testId [
-	"This test checks if id's setter and getter works without giving any input"
+	"This method checks if id's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage id) equals: nil.
+	self assert: aDDMessage id equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testId2 [
-	"This test checks if id's setter and getter works given an input"
+	"This method checks if id's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage id: 'message-id'.
 	
-	self assert: (aDDMessage id) equals: 'message-id'.
+	self assert: aDDMessage id equals: 'message-id'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testIsInConversationWith [
-	"This test checks if two messages are in conversation bases on the dateTime. The message's day is 	the same"
+	"This method checks if two messages are in conversation bases on the dateTime. The message's day is 	the same"
 	
 	| aDDMessage aSecondDDMessage aDDChannelMock |
 	aDDMessage := DDMessage new.
@@ -407,7 +407,7 @@ DDMessageTest >> testIsInConversationWith [
 
 { #category : #tests }
 DDMessageTest >> testIsInConversationWith2 [
-	"This test checks if two messages are in conversation bases on the dateTime. The message's day is 	different"
+	"This method checks if two messages are in conversation bases on the dateTime. The message's day is 	different"
 	
 	| aDDMessage aSecondDDMessage aDDChannelMock |
 	aDDMessage := DDMessage new.
@@ -425,17 +425,17 @@ DDMessageTest >> testIsInConversationWith2 [
 
 { #category : #tests }
 DDMessageTest >> testIsReply [
-	"This test checks if isReply works without giving any message"
+	"This method checks if isReply works without giving any message"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage isReply) equals: false.
+	self assert: aDDMessage isReply equals: false.
 ]
 
 { #category : #tests }
 DDMessageTest >> testIsReply2 [
-	"This test checks if isReply's works without given aSecondDDmessage as response to aDDMessage"
+	"This method checks if isReply's works without giving aSecondDDmessage as response to aDDMessage"
 	
 	| aDDMessage aSecondDDMessage |
 	aDDMessage := DDMessage new.
@@ -443,46 +443,46 @@ DDMessageTest >> testIsReply2 [
 	
 	aDDMessage repliesTo: aSecondDDMessage. 
 	
-	self assert: (aDDMessage isReply) equals: true.
+	self assert: aDDMessage isReply equals: true.
 ]
 
 { #category : #tests }
 DDMessageTest >> testLastEditedAt [
-	"This test checks if lastEditedAt's setter and getter works without giving any input"
+	"This method checks if lastEditedAt's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	self assert: (aDDMessage lastEditedAt) equals: nil.
+	self assert: aDDMessage lastEditedAt equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testLastEditedAt2 [
-	"This test checks if lastEditedAt's setter and getter works given an input input"
+	"This method checks if lastEditedAt's getter and setter works given an input input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage lastEditedAt: 'message-lastEditedAt'.
 	
-	self assert: (aDDMessage lastEditedAt) equals: 'message-lastEditedAt'.
+	self assert: aDDMessage lastEditedAt equals: 'message-lastEditedAt'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testLineCount [
-	"This test checks if lineCount's setter and getter works without giving any input"
+	"This method checks if lineCount's getter and setter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage content: ' '.
 	
-	self assert: (aDDMessage lineCount) equals: 1.
+	self assert: aDDMessage lineCount equals: 1.
 ]
 
 { #category : #tests }
 DDMessageTest >> testLineCount2 [
-	"This test checks if lineCount's setter and getter works without giving any input"
+	"This test checks if lineCount's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
@@ -491,34 +491,34 @@ DDMessageTest >> testLineCount2 [
 	line 2
 	line 3'.
 	
-	self assert: (aDDMessage lineCount) equals: 3.
+	self assert: aDDMessage lineCount equals: 3.
 ]
 
 { #category : #tests }
 DDMessageTest >> testMentions [
-	"This test checks if mentions' setter and getter works without giving any input"
+	"This method checks if mentions' getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
-	self assert: (aDDMessage mentions) equals: OrderedCollection new.
+	self assert: aDDMessage mentions equals: OrderedCollection new.
 ]
 
 { #category : #tests }
 DDMessageTest >> testMentions2 [
-	"This test checks if mentions' setter and getter works given an input"
+	"This method checks if mentions' getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage mentions: 'message-mention'.
 
-	self assert: (aDDMessage mentions) equals: 'message-mention'.
+	self assert: aDDMessage mentions equals: 'message-mention'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testNaturalLanguageContent [
-	"This test checks if there is some natural language in the sent aDDMessage"
+	"This method checks if there is some natural language in the sent aDDMessage"
 	
 	| aDDMessage aDDCodeMock|
 	aDDMessage := DDMessage new.
@@ -531,24 +531,24 @@ DDMessageTest >> testNaturalLanguageContent [
 	aDDMessage codeBlocks: aDDCodeMock.
 	aDDMessage naturalLanguageContent.
 	
-	self assert: (aDDMessage content) equals: nil.
+	self assert: aDDMessage content equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testPointsOfInterest [
-	"This test checks if pointsOfInterest's setter and getter works given an input"
+	"This method checks if pointsOfInterest's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage pointsOfInterest: 'message-POIs'.
 	
-	self assert: (aDDMessage pointsOfInterest) equals: 'message-POIs'.
+	self assert: aDDMessage pointsOfInterest equals: 'message-POIs'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testQuotes [
-	"This methid checks if quotes method works properly given an input"
+	"This method checks if quotes method works properly given an input"
 		
 	| aDDMessage expected |
 	aDDMessage := DDMessage new.
@@ -576,54 +576,54 @@ text > with this
 
 somefinaltext'.
 	
-	self assertCollection: (aDDMessage quotes) equals: expected.
+	self assertCollection: aDDMessage quotes equals: expected.
 ]
 
 { #category : #tests }
 DDMessageTest >> testReactions [
-	"This test checks if reactions's setter and getter works without giving any input"
+	"This method checks if reactions's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
-	self assert: (aDDMessage reactions) equals: nil.
+	self assert: aDDMessage reactions equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testReactions2 [
-	"This test checks if reactions's setter and getter works given an input"
+	"This method checks if reactions's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage reactions: 'message-reactions'.
 	
-	self assert: (aDDMessage reactions) equals: 'message-reactions'.
+	self assert: aDDMessage reactions equals: 'message-reactions'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testReplies [
-	"This test checks if replies works without giving any input"
+	"This method checks if replies works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
-	self assert: (aDDMessage replies) equals: OrderedCollection new.
+	self assert: aDDMessage replies equals: OrderedCollection new.
 ]
 
 { #category : #tests }
 DDMessageTest >> testRepliesTo [
-	"This test checks if repliesTo's setter and getter works without giving any input"
+	"This method checks if repliesTo's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
-	self assert: (aDDMessage repliesTo) equals: nil.
+	self assert: aDDMessage repliesTo equals: nil.
 ]
 
 { #category : #tests }
 DDMessageTest >> testRepliesTo2 [
-	"This test checks if repliesTo's setter and getter works without given an input"
+	"This method checks if repliesTo's getter and setter works without given an input"
 	
 	| aDDMessage aSecondDDMessage |
 	aDDMessage := DDMessage new.
@@ -631,80 +631,80 @@ DDMessageTest >> testRepliesTo2 [
 	
 	aDDMessage repliesTo: aSecondDDMessage.
 	
-	self assert: (aDDMessage repliesTo) equals: aSecondDDMessage.
+	self assert: aDDMessage repliesTo equals: aSecondDDMessage.
 ]
 
 { #category : #tests }
 DDMessageTest >> testRoleMentions [
-	"This test checks if roleMentions's setter and getter works without giving any input"
+	"This method checks if roleMentions's getter works without giving any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
-	self assert: (aDDMessage roleMentions) equals: OrderedCollection new.
+	self assert: aDDMessage roleMentions equals: OrderedCollection new.
 ]
 
 { #category : #tests }
 DDMessageTest >> testRoleMentions2 [
-	"This test checks if roleMentions's setter and getter works given an input"
+	"This method checks if roleMentions's getter and setter works given an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage roleMentions: 'message-role'.
 
-	self assert: (aDDMessage roleMentions) equals: 'message-role'.
+	self assert: aDDMessage roleMentions equals: 'message-role'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testSpecialMentions [
-	"This test checks if specialMentions' setter and getter works without any input"
+	"This method checks if specialMentions' getter works without any input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
-	self assert: (aDDMessage specialMentions) equals: OrderedCollection new.
+	self assert: aDDMessage specialMentions equals: OrderedCollection new.
 ]
 
 { #category : #tests }
 DDMessageTest >> testSpecialMentions2 [
-	"This test checks if specialMentions' setter and getter works with an input"
+	"This method checks if specialMentions' getter and setter works with an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage specialMentions: 'message-specialMention'.
 
-	self assert: (aDDMessage specialMentions) equals: 'message-specialMention'.
+	self assert: aDDMessage specialMentions equals: 'message-specialMention'.
 ]
 
 { #category : #tests }
 DDMessageTest >> testUncompressedContentSize [
-	"This test checks if uncompressedContentSize works with an input"
+	"This method checks if uncompressedContentSize works with an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage content: 'message'.
 
-	self assert: (aDDMessage uncompressedContentSize) equals: 7.
+	self assert: aDDMessage uncompressedContentSize equals: 7.
 ]
 
 { #category : #tests }
 DDMessageTest >> testUserMentions [
-	"This test checks if userMentions' setter and getter works with an input"
+	"This method checks if userMentions' getter and setter works with an input"
 	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
 	aDDMessage content: 'message'.
 
-	self assert: (aDDMessage uncompressedContentSize) equals: 7.
+	self assert: aDDMessage uncompressedContentSize equals: 7.
 ]
 
 { #category : #tests }
 DDMessageTest >> testgetLink [
-	"This test checks if getLink is able to extract a link from aDDMessage"
+	"This method checks if getLink is able to extract a link from aDDMessage"
 	
 	| aDDMessage aDDChannelMock|
 	aDDMessage := DDMessage new.
@@ -714,6 +714,6 @@ DDMessageTest >> testgetLink [
 	aDDMessage id: 'message-id'.
 	aDDMessage containerChannel: aDDChannelMock.
 	
-	self assert: (aDDMessage getLink) 
+	self assert: aDDMessage getLink 
 		  equals: 'https://discord.com/channels/a GHEmptyMetaMessages/channel-id/message-id'.
 ]

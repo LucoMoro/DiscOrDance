@@ -402,7 +402,7 @@ DDAuthorTest >> testMessagesByDay [
 
 { #category : #test }
 DDAuthorTest >> testMessagesByDay2 [
-	"This methodchecks if messagesByDay's method works if sentMessages is initialized"
+	"This method checks if messagesByDay's method works if sentMessages is initialized"
 		
 	| aDDAuthor aDDMessageMock anOrderedCollection |
 	aDDAuthor := DDAuthor new.

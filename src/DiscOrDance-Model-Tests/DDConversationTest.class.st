@@ -9,7 +9,7 @@ Class {
 
 { #category : #test }
 DDConversationTest >> testAdd [
-	"Test if add method works properly"
+	"This method checks if add method works properly"
 	
 	| aDDConversation aDDMessage anOrderedCollection|
 	aDDConversation := DDConversation new.
@@ -19,17 +19,17 @@ DDConversationTest >> testAdd [
 	aDDConversation add: aDDMessage.
 	anOrderedCollection add: aDDMessage.
 	
-	self assert: (aDDConversation messages) equals: anOrderedCollection.
+	self assert: aDDConversation messages equals: anOrderedCollection.
 ]
 
 { #category : #test }
 DDConversationTest >> testEnd [
-	"This method checks if end's getter and setter works without giving any input"
+	"This method checks if end's gette works without giving any input"
 	
 	| aDDConversation |
 	aDDConversation := DDConversation new.
 
-	self assert: (aDDConversation end) equals: nil.
+	self assert: aDDConversation end equals: nil.
 ]
 
 { #category : #test }
@@ -41,7 +41,7 @@ DDConversationTest >> testEnd2 [
 	
 	aDDConversation end: 'conversation-end'.
 
-	self assert: (aDDConversation end) equals: 'conversation-end'.
+	self assert: aDDConversation end equals: 'conversation-end'.
 ]
 
 { #category : #test }
@@ -55,7 +55,7 @@ DDConversationTest >> testInvolvesCode [
 	aDDConversation add: aDDMessageMock.
 	(aDDMessageMock stub hasSourceCode) willReturn: false.
 
-	self assert: (aDDConversation involvesCode) equals: false.
+	self assert: aDDConversation involvesCode equals: false.
 ]
 
 { #category : #test }
@@ -69,7 +69,7 @@ DDConversationTest >> testInvolvesCode2 [
 	aDDConversation add: aDDMessageMock.
 	(aDDMessageMock stub hasSourceCode) willReturn: true.
 
-	self assert: (aDDConversation involvesCode) equals: true.
+	self assert: aDDConversation involvesCode equals: true.
 ]
 
 { #category : #test }
@@ -82,7 +82,7 @@ DDConversationTest >> testIsEmpty [
 	
 	(aDDMessageMock stub collect: #author) willReturn: nil.
 
-	self assert: (aDDConversation isEmpty) equals: true.
+	self assert: aDDConversation isEmpty equals: true.
 ]
 
 { #category : #test }
@@ -96,29 +96,29 @@ DDConversationTest >> testIsEmpty2 [
 	aDDConversation add: DDMessage new. 
 	(aDDMessageMock stub collect: #author) willReturn: nil.
 
-	self assert: (aDDConversation isEmpty) equals: false.
+	self assert: aDDConversation isEmpty equals: false.
 ]
 
 { #category : #test }
 DDConversationTest >> testMessages [
-	"This method checks if messages' setter and getter works without giving any input"
+	"This method checks if messages' getter works without giving any input"
 	
 	| aDDConversation |
 	aDDConversation := DDConversation new.
 
-	self assert: (aDDConversation messages) equals: OrderedCollection new.
+	self assert: aDDConversation messages equals: OrderedCollection new.
 ]
 
 { #category : #test }
 DDConversationTest >> testMessages2 [
-	"This method checks if messages' setter and getter works given an input"
+	"This method checks if messages' getter and setter works given an input"
 	
 	| aDDConversation |
 	aDDConversation := DDConversation new.
 	
 	aDDConversation messages: 'conversation-messages'.
 
-	self assert: (aDDConversation messages) equals: 'conversation-messages'.
+	self assert: aDDConversation messages equals: 'conversation-messages'.
 ]
 
 { #category : #test }
@@ -131,7 +131,7 @@ DDConversationTest >> testParticipatingAuthors [
 	
 	(aDDMessageMock stub collect: #author) willReturn: nil.
 
-	self assert: (aDDConversation participatingAuthors) equals: Set new.
+	self assert: aDDConversation participatingAuthors equals: Set new.
 ]
 
 { #category : #test }
@@ -151,12 +151,12 @@ DDConversationTest >> testSpan [
 
 { #category : #test }
 DDConversationTest >> testStart [
-	"This method checks if start's getter and setter works without giving any input"
+	"This method checks if start's getter works without giving any input"
 	
 	| aDDConversation |
 	aDDConversation := DDConversation new.
 
-	self assert: (aDDConversation start) equals: nil.
+	self assert: aDDConversation start equals: nil.
 ]
 
 { #category : #test }
@@ -168,5 +168,5 @@ DDConversationTest >> testStart2 [
 	
 	aDDConversation start: 'conversation-start'.
 
-	self assert: (aDDConversation start) equals: 'conversation-start'.
+	self assert: aDDConversation start equals: 'conversation-start'.
 ]

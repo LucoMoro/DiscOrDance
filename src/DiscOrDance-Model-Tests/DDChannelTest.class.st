@@ -9,7 +9,7 @@ Class {
 
 { #category : #test }
 DDChannelTest >> testAddMessage [
-	"This method checks id addMessage works properly"
+	"This method checks if addMessage works properly"
 	
 	| aDDChannel aDDMessage anOrderedCollection|
 	aDDChannel := DDChannel new.
@@ -19,49 +19,49 @@ DDChannelTest >> testAddMessage [
 	aDDChannel addMessage: aDDMessage. 
 	anOrderedCollection add: aDDMessage.
 	
-	self assert: (aDDChannel messages) equals: anOrderedCollection.
+	self assert: aDDChannel messages equals: anOrderedCollection.
 ]
 
 { #category : #test }
 DDChannelTest >> testAuthors [
-	"This method checks id authors' getter and setter works without giving any input"
+	"This method checks if authors' getter works without giving any input"
 	
 	| aDDChannel |
 	aDDChannel := DDChannel new.
 	
-	self assert: (aDDChannel authors) equals: Set new.
+	self assert: aDDChannel authors equals: Set new.
 ]
 
 { #category : #test }
 DDChannelTest >> testAuthors2 [
-	"This method checks id authors' getter and setter works given an input"
+	"This method checks if authors' getter and setter works given an input"
 	
 	| aDDChannel |
 	aDDChannel := DDChannel new.
 	
 	aDDChannel authors: 'channel-author'.
 	
-	self assert: (aDDChannel authors) equals: 'channel-author'.
+	self assert: aDDChannel authors equals: 'channel-author'.
 ]
 
 { #category : #test }
 DDChannelTest >> testCanReadMessages [
-	"This method checks id canReadMessages' getter and setter works without giving any input"
+	"This method checks if canReadMessages' getter works without giving any input"
 	
 	| aDDChannel |
 	aDDChannel := DDChannel new.
 	
-	self assert: (aDDChannel canReadMessages) equals: true.
+	self assert: aDDChannel canReadMessages equals: true.
 ]
 
 { #category : #test }
 DDChannelTest >> testCanReadMessages2 [
-	"This method checks id canReadMessages' getter and setter works given an input"
+	"This method checks if canReadMessages' getter and setter works given an input"
 	
 	| aDDChannel |
 	aDDChannel := DDChannel new.
 	
 	aDDChannel canReadMessages: false.
 	
-	self assert: (aDDChannel canReadMessages) equals: false.
+	self assert: aDDChannel canReadMessages equals: false.
 ]

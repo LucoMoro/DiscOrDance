@@ -16,17 +16,17 @@ DDClassElementTest >> testName [
 	
 	aDDClassElement referencedClassName: 'classElement-name'.
 
-	self assert: (aDDClassElement name) equals: 'classElement-name'.
+	self assert: aDDClassElement name equals: 'classElement-name'.
 ]
 
 { #category : #test }
 DDClassElementTest >> testReferencedClassName [
-	"This method checks if referencedClassName's getter and setter works without giving any input"
+	"This method checks if referencedClassName's getter works without giving any input"
 	
 	| aDDClassElement |
 	aDDClassElement  := DDClassElement new.
 
-	self assert: (aDDClassElement referencedClassName) equals: nil.
+	self assert: aDDClassElement referencedClassName equals: nil.
 ]
 
 { #category : #test }
@@ -38,5 +38,5 @@ DDClassElementTest >> testReferencedClassName2 [
 	
 	aDDClassElement referencedClassName: 'classElement-referencedClassName'.
 
-	self assert: (aDDClassElement referencedClassName) equals: 'classElement-referencedClassName'.
+	self assert: aDDClassElement referencedClassName equals: 'classElement-referencedClassName'.
 ]

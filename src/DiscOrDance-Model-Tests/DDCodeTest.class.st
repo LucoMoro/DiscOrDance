@@ -9,38 +9,38 @@ Class {
 
 { #category : #test }
 DDCodeTest >> testCodeClasses [
-	"This method checks if codeSource's getter and setter of aDDCode works without giving any input"
+	"This method checks if codeSource's getter and setter works given an empty string"
 	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
 	aDDCode codeSource: ''.
 	
-	self assert: (aDDCode codeClasses) equals: OrderedCollection new.
+	self assert: aDDCode codeClasses equals: OrderedCollection new.
 	
 ]
 
 { #category : #test }
 DDCodeTest >> testCodeSource [
-	"This method checks if codeSource's getter and setter of aDDCode works without giving any input"
+	"This method checks if codeSource's getter works without giving any input"
 	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
-	self assert: (aDDCode codeSource) equals: nil.
+	self assert: aDDCode codeSource equals: nil.
 	
 ]
 
 { #category : #test }
 DDCodeTest >> testCodeSource2 [
-	"This method checks if codeSource's getter and setter of aDDCode works given an giving any input"
+	"This method checks if codeSource's getter and setter works given an giving any input"
 	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
 	aDDCode codeSource: 'source-code'.
 	
-	self assert: (aDDCode codeSource) equals: 'source-code'.
+	self assert: aDDCode codeSource equals: 'source-code'.
 	
 ]
 
@@ -58,31 +58,31 @@ DDCodeTest >> testIsSourceCode [
     	private int age;
     	}'.
 	
-	self assert: (aDDCode isSourceCode) equals: false.
+	self assert: aDDCode isSourceCode equals: false.
 	
 ]
 
 { #category : #test }
 DDCodeTest >> testMessage [
-	"This method checks if message's getter and setter of aDDCode works without giving any input"
+	"This method checks if message's getter works without giving any input"
 	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
-	self assert: (aDDCode message) equals: nil.
+	self assert: aDDCode message equals: nil.
 	
 ]
 
 { #category : #test }
 DDCodeTest >> testMessage2 [
-	"This method checks if message's getter and setter of aDDCode works given an input"
+	"This method checks if message's getter and setter works given an input"
 	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
 	aDDCode message: 'code-message'.
 	
-	self assert: (aDDCode message) equals: 'code-message'.
+	self assert: aDDCode message equals: 'code-message'.
 	
 ]
 
@@ -95,7 +95,7 @@ DDCodeTest >> testSyntaxHighlight [
 
 	aDDCode codeSource: '	public class Person {'.
   
-	self assert: (	aDDCode syntaxHighlight) equals: #none.
+	self assert: aDDCode syntaxHighlight equals: #none.
 	
 ]
 
@@ -111,7 +111,7 @@ DDCodeTest >> testSyntaxHighlight2 [
     	private int age;
     	}'.
   
-	self assert: (	aDDCode syntaxHighlight) equals: #'person {'.
+	self assert: aDDCode syntaxHighlight equals: #'person {'.
 	
 ]
 
@@ -133,6 +133,6 @@ DDCodeTest >> testSyntaxHighlight3 [
     
     }'.
   
-	self assert: (	aDDCode syntaxHighlight) equals: #none.
+	self assert: aDDCode syntaxHighlight equals: #none.
 	
 ]
