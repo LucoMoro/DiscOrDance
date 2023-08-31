@@ -10,8 +10,9 @@ Class {
 { #category : #test }
 DDDomainTest >> testLanguage [
 	"This method checks if language's getter and setter works without giving any input"
+	
 	| aDDDomain |
-	aDDDomain  := DDDomain new.
+	aDDDomain := DDDomain new.
 
 	self assert: (aDDDomain language) equals: 'english'.
 ]
@@ -19,8 +20,9 @@ DDDomainTest >> testLanguage [
 { #category : #test }
 DDDomainTest >> testLanguage2 [
 	"This method checks if language's getter and setter works given an input"
+	
 	| aDDDomain |
-	aDDDomain  := DDDomain new.
+	aDDDomain := DDDomain new.
 	
 	aDDDomain language: 'italian'.
 
@@ -30,8 +32,9 @@ DDDomainTest >> testLanguage2 [
 { #category : #test }
 DDDomainTest >> testPunctuation [
 	"This method checks if punctuation's getter and setter works without giving any input"
+	
 	| aDDDomain |
-	aDDDomain  := DDDomain new.
+	aDDDomain := DDDomain new.
 
 	self assert: (aDDDomain punctuation) equals: DDDomain defaultPunctuation.
 ]
@@ -39,8 +42,9 @@ DDDomainTest >> testPunctuation [
 { #category : #test }
 DDDomainTest >> testPunctuation2 [
 	"This method checks if punctuation's getter and setter works given an input"
+	
 	| aDDDomain |
-	aDDDomain  := DDDomain new.
+	aDDDomain := DDDomain new.
 	
 	aDDDomain punctuation: '?'.
 
@@ -50,8 +54,9 @@ DDDomainTest >> testPunctuation2 [
 { #category : #test }
 DDDomainTest >> testStopwords [
 	"This method checks if stopwords's getter and setter works  without giving any input"
+	
 	| aDDDomain |
-	aDDDomain  := DDDomain new.
+	aDDDomain := DDDomain new.
 
 	self assert: (aDDDomain stopwords) equals: DDDomain defaultStopwords.
 ]
@@ -59,8 +64,9 @@ DDDomainTest >> testStopwords [
 { #category : #test }
 DDDomainTest >> testStopwords2 [
 	"This method checks if stopwords's getter and setter works given an input"
+	
 	| aDDDomain |
-	aDDDomain  := DDDomain new.
+	aDDDomain := DDDomain new.
 	
 	aDDDomain stopwords: 'domain-stopwords'.
 

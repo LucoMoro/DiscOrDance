@@ -10,15 +10,14 @@ Class {
 { #category : #tests }
 DDMessageTest >> testAddMention [
 	"This test checks the first branch of DDMessage's testAddMention method"
+	
 	| aDDMessage aDDMentionMock anOrderedCollection |
 	aDDMessage := DDMessage new.
 	aDDMentionMock := Mock new.
 	anOrderedCollection := OrderedCollection new.
 	
 	(aDDMentionMock stub isKindOf: DDRoleMention) willReturn: true.
-	
 	aDDMessage addMention: aDDMentionMock.
-	
 	anOrderedCollection add: aDDMentionMock.
 	
 	self assert: (aDDMessage roleMentions) equals: anOrderedCollection.
@@ -29,15 +28,14 @@ DDMessageTest >> testAddMention [
 { #category : #tests }
 DDMessageTest >> testAddMention2 [
 	"This test checks the second branch of DDMessage's testAddMention method"
+	
 	| aDDMessage aDDMentionMock anOrderedCollection |
 	aDDMessage := DDMessage new.
 	aDDMentionMock := Mock new.
 	anOrderedCollection := OrderedCollection new.
 	
 	(aDDMentionMock stub isKindOf: DDChannelMention) willReturn: true.
-	
 	aDDMessage addMention: aDDMentionMock.
-	
 	anOrderedCollection add: aDDMentionMock.
 	
 	self assert: (aDDMessage channelMentions) equals: anOrderedCollection.
@@ -48,15 +46,14 @@ DDMessageTest >> testAddMention2 [
 { #category : #tests }
 DDMessageTest >> testAddMention3 [
 	"This test checks the third branch of DDMessage's testAddMention method"
+	
 	| aDDMessage aDDMentionMock anOrderedCollection |
 	aDDMessage := DDMessage new.
 	aDDMentionMock := Mock new.
 	anOrderedCollection := OrderedCollection new.
 	
 	(aDDMentionMock stub isKindOf: DDUserMention) willReturn: true.
-	
 	aDDMessage addMention: aDDMentionMock.
-	
 	anOrderedCollection add: aDDMentionMock.
 	
 	self assert: (aDDMessage userMentions) equals: anOrderedCollection.
@@ -67,15 +64,14 @@ DDMessageTest >> testAddMention3 [
 { #category : #tests }
 DDMessageTest >> testAddMention4 [
 	"This test checks the fourth branch of DDMessage's testAddMention method"
+	
 	| aDDMessage aDDMentionMock anOrderedCollection |
 	aDDMessage := DDMessage new.
 	aDDMentionMock := Mock new.
 	anOrderedCollection := OrderedCollection new.
 	
 	(aDDMentionMock stub isKindOf: DDSpecialMention) willReturn: true.
-	
 	aDDMessage addMention: aDDMentionMock.
-	
 	anOrderedCollection add: aDDMentionMock.
 	
 	self assert: (aDDMessage specialMentions) equals: anOrderedCollection.
@@ -86,6 +82,7 @@ DDMessageTest >> testAddMention4 [
 { #category : #tests }
 DDMessageTest >> testAddReply [
 	"This test checks if aDDMessage's addReply creates an empty array of replies without initializing it"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -95,6 +92,7 @@ DDMessageTest >> testAddReply [
 { #category : #tests }
 DDMessageTest >> testAddReply2 [
 	"This test checks if aDDMessage's addReply creates an array of replies if initialized"
+	
 	| aDDMessage aDDMessageReply anOrderedCollection |
 	aDDMessage := DDMessage new.
 	aDDMessageReply := DDMessage new.
@@ -109,6 +107,7 @@ DDMessageTest >> testAddReply2 [
 { #category : #tests }
 DDMessageTest >> testAttachments [
 	"This test checks if addAttachments' getter and setter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -118,6 +117,7 @@ DDMessageTest >> testAttachments [
 { #category : #tests }
 DDMessageTest >> testAttachments2 [
 	"This test checks if addAttachments' getter and setter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -129,6 +129,7 @@ DDMessageTest >> testAttachments2 [
 { #category : #tests }
 DDMessageTest >> testAuthor [
 	"This test checks if author's getter and setter works without giving anyy input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
@@ -138,6 +139,7 @@ DDMessageTest >> testAuthor [
 { #category : #tests }
 DDMessageTest >> testAuthor2 [
 	"This test checks if author's getter and setter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -149,6 +151,7 @@ DDMessageTest >> testAuthor2 [
 { #category : #tests }
 DDMessageTest >> testChannelMentions [
 	"This test checks if channelMentions' getter and setter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -158,6 +161,7 @@ DDMessageTest >> testChannelMentions [
 { #category : #tests }
 DDMessageTest >> testChannelMentions2 [
 	"This test checks if channelMentions' getter and setter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -169,6 +173,7 @@ DDMessageTest >> testChannelMentions2 [
 { #category : #tests }
 DDMessageTest >> testCodeBlocks [
 	"This test checks if codeBlocks' getter and setter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -178,6 +183,7 @@ DDMessageTest >> testCodeBlocks [
 { #category : #tests }
 DDMessageTest >> testCodeBlocks2 [
 	"This test checks if codeBlocks' getter and setter works without given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -189,6 +195,7 @@ DDMessageTest >> testCodeBlocks2 [
 { #category : #tests }
 DDMessageTest >> testCodeElementsForClasses [
 	"This test checks if there are code elements for a class in aDDMessage"
+	
 	| aDDMessage anOrderedCollection aDDCodeMock|
 	aDDMessage := DDMessage new.
 	anOrderedCollection := OrderedCollection new.
@@ -198,11 +205,8 @@ DDMessageTest >> testCodeElementsForClasses [
     	private String name;
     	private int age;
     	}'.
-	
 	aDDMessage codeBlocks: aDDCodeMock.
-	
 	anOrderedCollection add: aDDMessage codeBlocks.
-	
 	aDDMessage codeElementsForClasses: anOrderedCollection.
 	
 	self assert: (aDDMessage codeBlocks) equals: aDDCodeMock.
@@ -211,6 +215,7 @@ DDMessageTest >> testCodeElementsForClasses [
 { #category : #tests }
 DDMessageTest >> testContainerChannel [
 	"This test checks if containerChannel's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -220,6 +225,7 @@ DDMessageTest >> testContainerChannel [
 { #category : #tests }
 DDMessageTest >> testContainerChannel2 [
 	"This test checks if containerChannel's setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -231,6 +237,7 @@ DDMessageTest >> testContainerChannel2 [
 { #category : #tests }
 DDMessageTest >> testContent [
 	"This test checks if content's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -240,6 +247,7 @@ DDMessageTest >> testContent [
 { #category : #tests }
 DDMessageTest >> testContent2 [
 	"This test checks if content's setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -251,6 +259,7 @@ DDMessageTest >> testContent2 [
 { #category : #tests }
 DDMessageTest >> testCreatedAt [
 	"This test checks if createdAt's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -260,6 +269,7 @@ DDMessageTest >> testCreatedAt [
 { #category : #tests }
 DDMessageTest >> testCreatedAt2 [
 	"This test checks if createdAt's setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -271,6 +281,7 @@ DDMessageTest >> testCreatedAt2 [
 { #category : #tests }
 DDMessageTest >> testCreationDateAndTime [
 	"This test checks if createdAt value can be a dateTime given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -282,6 +293,7 @@ DDMessageTest >> testCreationDateAndTime [
 { #category : #tests }
 DDMessageTest >> testEmbeds [
 	"This test checks if id's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -291,6 +303,7 @@ DDMessageTest >> testEmbeds [
 { #category : #tests }
 DDMessageTest >> testEmbeds2 [
 	"This test checks if embeds's setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -302,6 +315,7 @@ DDMessageTest >> testEmbeds2 [
 { #category : #tests }
 DDMessageTest >> testHasCodeBlocks [
 	"This test checks if hasCodeBlocks works properly if codeBlocks is initialized"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -316,6 +330,7 @@ DDMessageTest >> testHasCodeBlocks [
 { #category : #tests }
 DDMessageTest >> testHasEmbeds [
 	"This test checks if hasEmbeds works properly if embeds is initialized"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -327,6 +342,7 @@ DDMessageTest >> testHasEmbeds [
 { #category : #tests }
 DDMessageTest >> testHasPointsOfInterest [
 	"This test checks if hasPointsOfInterest works properly if oointsOfInterest is initialized"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -338,12 +354,12 @@ DDMessageTest >> testHasPointsOfInterest [
 { #category : #tests }
 DDMessageTest >> testHasSourceCode [
 	"This test checks if hasSourceCode works properly if codeBlocks is initialized"
+	
 	| aDDMessage aDDCodeMock |
 	aDDMessage := DDMessage new.
 	aDDCodeMock := Mock new.
 	
 	(aDDCodeMock stub isSourceCode) willReturn: false.
-	
 	aDDMessage codeBlocks: aDDCodeMock.
 	
 	self assert: (aDDMessage hasSourceCode) equals: false.
@@ -352,6 +368,7 @@ DDMessageTest >> testHasSourceCode [
 { #category : #tests }
 DDMessageTest >> testId [
 	"This test checks if id's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -361,6 +378,7 @@ DDMessageTest >> testId [
 { #category : #tests }
 DDMessageTest >> testId2 [
 	"This test checks if id's setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -372,6 +390,7 @@ DDMessageTest >> testId2 [
 { #category : #tests }
 DDMessageTest >> testIsInConversationWith [
 	"This test checks if two messages are in conversation bases on the dateTime. The message's day is 	the same"
+	
 	| aDDMessage aSecondDDMessage aDDChannelMock |
 	aDDMessage := DDMessage new.
 	aSecondDDMessage := DDMessage new.
@@ -379,7 +398,6 @@ DDMessageTest >> testIsInConversationWith [
 	
 	aDDMessage createdAt: '12/08/23'.
 	aSecondDDMessage createdAt: '12/08/23'.
-	
 	(aDDChannelMock stub class) willReturn: DDChannel.
 	(DDChannel stub defaultConversationBreakTime) willReturn: (Duration hours: 2).	
 	aDDMessage containerChannel: aDDChannelMock.
@@ -390,6 +408,7 @@ DDMessageTest >> testIsInConversationWith [
 { #category : #tests }
 DDMessageTest >> testIsInConversationWith2 [
 	"This test checks if two messages are in conversation bases on the dateTime. The message's day is 	different"
+	
 	| aDDMessage aSecondDDMessage aDDChannelMock |
 	aDDMessage := DDMessage new.
 	aSecondDDMessage := DDMessage new.
@@ -397,7 +416,6 @@ DDMessageTest >> testIsInConversationWith2 [
 	
 	aDDMessage createdAt: '12/03/23'.
 	aSecondDDMessage createdAt: '12/08/23'.
-	
 	(aDDChannelMock stub class) willReturn: DDChannel.
 	(DDChannel stub defaultConversationBreakTime) willReturn: (Duration hours: 2).	
 	aDDMessage containerChannel: aDDChannelMock.
@@ -408,6 +426,7 @@ DDMessageTest >> testIsInConversationWith2 [
 { #category : #tests }
 DDMessageTest >> testIsReply [
 	"This test checks if isReply works without giving any message"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -417,6 +436,7 @@ DDMessageTest >> testIsReply [
 { #category : #tests }
 DDMessageTest >> testIsReply2 [
 	"This test checks if isReply's works without given aSecondDDmessage as response to aDDMessage"
+	
 	| aDDMessage aSecondDDMessage |
 	aDDMessage := DDMessage new.
 	aSecondDDMessage := DDMessage new.
@@ -429,6 +449,7 @@ DDMessageTest >> testIsReply2 [
 { #category : #tests }
 DDMessageTest >> testLastEditedAt [
 	"This test checks if lastEditedAt's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -438,6 +459,7 @@ DDMessageTest >> testLastEditedAt [
 { #category : #tests }
 DDMessageTest >> testLastEditedAt2 [
 	"This test checks if lastEditedAt's setter and getter works given an input input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -449,6 +471,7 @@ DDMessageTest >> testLastEditedAt2 [
 { #category : #tests }
 DDMessageTest >> testLineCount [
 	"This test checks if lineCount's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -460,6 +483,7 @@ DDMessageTest >> testLineCount [
 { #category : #tests }
 DDMessageTest >> testLineCount2 [
 	"This test checks if lineCount's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -473,6 +497,7 @@ DDMessageTest >> testLineCount2 [
 { #category : #tests }
 DDMessageTest >> testMentions [
 	"This test checks if mentions' setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
@@ -482,6 +507,7 @@ DDMessageTest >> testMentions [
 { #category : #tests }
 DDMessageTest >> testMentions2 [
 	"This test checks if mentions' setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -493,6 +519,7 @@ DDMessageTest >> testMentions2 [
 { #category : #tests }
 DDMessageTest >> testNaturalLanguageContent [
 	"This test checks if there is some natural language in the sent aDDMessage"
+	
 	| aDDMessage aDDCodeMock|
 	aDDMessage := DDMessage new.
 	aDDCodeMock := Mock new.
@@ -501,9 +528,7 @@ DDMessageTest >> testNaturalLanguageContent [
     	private String name;
     	private int age;
     	}'.
-	
 	aDDMessage codeBlocks: aDDCodeMock.
-	
 	aDDMessage naturalLanguageContent.
 	
 	self assert: (aDDMessage content) equals: nil.
@@ -512,6 +537,7 @@ DDMessageTest >> testNaturalLanguageContent [
 { #category : #tests }
 DDMessageTest >> testPointsOfInterest [
 	"This test checks if pointsOfInterest's setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -522,8 +548,11 @@ DDMessageTest >> testPointsOfInterest [
 
 { #category : #tests }
 DDMessageTest >> testQuotes [
+	"This methid checks if quotes method works properly given an input"
+		
 	| aDDMessage expected |
 	aDDMessage := DDMessage new.
+	
 	expected := {
 	'> this is a quote' .
 	'> this another' .
@@ -547,12 +576,13 @@ text > with this
 
 somefinaltext'.
 	
-	self assertCollection: aDDMessage quotes equals: expected.
+	self assertCollection: (aDDMessage quotes) equals: expected.
 ]
 
 { #category : #tests }
 DDMessageTest >> testReactions [
 	"This test checks if reactions's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
@@ -562,6 +592,7 @@ DDMessageTest >> testReactions [
 { #category : #tests }
 DDMessageTest >> testReactions2 [
 	"This test checks if reactions's setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -573,6 +604,7 @@ DDMessageTest >> testReactions2 [
 { #category : #tests }
 DDMessageTest >> testReplies [
 	"This test checks if replies works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
@@ -582,6 +614,7 @@ DDMessageTest >> testReplies [
 { #category : #tests }
 DDMessageTest >> testRepliesTo [
 	"This test checks if repliesTo's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
@@ -591,6 +624,7 @@ DDMessageTest >> testRepliesTo [
 { #category : #tests }
 DDMessageTest >> testRepliesTo2 [
 	"This test checks if repliesTo's setter and getter works without given an input"
+	
 	| aDDMessage aSecondDDMessage |
 	aDDMessage := DDMessage new.
 	aSecondDDMessage := DDMessage new.
@@ -603,6 +637,7 @@ DDMessageTest >> testRepliesTo2 [
 { #category : #tests }
 DDMessageTest >> testRoleMentions [
 	"This test checks if roleMentions's setter and getter works without giving any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
@@ -612,6 +647,7 @@ DDMessageTest >> testRoleMentions [
 { #category : #tests }
 DDMessageTest >> testRoleMentions2 [
 	"This test checks if roleMentions's setter and getter works given an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -623,6 +659,7 @@ DDMessageTest >> testRoleMentions2 [
 { #category : #tests }
 DDMessageTest >> testSpecialMentions [
 	"This test checks if specialMentions' setter and getter works without any input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 
@@ -632,6 +669,7 @@ DDMessageTest >> testSpecialMentions [
 { #category : #tests }
 DDMessageTest >> testSpecialMentions2 [
 	"This test checks if specialMentions' setter and getter works with an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -643,6 +681,7 @@ DDMessageTest >> testSpecialMentions2 [
 { #category : #tests }
 DDMessageTest >> testUncompressedContentSize [
 	"This test checks if uncompressedContentSize works with an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -654,6 +693,7 @@ DDMessageTest >> testUncompressedContentSize [
 { #category : #tests }
 DDMessageTest >> testUserMentions [
 	"This test checks if userMentions' setter and getter works with an input"
+	
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
@@ -665,15 +705,15 @@ DDMessageTest >> testUserMentions [
 { #category : #tests }
 DDMessageTest >> testgetLink [
 	"This test checks if getLink is able to extract a link from aDDMessage"
+	
 	| aDDMessage aDDChannelMock|
 	aDDMessage := DDMessage new.
 	aDDChannelMock := Mock new.
 
 	(aDDChannelMock stub id) willReturn: 'channel-id'.
 	aDDMessage id: 'message-id'.
-	
 	aDDMessage containerChannel: aDDChannelMock.
 	
 	self assert: (aDDMessage getLink) 
-		equals: 'https://discord.com/channels/a GHEmptyMetaMessages/channel-id/message-id'.
+		  equals: 'https://discord.com/channels/a GHEmptyMetaMessages/channel-id/message-id'.
 ]

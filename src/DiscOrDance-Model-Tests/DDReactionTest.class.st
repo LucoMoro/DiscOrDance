@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDReactionTest >> testCount [
 	"This method checks if count's getter and setter works without giving any input"
+	
 	| aDDReaction |
 	aDDReaction  := DDReaction new.
 
@@ -19,6 +20,7 @@ DDReactionTest >> testCount [
 { #category : #test }
 DDReactionTest >> testCount2 [
 	"This method checks if count's getter and setter works given an input"
+	
 	| aDDReaction |
 	aDDReaction  := DDReaction new.
 	
@@ -30,6 +32,7 @@ DDReactionTest >> testCount2 [
 { #category : #test }
 DDReactionTest >> testEmoji [
 	"This method checks if emoji's getter and setter works without giving any input"
+	
 	| aDDReaction |
 	aDDReaction  := DDReaction new.
 
@@ -39,6 +42,7 @@ DDReactionTest >> testEmoji [
 { #category : #test }
 DDReactionTest >> testEmoji2 [
 	"This method checks if emoji's getter and setter works given an input"
+	
 	| aDDReaction |
 	aDDReaction  := DDReaction new.
 
@@ -50,6 +54,7 @@ DDReactionTest >> testEmoji2 [
 { #category : #test }
 DDReactionTest >> testMessage [
 	"This method checks if message's getter and setter works without giving any input"
+	
 	| aDDReaction |
 	aDDReaction  := DDReaction new.
 
@@ -59,6 +64,7 @@ DDReactionTest >> testMessage [
 { #category : #test }
 DDReactionTest >> testMessage2 [
 	"This method checks if message's getter and setter works given an input"
+	
 	| aDDReaction |
 	aDDReaction  := DDReaction new.
 

@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDMergedAuthorTest >> testAliases [
 	"This method checks if aliases's getter and setter of aDDMergedAuthor works without giving any input"
+	
 	| aDDMergedAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
 	
@@ -19,6 +20,7 @@ DDMergedAuthorTest >> testAliases [
 { #category : #test }
 DDMergedAuthorTest >> testAliases2 [
 	"This method checks if aliases's getter and setter of aDDMergedAuthor works given an input"
+	
 	| aDDMergedAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
 	
@@ -30,6 +32,7 @@ DDMergedAuthorTest >> testAliases2 [
 { #category : #test }
 DDMergedAuthorTest >> testAuthors [
 	"This method checks if authors' getter and setter of aDDMergedAuthor works without giving any input"
+	
 	| aDDMergedAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
 	
@@ -39,6 +42,7 @@ DDMergedAuthorTest >> testAuthors [
 { #category : #test }
 DDMergedAuthorTest >> testAuthors2 [
 	"This method checks if authors' getter and setter of aDDMergedAuthor works given an input"
+	
 	| aDDMergedAuthor aDDAuthor |
 	aDDMergedAuthor := DDMergedAuthor new.
 	aDDAuthor := DDAuthor new.

@@ -9,16 +9,17 @@ Class {
 
 { #category : #test }
 DDAuthorTest >> testActiveCategories [
-	"this test checks if aDDAuthor has some categories without initializing the activeCategories array"
+	"this method checks if addActiveCategories works without initializing the array"
+	
 	| aDDAuthor |
 	aDDAuthor  := DDAuthor new.
 
-	self assert: (aDDAuthor activeCategories ) equals: Set new.
+	self assert: aDDAuthor activeCategories equals: Set new.
 ]
 
 { #category : #test }
 DDAuthorTest >> testActiveCategories2 [
-	"this test checks if aDDAuthor is in some categories initializing the activeCategories array"
+	"this method checks if addActiveCategories works initializing the array with a DDCategory"
 	| aDDAuthor aDDCategory aSet|
 	aDDAuthor := DDAuthor new.
 	aDDCategory := DDCategory new.
@@ -27,139 +28,123 @@ DDAuthorTest >> testActiveCategories2 [
 	aDDAuthor addActiveCategory: aDDCategory.
 	aSet add: aDDCategory.
 
-	self assert: (aDDAuthor activeCategories) equals: aSet.
+	self assert: aDDAuthor activeCategories equals: aSet.
 	
 ]
 
 { #category : #test }
 DDAuthorTest >> testActiveChannels [
-	"this test checks if aDDAuthor is in some channels without initializing the activeChannels array"
+	"this method checks if addActiveChannels works without initializing the array"
+	
 	| aDDAuthor |
-	aDDAuthor  := DDAuthor new.
+	aDDAuthor := DDAuthor new.
 
-	self assert: (aDDAuthor activeChannels ) equals: Set new.
+	self assert: aDDAuthor activeChannels equals: Set new.
 	
 ]
 
 { #category : #test }
 DDAuthorTest >> testActiveChannels2 [
-	"this test checks if aDDAuthor is in some channels initializing the activeChannels array"
+	"this method checks if addActiveChannels works initializing the array with a DDChannel"
+	
 	| aDDAuthor aDDChannel aSet|
 	aDDAuthor := DDAuthor new.
-	aDDChannel := DDCategory new.
+	aDDChannel := DDChannel new.
 	aSet := Set new.
 	
 	aDDAuthor addActiveChannel: aDDChannel.
 	aSet add: aDDChannel.
 
-	self assert: (aDDAuthor activeChannels) equals: aSet.
-]
-
-{ #category : #test }
-DDAuthorTest >> testActivityHistogramByDays [
-	"This test checks if activityHistogramByDays's input & outputs are correct"
-	| aDDAuthor aRSChartMock |
-	aDDAuthor := DDAuthor new.
-	aRSChartMock := Mock new.
-	
-	(aDDAuthor stub activityHistogramByDays: 3) willReturn: aRSChartMock.
-	
-	self
-		assert: (aDDAuthor activityHistogramByDays: 3) equals: aRSChartMock.
-	
+	self assert: aDDAuthor activeChannels equals: aSet.
 ]
 
 { #category : #test }
 DDAuthorTest >> testAddActiveCategory [
-	"this test checks if aDDAuthor is in some categories initializing the activeCategories array."
+	"this method checks if addActiveCategory works initializing the array with a DDcategory"
+	
 	| aDDAuthor aDDCategory aSet|
 	aDDAuthor := DDAuthor new.
 	aDDCategory := DDCategory new.
 	aSet := Set new.
 	
 	aDDAuthor addActiveCategory: aDDCategory.
-	aDDAuthor addActiveCategory: aDDCategory.
-	aDDAuthor addActiveCategory: aDDCategory.
-	aSet add: aDDCategory.
-	aSet add: aDDCategory.
 	aSet add: aDDCategory.
 
-	self assert: (aDDAuthor activeCategories) equals: aSet.
+	self assert: aDDAuthor activeCategories equals: aSet.
 ]
 
 { #category : #test }
 DDAuthorTest >> testAddActiveChannel [
-	"this test checks if aDDAuthor is in some channels initializing the activeChannels array."
+	"this method checks if addActiveChannel works initializing the array with a DDchannel"
+		
 	| aDDAuthor aDDChannel aSet|
 	aDDAuthor := DDAuthor new.
-	aDDChannel := DDCategory new.
+	aDDChannel := DDChannel new.
 	aSet := Set new.
 	
 	aDDAuthor addActiveChannel: aDDChannel.
-	aDDAuthor addActiveChannel: aDDChannel.
-	aDDAuthor addActiveChannel: aDDChannel.
-	aSet add: aDDChannel.
-	aSet add: aDDChannel.
 	aSet add: aDDChannel.
 
-	self assert: (aDDAuthor activeChannels) equals: aSet.
+	self assert: aDDAuthor activeChannels equals: aSet.
 ]
 
 { #category : #test }
 DDAuthorTest >> testAddSentMessage [
-	"this test checks if aDDAuthor has messages initializing the sentMessages array"
+	"this method checks if addSentMessages works without initializing the array"
+	
 	| aDDAuthor aDDMessageMock|
 	aDDAuthor  := DDAuthor new.
 	aDDMessageMock := Mock new.
 	
 	(aDDMessageMock stub author: aDDAuthor) willReturn: aDDAuthor.
+	aDDAuthor addSentMessage: aDDMessageMock.
 	
-	aDDAuthor addSentMessage: aDDMessageMock.
-	aDDAuthor addSentMessage: aDDMessageMock.
-	aDDAuthor addSentMessage: aDDMessageMock.
-
-	self assert: (aDDAuthor hasMessages ) equals: true.
+	self assert: aDDAuthor hasMessages equals: true.
 ]
 
 { #category : #test }
 DDAuthorTest >> testAvatar [
-	 "This test checks if DDAuthor can be created without avatar"
+	 "This method checks if DDAuthor can be created without an avatar"
+	
 	 | aDDAuthor |
 	 aDDAuthor := DDAuthor new.
 
-    self 
-		assert: (aDDAuthor avatar) equals: DDAuthor defaultAvatar.
+    self assert: aDDAuthor avatar equals: DDAuthor defaultAvatar.
 
 ]
 
 { #category : #test }
 DDAuthorTest >> testAvatar2 [
-	 "This test checks if DDAuthor can be created with an avatar"
+	 "This method checks if DDAuthor can be created with an avatar"
+	
 	 | aDDAuthor |
 	 aDDAuthor := DDAuthor new.
+	
 	 aDDAuthor avatar: 'user-avatar'.	
 
-    self 
-		assert: (aDDAuthor avatar) equals: 'user-avatar'.
+    self assert: aDDAuthor avatar equals: 'user-avatar'.
 
 
 ]
 
 { #category : #test }
 DDAuthorTest >> testAvatarHash [
-	"This test checks the DDAuthor avatarHash getter and setter"
+	"This method checks if avatarHash getter and setter works given an input"
+	
 	 | aDDAuthor |
 	 aDDAuthor := DDAuthor new.
+	
 	 aDDAuthor avatarHash: 'https://cdn.discordapp.com/avatars/user-id/avatar-id.webp?size=1024'.
-    self 
-		assert: (aDDAuthor avatarHash) 
-		equals: 'https://cdn.discordapp.com/avatars/user-id/avatar-id.webp?size=1024'.
+	
+    self 	assert: aDDAuthor avatarHash
+			equals: 'https://cdn.discordapp.com/avatars/user-id/avatar-id.webp?size=1024'.
 
 ]
 
 { #category : #test }
 DDAuthorTest >> testAvatarUrl [
-	"This test checks the DDAuthor avatarUrl method given a correct path"
+	"This test checks if avatarUrl works given a correct path"
+	
 	| aDDAuthor aDSUser znEasyMock aColorForm |
 	aDDAuthor := DDAuthor new.
 	aDSUser := DSUser new.
@@ -167,26 +152,20 @@ DDAuthorTest >> testAvatarUrl [
 	aColorForm := ColorForm new.
 	
 	aColorForm setExtent: 256@256 depth: 8.
-	
 	aDSUser id: 'aDSuser-id'.
 	aDSUser avatarHash: 'a_dsuser-test'.
-	
-	(znEasyMock stub getPng: 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png') 
-		willReturn: aColorForm.
+	(znEasyMock stub getPng: 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png')
+	willReturn: 	aColorForm.
 	aDDAuthor avatarUrl: znEasyMock.
 			
-	self
-		assert: (aDSUser hasAvatar) equals: true;
-		assert: (aDDAuthor hasAvatar) equals: true.
-	
-	"(anAuthorMock avatarUrl: aDSUser) should be: 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png'."
-"anAuthorMock should receive avatarUrl: aDSUser."	
-	
+	self assert: aDDAuthor hasAvatar equals: true.
+
 ]
 
 { #category : #test }
 DDAuthorTest >> testAvatarUrl2 [
-	"This test checks the DDAuthor avatarUrl method given an incorrect path"
+	"This method checks if avatarUrl works given an incorrect path"
+	
 	| aDDAuthor aDSUser znEasyMock aColorForm |
 	aDDAuthor := DDAuthor new.
 	aDSUser := DSUser new.
@@ -194,122 +173,120 @@ DDAuthorTest >> testAvatarUrl2 [
 	aColorForm := ColorForm new.
 	
 	aColorForm setExtent: 256@256 depth: 8.
-	
 	aDSUser id: 'aDSuser-id'.
 	aDSUser avatarHash: 'a_dsuser-test'.
-	
 	(znEasyMock stub getPng: 'https://cdn.discordapp.com/avatars/aDSuser-id/a_dsuser-test.png') 
-		willReturn: aColorForm.
+	willReturn: aColorForm.
 	aDDAuthor avatarUrl: znEasyMock.
-	
-	self
-		assert: (aDSUser hasAvatar) equals: true;
-		assert: (aDDAuthor hasAvatar) equals: true.
+		
+	self assert: aDDAuthor hasAvatar equals: true.
 ]
 
 { #category : #test }
 DDAuthorTest >> testAvatarUrl3 [
-	"This test checks the DDAuthor avatarUrl method if the avatar hasn't an avatarHash"
+	"This method checks if avatarUrl method works if the avatar hasn't an avatarHash"
+	
 	| aDDAuthor aDSUser|
 	aDDAuthor := DDAuthor new.
 	aDSUser := DSUser new.
-	aDSUser avatarHash: nil.
 	
+	aDSUser avatarHash: nil.
 	aDDAuthor avatarUrl: aDSUser.
 	
-	self 
-		assert: (aDDAuthor avatar) equals: DDAuthor defaultAvatar.
+	self assert: aDDAuthor avatar equals: DDAuthor defaultAvatar.
 
 ]
 
 { #category : #test }
 DDAuthorTest >> testFirstMessage [
-	"This test checks if the first message is the only message that aDDAuthor has"
-	| aDDAuthor aDDMessage |
-	aDDAuthor := DDAuthor new.
-	aDDMessage := Mock new.	
-		
-	aDDAuthor stub firstMessage willReturn: aDDMessage.
+	"This method checks if firstMessage returns the only message that aDDAuthor has"
 	
-	self
-		assert: (aDDAuthor firstMessage) equals: aDDMessage.
+	| aDDAuthor aDDMessageMock |
+	aDDAuthor := DDAuthor new.
+	aDDMessageMock := Mock new.	
+		
+	aDDAuthor addSentMessage: aDDMessageMock.
+	(aDDMessageMock timeSorted: aDDAuthor sentMessages) willReturn: aDDMessageMock.
+		
+	self assert: aDDAuthor firstMessage equals: aDDMessageMock.
 ]
 
 { #category : #test }
 DDAuthorTest >> testHasAvatar [
-	"Thsi test checks if aDDAuthor has an avatar"
+	"Thsi method checks if hasAvatar works properly"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
-	self
-		assert: (aDDAuthor hasAvatar) equals: true.
+	self assert: aDDAuthor hasAvatar equals: true.
 ]
 
 { #category : #test }
 DDAuthorTest >> testHasMessages [
-	"this test checks if aDDAuthor has messages without initializing the sentMessages array"
+	"this method checks if hasMessages works without initializing the sentMessages array"
+	
 	| aDDAuthor |
 	aDDAuthor  := DDAuthor new.
 
-	self assert: (aDDAuthor hasMessages ) equals: false.
+	self assert: aDDAuthor hasMessages equals: false.
 
 ]
 
 { #category : #test }
 DDAuthorTest >> testHasMessages2 [
-	"this test checks if aDDAuthor has messages initializing the sentMessages array"
+	"this method checks if hasMessages works initializing the sentMessages array"
+	
 	| aDDAuthor aDDMessageMock|
 	aDDAuthor  := DDAuthor new.
 	aDDMessageMock := Mock new.
 	
 	(aDDMessageMock stub author: aDDAuthor) willReturn: aDDAuthor.
-	
 	aDDAuthor addSentMessage: aDDMessageMock.
 
-	self assert: (aDDAuthor hasMessages ) equals: true.
+	self assert: aDDAuthor hasMessages equals: true.
 ]
 
 { #category : #test }
 DDAuthorTest >> testId [
-	"This method checks if aDDAuthor has a default id"
+	"This method checks if id's getter works without giving any input"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
-
-	self
-		assert: (aDDAuthor id) equals: nil.
+	self assert: aDDAuthor id equals: nil.
 ]
 
 { #category : #test }
 DDAuthorTest >> testId2 [
-	"This method checks if aDDAuthor has a default id"
+	"This method checks if id's getter and setter works given an input"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
 	aDDAuthor id: 'user-id'.
 	
-	self
-		assert: (aDDAuthor id) equals: 'user-id'.
+	self assert: aDDAuthor id equals: 'user-id'.
 ]
 
 { #category : #test }
 DDAuthorTest >> testIsActive [
-	"this test checks if aDDAuthor is active without initializing the sentMessages array"
+	"this method checks if isActiv's getter works without initializing the sentMessages array"
+	
 	| aDDAuthor |
 	aDDAuthor  := DDAuthor new.
 
-	self assert: (aDDAuthor isActive) equals: false.
+	self assert: aDDAuthor isActive equals: false.
 ]
 
 { #category : #test }
 DDAuthorTest >> testIsActive2 [
-	"this test checks if aDDAuthor is active initializing the sentMessages array"
+	"this method checks if isActive's getter and setter initializing the sentMessages array"
+	
 	| aDDAuthor aDDMessageMock|
 	aDDAuthor  := DDAuthor new.
 	aDDMessageMock := Mock new.
 	
 	(aDDMessageMock stub author: aDDAuthor) willReturn: aDDAuthor.
-	
 	aDDAuthor addSentMessage: aDDMessageMock.
 	aDDAuthor addSentMessage: aDDMessageMock.
 	aDDAuthor addSentMessage: aDDMessageMock.
@@ -319,7 +296,8 @@ DDAuthorTest >> testIsActive2 [
 
 { #category : #test }
 DDAuthorTest >> testIsMember [
-	"this test checks if aDDAuthor is member without initializing the server array"
+	"this method checks if isMember's getter works without initializing the server array"
+	
 	| aDDAuthor aSet|
 	aDDAuthor  := DDAuthor new.
 	aSet := Set new.
@@ -327,276 +305,260 @@ DDAuthorTest >> testIsMember [
 	aDDAuthor server: 'user-server'.
 	(aDDAuthor server stub members) willReturn: aSet.
 	
-	self assert: (aDDAuthor isMember) equals: false.
+	self assert: aDDAuthor isMember equals: false.
 ]
 
 { #category : #test }
 DDAuthorTest >> testIsMember2 [
-	"this test checks if aDDAuthor is member of a server initializing the server array"
-	| aDDAuthor aSet|
+	"this method checks if isMember's getter and setter works initializing the server array"
+		
+	| aDDAuthor aSet aDDServerMock|
 	aDDAuthor  := DDAuthor new.
 	aSet := Set new.
+	aDDServerMock := Mock new.
 	
 	aSet add: aDDAuthor.
-	aDDAuthor server: 'user-server'.
-	(aDDAuthor server stub members) willReturn: aSet.
+	aDDAuthor server: aDDServerMock.
+	(aDDServerMock stub members) willReturn: aSet.
 	
-	self assert: (aDDAuthor isMember) equals: true.
+	self assert: aDDAuthor isMember equals: true.
 ]
 
 { #category : #test }
 DDAuthorTest >> testLastMessage [
-	"This test checks if the last message is the only message that aDDAuthor has"
+	"This method checks if lastMessage returns the only message that aDDAuthor has"
+	
 	| aDDAuthor aDDMessageMock |
 	aDDAuthor := DDAuthor new.
 	aDDMessageMock := Mock new.	
-		
-	aDDAuthor stub lastMessage willReturn: aDDMessageMock.
 	
-	self
-		assert: (aDDAuthor lastMessage) equals: aDDMessageMock.
+	aDDAuthor addSentMessage: aDDMessageMock.
+	(aDDMessageMock timeSorted: aDDAuthor sentMessages) willReturn: aDDMessageMock.
+	
+	self assert: aDDAuthor lastMessage equals: aDDMessageMock.
 ]
 
 { #category : #test }
 DDAuthorTest >> testMergedInto [
-	"This test checks aDDAuthor's mergedInto: method"
+	"This method checks mergedInto getter and setter works given an input"
+	
 	| aDDAuthor aDDMergedAuthor |
 	aDDAuthor := DDAuthor new.
 	aDDMergedAuthor := DDMergedAuthor new.
 	
 	aDDAuthor mergedInto: aDDMergedAuthor.
 	
-	self
-		assert: (aDDAuthor mergedInto) equals: aDDMergedAuthor.
+	self assert: aDDAuthor mergedInto equals: aDDMergedAuthor.
 	
 
 ]
 
 { #category : #test }
 DDAuthorTest >> testMessageCreationDates [
-	"Test that checks if aDDAuthor's messageCreationDates method returns an empty list if sentMessages is 	not initialized"
+	"This method checks if messageCreationDates' getter works without initializing the sentMessages array"
+		
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 
 	aDDAuthor messageCreationDates.
 
-	self
-		assert: (aDDAuthor sentMessages) equals: OrderedCollection new.
+	self assert: aDDAuthor sentMessages equals: OrderedCollection new.
 	
 	
 ]
 
 { #category : #test }
 DDAuthorTest >> testMessageCreationDates2 [
-	"Test that checks if aDDAuthor's messageCreationDates method returns an ordered list if sentMessages 	is initialized"
+	"This method checks if messageCreationDates' getter and setter works initializing the sentMessages array"
+		
 	| aDDAuthor aDDMessageMock anOrderedCollection |
 	aDDAuthor := DDAuthor new.
 	aDDMessageMock := Mock new.
 	anOrderedCollection := OrderedCollection new.
 
 	(aDDMessageMock stub author: aDDAuthor) willReturn: aDDAuthor.
-	
-	aDDAuthor addSentMessage: aDDMessageMock.
-	aDDAuthor addSentMessage: aDDMessageMock.
 	aDDAuthor addSentMessage: aDDMessageMock.
 	aDDAuthor messageCreationDates.
-	
-	anOrderedCollection add: aDDMessageMock.
-	anOrderedCollection add: aDDMessageMock.
 	anOrderedCollection add: aDDMessageMock.
 
-	self
-		assert: (aDDAuthor sentMessages) equals: anOrderedCollection.
+	self assert: aDDAuthor sentMessages equals: anOrderedCollection.
 	
 	
 ]
 
 { #category : #test }
 DDAuthorTest >> testMessagesByDay [
-	"Test that checks if aDDAuthor's messagesByDay method returns an emptyList if sentMessages is not 	initialized"
+	"This method checks if messagesByDay's works if sentMessages is not initialized"
+		
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
 	aDDAuthor messagesByDay.
 
-	self
-		assert: (aDDAuthor sentMessages) equals: OrderedCollection new.
+	self assert: aDDAuthor sentMessages equals: OrderedCollection new.
 	
 	
 ]
 
 { #category : #test }
 DDAuthorTest >> testMessagesByDay2 [
-	"Test that checks if aDDAuthor's messagesByDay method returns an ordered list if sentMessages is 	initialized"
+	"This methodchecks if messagesByDay's method works if sentMessages is initialized"
+		
 	| aDDAuthor aDDMessageMock anOrderedCollection |
 	aDDAuthor := DDAuthor new.
 	aDDMessageMock := Mock new.
 	anOrderedCollection := OrderedCollection new.
 
 	(aDDMessageMock stub author: aDDAuthor) willReturn: aDDAuthor.
-	
-	aDDAuthor addSentMessage: aDDMessageMock.
-	aDDAuthor addSentMessage: aDDMessageMock.
 	aDDAuthor addSentMessage: aDDMessageMock.
 	aDDAuthor messagesByDay.
-	
-	anOrderedCollection add: aDDMessageMock.
-	anOrderedCollection add: aDDMessageMock.
 	anOrderedCollection add: aDDMessageMock.
 
-	self
-		assert: (aDDAuthor sentMessages) equals: anOrderedCollection.
+	self assert: aDDAuthor sentMessages equals: anOrderedCollection.
 	
 	
 ]
 
 { #category : #test }
 DDAuthorTest >> testNickname [
-	"This method checks if nickname's getter and setter of aDDAuthor works without giving any input"
+	"This method checks if nickname's getter works without giving any input"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
-	self
-		assert: (aDDAuthor nickname) equals: nil.
+	self assert: aDDAuthor nickname equals: nil.
 ]
 
 { #category : #test }
 DDAuthorTest >> testNickname2 [
-	"This method checks if nickname's getter and setter of aDDAuthor works given an input"
+	"This method checks if nickname's getter and setter works given an input"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
 	aDDAuthor nickname: 'user-nickname'.
 	
-	self
-		assert: (aDDAuthor nickname) equals: 'user-nickname'.
+	self assert: aDDAuthor nickname equals: 'user-nickname'.
 ]
 
 { #category : #test }
 DDAuthorTest >> testNumberOfSentMessages [
-	"this test checks if the numer of messages is equal to 0 if aDDAuthor does not send messages"
+	"This method checks if the numerOfMessages works if aDDAuthor does not send messages"
+	
 	| aDDAuthor |
 	aDDAuthor  := DDAuthor new.
 
-	self assert: (aDDAuthor numberOfSentMessages ) equals: 0.
+	self assert: aDDAuthor numberOfSentMessages equals: 0.
 
 ]
 
 { #category : #test }
 DDAuthorTest >> testNumberOfSentMessages2 [
-	"this test checks if the numer of messages is equal to k if aDDAuthor has sent k messages"
+	"This method checks if the numerOfMessages works if aDDAuthor has sent k messages"
 	"k can be any number greater than 0."
+	
 	| aDDAuthor aDDMessageMock|
 	aDDAuthor  := DDAuthor new.
 	aDDMessageMock := Mock new.
 	
 	(aDDMessageMock stub author: aDDAuthor) willReturn: aDDAuthor.
-	
-	aDDAuthor addSentMessage: aDDMessageMock.
-	aDDAuthor addSentMessage: aDDMessageMock.
 	aDDAuthor addSentMessage: aDDMessageMock.
 
-	self assert: (aDDAuthor numberOfSentMessages ) equals: 3.
+	self assert: aDDAuthor numberOfSentMessages equals: 1.
 ]
 
 { #category : #test }
 DDAuthorTest >> testRoles [
-	"This method checks if roles's getter and setter of aDDAuthor works without giving any input"
+	"This method checks if roles's getter works without giving any input"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
-	
 
-	self
-		assert: (aDDAuthor roles) equals: Set new.
+	self assert: aDDAuthor roles equals: Set new.
 ]
 
 { #category : #test }
 DDAuthorTest >> testRoles2 [
-	"This method checks if roles's getter and setter of aDDAuthor works given an input"
+	"This method checks if roles's getter and setter works given an input"
+	
 	| aDDAuthor aSet|
 	aDDAuthor := DDAuthor new.
 	aSet := Set new.
 	
 	aSet add: 'user-role'.
-	
 	aDDAuthor roles: 'user-role'.
-	
 
-	self
-		assert: (aDDAuthor roles) equals: 'user-role'.
+	self assert: aDDAuthor roles equals: 'user-role'.
 ]
 
 { #category : #test }
 DDAuthorTest >> testSentMessages [
-	"Test that checks if aDDAuthor's sentMessages method works without assigning any message to aDDAuthor"
+	"This method checks if sentMessages method works without assigning any message to aDDAuthor"
+		
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 
-	self
-		assert: (aDDAuthor sentMessages) equals: OrderedCollection new.
+	self assert: aDDAuthor sentMessages equals: OrderedCollection new.
 	
 
 ]
 
 { #category : #test }
 DDAuthorTest >> testSentMessages2 [
-	"Test that checks if aDDAuthor's sentMessages method works assigning a messsage to aDDAuthor"
+	"This method checks if sentMessages works assigning a messsage to aDDAuthor"
+	
 	| aDDAuthor aDDMessageMock anOrderedCollection |
 	aDDAuthor := DDAuthor new.
 	aDDMessageMock := Mock new.	
 	anOrderedCollection := OrderedCollection new.
 		
-	aDDAuthor stub firstMessage willReturn: aDDMessageMock.
 	aDDAuthor addSentMessage: aDDMessageMock.
+	(aDDMessageMock timeSorted: aDDAuthor sentMessages) willReturn: aDDMessageMock.
 	anOrderedCollection add: aDDMessageMock.
 	
-	self
-		assert: (aDDAuthor sentMessages) equals: anOrderedCollection.
+	self assert: aDDAuthor sentMessages equals: anOrderedCollection.
 ]
 
 { #category : #test }
 DDAuthorTest >> testServer [
-	"This method checks if server's getter and setter of aDDAuthor works without giving any input"
-	| aDDAuthor |
-	aDDAuthor := DDAuthor new.
+	"This method checks if server's getter works without giving any input"
 	
+	| aDDAuthor |
+	aDDAuthor := DDAuthor new.	
 
-	self
-		assert: (aDDAuthor server) equals: nil.
+	self assert: aDDAuthor server equals: nil.
 ]
 
 { #category : #test }
 DDAuthorTest >> testServer2 [
-	"This method checks if server's getter and setter of aDDAuthor works without given an input"
+	"This method checks if server's getter and setter works without given an input"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
 	aDDAuthor server: 'user-server'.
 
-	self
-		assert: (aDDAuthor server) equals: 'user-server'.
+	self	assert: aDDAuthor server equals: 'user-server'.
 ]
 
 { #category : #test }
 DDAuthorTest >> testUniqueName [
-	"This method checks if uniqueName's getter and setter of aDDAuthor works without giving any input"
+	"This method checks if uniqueName's getter works without giving any input"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
-
-	self
-		assert: (aDDAuthor uniqueName) equals: nil.
+	self assert: aDDAuthor uniqueName equals: nil.
 ]
 
 { #category : #test }
 DDAuthorTest >> testUniqueName2 [
-	"This method checks if uniqueName's getter and setter of aDDAuthor works given an input"
+	"This method checks if uniqueName's getter and setter works given an input"
+	
 	| aDDAuthor |
 	aDDAuthor := DDAuthor new.
 	
 	aDDAuthor uniqueName: 'unique'.
-	
 
-	self
-		assert: (aDDAuthor uniqueName) equals: 'unique'.
+	self assert: aDDAuthor uniqueName equals: 'unique'.
 ]

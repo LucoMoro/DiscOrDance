@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDChannelTest >> testAddMessage [
 	"This method checks id addMessage works properly"
+	
 	| aDDChannel aDDMessage anOrderedCollection|
 	aDDChannel := DDChannel new.
 	aDDMessage := DDMessage new.
@@ -24,6 +25,7 @@ DDChannelTest >> testAddMessage [
 { #category : #test }
 DDChannelTest >> testAuthors [
 	"This method checks id authors' getter and setter works without giving any input"
+	
 	| aDDChannel |
 	aDDChannel := DDChannel new.
 	
@@ -33,6 +35,7 @@ DDChannelTest >> testAuthors [
 { #category : #test }
 DDChannelTest >> testAuthors2 [
 	"This method checks id authors' getter and setter works given an input"
+	
 	| aDDChannel |
 	aDDChannel := DDChannel new.
 	
@@ -44,6 +47,7 @@ DDChannelTest >> testAuthors2 [
 { #category : #test }
 DDChannelTest >> testCanReadMessages [
 	"This method checks id canReadMessages' getter and setter works without giving any input"
+	
 	| aDDChannel |
 	aDDChannel := DDChannel new.
 	
@@ -53,6 +57,7 @@ DDChannelTest >> testCanReadMessages [
 { #category : #test }
 DDChannelTest >> testCanReadMessages2 [
 	"This method checks id canReadMessages' getter and setter works given an input"
+	
 	| aDDChannel |
 	aDDChannel := DDChannel new.
 	

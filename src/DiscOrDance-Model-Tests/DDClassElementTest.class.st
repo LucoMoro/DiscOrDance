@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDClassElementTest >> testName [
 	"This method checks if referencedClassName's getter and setter works given an input"
+	
 	| aDDClassElement |
 	aDDClassElement  := DDClassElement new.
 	
@@ -21,6 +22,7 @@ DDClassElementTest >> testName [
 { #category : #test }
 DDClassElementTest >> testReferencedClassName [
 	"This method checks if referencedClassName's getter and setter works without giving any input"
+	
 	| aDDClassElement |
 	aDDClassElement  := DDClassElement new.
 
@@ -30,6 +32,7 @@ DDClassElementTest >> testReferencedClassName [
 { #category : #test }
 DDClassElementTest >> testReferencedClassName2 [
 	"This method checks if referencedClassName's getter and setter works given an input"
+	
 	| aDDClassElement |
 	aDDClassElement  := DDClassElement new.
 	

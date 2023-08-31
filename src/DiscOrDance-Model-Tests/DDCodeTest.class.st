@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDCodeTest >> testCodeClasses [
 	"This method checks if codeSource's getter and setter of aDDCode works without giving any input"
+	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -22,6 +23,7 @@ DDCodeTest >> testCodeClasses [
 { #category : #test }
 DDCodeTest >> testCodeSource [
 	"This method checks if codeSource's getter and setter of aDDCode works without giving any input"
+	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -32,6 +34,7 @@ DDCodeTest >> testCodeSource [
 { #category : #test }
 DDCodeTest >> testCodeSource2 [
 	"This method checks if codeSource's getter and setter of aDDCode works given an giving any input"
+	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -44,13 +47,12 @@ DDCodeTest >> testCodeSource2 [
 { #category : #test }
 DDCodeTest >> testIsSourceCode [
 	"This method checks if isSourceCode works properly given an input"
+	
 	| aDDCode aDDSyntaxHighlightColorMetric |
 	aDDCode := DDCode new.
 	aDDSyntaxHighlightColorMetric := Mock new.
 	
-	(aDDSyntaxHighlightColorMetric stub highlightDictionary)
-		willReturn: OrderedCollection new.
-		
+	(aDDSyntaxHighlightColorMetric stub highlightDictionary) willReturn: OrderedCollection new.
 	aDDCode codeSource: ' Person {
     	private String name;
     	private int age;
@@ -63,6 +65,7 @@ DDCodeTest >> testIsSourceCode [
 { #category : #test }
 DDCodeTest >> testMessage [
 	"This method checks if message's getter and setter of aDDCode works without giving any input"
+	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -73,6 +76,7 @@ DDCodeTest >> testMessage [
 { #category : #test }
 DDCodeTest >> testMessage2 [
 	"This method checks if message's getter and setter of aDDCode works given an input"
+	
 	| aDDCode |
 	aDDCode := DDCode new.
 	
@@ -85,6 +89,7 @@ DDCodeTest >> testMessage2 [
 { #category : #test }
 DDCodeTest >> testSyntaxHighlight [
 	"This method checks syntaxHighlight first branch"
+	
 	| aDDCode |
 	aDDCode := DDCode new.
 
@@ -97,6 +102,7 @@ DDCodeTest >> testSyntaxHighlight [
 { #category : #test }
 DDCodeTest >> testSyntaxHighlight2 [
 	"This method checks syntaxHighlight second branch"
+	
 	| aDDCode |
 	aDDCode := DDCode new.
 
@@ -112,6 +118,7 @@ DDCodeTest >> testSyntaxHighlight2 [
 { #category : #test }
 DDCodeTest >> testSyntaxHighlight3 [
 	"This method checks syntaxHighlight third branch"
+	
 	| aDDCode |
 	aDDCode := DDCode new.
 

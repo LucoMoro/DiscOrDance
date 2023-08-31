@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDConversationTest >> testAdd [
 	"Test if add method works properly"
+	
 	| aDDConversation aDDMessage anOrderedCollection|
 	aDDConversation := DDConversation new.
 	aDDMessage := DDMessage new.
@@ -24,8 +25,9 @@ DDConversationTest >> testAdd [
 { #category : #test }
 DDConversationTest >> testEnd [
 	"This method checks if end's getter and setter works without giving any input"
+	
 	| aDDConversation |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 
 	self assert: (aDDConversation end) equals: nil.
 ]
@@ -33,8 +35,9 @@ DDConversationTest >> testEnd [
 { #category : #test }
 DDConversationTest >> testEnd2 [
 	"This method checks if end's getter and setter works given an input"
+	
 	| aDDConversation |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	
 	aDDConversation end: 'conversation-end'.
 
@@ -44,8 +47,9 @@ DDConversationTest >> testEnd2 [
 { #category : #test }
 DDConversationTest >> testInvolvesCode [
 	"This method checks if participatingAuthors works properly giving false as a return value for the 	mock method"
+		
 	| aDDConversation aDDMessageMock |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	aDDMessageMock := Mock new.
 	
 	aDDConversation add: aDDMessageMock.
@@ -57,8 +61,9 @@ DDConversationTest >> testInvolvesCode [
 { #category : #test }
 DDConversationTest >> testInvolvesCode2 [
 	"This method checks if participatingAuthors works properly giving false as a return value for the 	mock method"
+		
 	| aDDConversation aDDMessageMock |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	aDDMessageMock := Mock new.
 	
 	aDDConversation add: aDDMessageMock.
@@ -70,8 +75,9 @@ DDConversationTest >> testInvolvesCode2 [
 { #category : #test }
 DDConversationTest >> testIsEmpty [
 	"This method checks if isEmpty works properly without giving any input"
+	
 	| aDDConversation aDDMessageMock|
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	aDDMessageMock := Mock new.
 	
 	(aDDMessageMock stub collect: #author) willReturn: nil.
@@ -82,12 +88,12 @@ DDConversationTest >> testIsEmpty [
 { #category : #test }
 DDConversationTest >> testIsEmpty2 [
 	"This method checks if isEmpty works properly initializing the messages array input"
+	
 	| aDDConversation aDDMessageMock|
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	aDDMessageMock := Mock new.
 	
 	aDDConversation add: DDMessage new. 
-	
 	(aDDMessageMock stub collect: #author) willReturn: nil.
 
 	self assert: (aDDConversation isEmpty) equals: false.
@@ -96,8 +102,9 @@ DDConversationTest >> testIsEmpty2 [
 { #category : #test }
 DDConversationTest >> testMessages [
 	"This method checks if messages' setter and getter works without giving any input"
+	
 	| aDDConversation |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 
 	self assert: (aDDConversation messages) equals: OrderedCollection new.
 ]
@@ -105,8 +112,9 @@ DDConversationTest >> testMessages [
 { #category : #test }
 DDConversationTest >> testMessages2 [
 	"This method checks if messages' setter and getter works given an input"
+	
 	| aDDConversation |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	
 	aDDConversation messages: 'conversation-messages'.
 
@@ -116,8 +124,9 @@ DDConversationTest >> testMessages2 [
 { #category : #test }
 DDConversationTest >> testParticipatingAuthors [
 	"This method checks if participatingAuthors works properly without giving any input"
+	
 	| aDDConversation aDDMessageMock |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	aDDMessageMock := Mock new.
 	
 	(aDDMessageMock stub collect: #author) willReturn: nil.
@@ -128,13 +137,13 @@ DDConversationTest >> testParticipatingAuthors [
 { #category : #test }
 DDConversationTest >> testSpan [
 	"This method checks if span works properly given a message for start and for end"
+	
 	| aDDConversation aDDMessageMock |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	aDDMessageMock := Mock new.
 	
 	aDDConversation end: aDDMessageMock.
 	aDDConversation start: aDDMessageMock.
-	
 	(aDDMessageMock stub createdAt) willReturn: '12/08/2023'. 
 
 	self assert: (aDDConversation span)asString equals: '0:00:00:00'.
@@ -143,8 +152,9 @@ DDConversationTest >> testSpan [
 { #category : #test }
 DDConversationTest >> testStart [
 	"This method checks if start's getter and setter works without giving any input"
+	
 	| aDDConversation |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 
 	self assert: (aDDConversation start) equals: nil.
 ]
@@ -152,8 +162,9 @@ DDConversationTest >> testStart [
 { #category : #test }
 DDConversationTest >> testStart2 [
 	"This method checks if start's getter and setter works given an input"
+	
 	| aDDConversation |
-	aDDConversation  := DDConversation new.
+	aDDConversation := DDConversation new.
 	
 	aDDConversation start: 'conversation-start'.
 

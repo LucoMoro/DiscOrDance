@@ -10,8 +10,9 @@ Class {
 { #category : #test }
 DDEmbedFieldTest >> testValue [
 	"This method checks if value's getter and setter works without giving any input"
+	
 	| aDDEmbedField |
-	aDDEmbedField  := DDEmbedField new.
+	aDDEmbedField := DDEmbedField new.
 
 	self assert: (aDDEmbedField value) equals: nil.
 ]
@@ -19,8 +20,9 @@ DDEmbedFieldTest >> testValue [
 { #category : #test }
 DDEmbedFieldTest >> testValue2 [
 	"This method checks if value's getter and setter works giving an input"
+	
 	| aDDEmbedField |
-	aDDEmbedField  := DDEmbedField new.
+	aDDEmbedField := DDEmbedField new.
 	
 	aDDEmbedField value: 'embedField-value'.
 

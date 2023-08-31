@@ -9,100 +9,110 @@ Class {
 
 { #category : #test }
 DDAttachmentTest >> testFileName [
-	"This method checks if fileName's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if fileName's getter works without giving any input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
-	self assert: (aDDAttachment fileName) equals: nil.
+	self assert: aDDAttachment fileName equals: nil.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testFileName2 [
-	"This method checks if fileName's getter and setter of aDDAttachment works given an input"
+	"This method checks if fileName's getter and setter works given an input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
 	aDDAttachment fileName: 'attachment-filename'.
 	
-	self assert: (aDDAttachment fileName) equals: 'attachment-filename'.
+	self assert: aDDAttachment fileName equals: 'attachment-filename'.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testFileSize [
-	"This method checks if fileSize's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if fileSize's getter works without giving any input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
-	self assert: (aDDAttachment fileSize) equals: nil.
+	self assert: aDDAttachment fileSize equals: nil.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testFileSize2 [
-	"This method checks if fileSize's getter and setter of aDDAttachment works given an input"
+	"This method checks if fileSize's getter and setter works given an input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
 	aDDAttachment fileSize: 'attachment-size'.
 	 
-	self assert: (aDDAttachment fileSize) equals: 'attachment-size'.
+	self assert: aDDAttachment fileSize equals: 'attachment-size'.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testId [
-	"This method checks if id's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if id's getter works without giving any input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
-	self assert: (aDDAttachment id) equals: nil.
+	self assert: aDDAttachment id equals: nil.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testId2 [
-	"This method checks if id's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if id's getter and setter works without giving any input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
 	aDDAttachment id: 'attachment-id'.
 	
-	self assert: (aDDAttachment id) equals: 'attachment-id'.
+	self assert: aDDAttachment id equals: 'attachment-id'.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testProxyUrl [
-	"This method checks if proxyUrl's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if proxyUrl's getter works without giving any input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
-	self assert: (aDDAttachment proxyUrl) equals: nil.
+	self assert: aDDAttachment proxyUrl equals: nil.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testProxyUrl2 [
-	"This method checks if proxyUrl's getter and setter of aDDAttachment works given an input"
+	"This method checks if proxyUrl's getter and setter works given an input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
 	aDDAttachment proxyUrl: 'attachment-proxy'.
 	
-	self assert: (aDDAttachment proxyUrl) equals: 'attachment-proxy'.
+	self assert: aDDAttachment proxyUrl equals: 'attachment-proxy'.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testUrl [
-	"This method checks if url's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if url's getter works without giving any input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
-	self assert: (aDDAttachment url) equals: nil.
+	self assert: aDDAttachment url equals: nil.
 ]
 
 { #category : #test }
 DDAttachmentTest >> testUrl2 [
-	"This method checks if url's getter and setter of aDDAttachment works without giving any input"
+	"This method checks if url's getter and setter works without giving any input"
+	
 	| aDDAttachment |
 	aDDAttachment := DDAttachment new.
 	
 	aDDAttachment url: 'attachment-url'.
 	
-	self assert: (aDDAttachment url) equals: 'attachment-url'.
+	self assert: aDDAttachment url equals: 'attachment-url'.
 ]

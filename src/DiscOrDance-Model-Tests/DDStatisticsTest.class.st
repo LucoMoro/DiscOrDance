@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDStatisticsTest >> testActivityStats [
 	"This method checks if activityStats' getter and setter works without giving any input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
@@ -19,6 +20,7 @@ DDStatisticsTest >> testActivityStats [
 { #category : #test }
 DDStatisticsTest >> testActivityStats2 [
 	"This method checks if activityStats' getter and setter works given an input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 	
@@ -30,6 +32,7 @@ DDStatisticsTest >> testActivityStats2 [
 { #category : #test }
 DDStatisticsTest >> testAuthorStats [
 	"This method checks if authorStats' getter and setter works without giving any input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
@@ -39,6 +42,7 @@ DDStatisticsTest >> testAuthorStats [
 { #category : #test }
 DDStatisticsTest >> testAuthorStats2 [
 	"This method checks if authorStats' getter and setter works given an input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 	
@@ -50,6 +54,7 @@ DDStatisticsTest >> testAuthorStats2 [
 { #category : #test }
 DDStatisticsTest >> testConversationStats [
 	"This method checks if conversationStats' getter and setter works without giving any input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
@@ -59,6 +64,7 @@ DDStatisticsTest >> testConversationStats [
 { #category : #test }
 DDStatisticsTest >> testConversationStats2 [
 	"This method checks if conversationStats' getter and setter works given an input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 	
@@ -70,6 +76,7 @@ DDStatisticsTest >> testConversationStats2 [
 { #category : #test }
 DDStatisticsTest >> testMessageStats [
 	"This method checks if messageStats' getter and setter works without giving any input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
@@ -79,6 +86,7 @@ DDStatisticsTest >> testMessageStats [
 { #category : #test }
 DDStatisticsTest >> testMessageStats2 [
 	"This method checks if messageStats' getter and setter works given an input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 	
@@ -90,6 +98,7 @@ DDStatisticsTest >> testMessageStats2 [
 { #category : #test }
 DDStatisticsTest >> testServer [
 	"This method checks if server's getter and setter works without giving any input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
@@ -99,6 +108,7 @@ DDStatisticsTest >> testServer [
 { #category : #test }
 DDStatisticsTest >> testServer2 [
 	"This method checks if server's getter and setter works given an input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
@@ -110,6 +120,7 @@ DDStatisticsTest >> testServer2 [
 { #category : #test }
 DDStatisticsTest >> testServerStats [
 	"This method checks if serverStats' getter and setter works without giving any input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 
@@ -119,6 +130,7 @@ DDStatisticsTest >> testServerStats [
 { #category : #test }
 DDStatisticsTest >> testServerStats2 [
 	"This method checks if serverStats' getter and setter works given an input"
+	
 	| aDDStatistics |
 	aDDStatistics  := DDStatistics new.
 	

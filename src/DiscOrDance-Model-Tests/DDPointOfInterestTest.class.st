@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDPointOfInterestTest >> testChannel [
 	"This method checks if channel's getter and setter works without giving any input"
+	
 	| aDDPointOfInterest |
 	aDDPointOfInterest  := DDPointOfInterest new.
 
@@ -19,6 +20,7 @@ DDPointOfInterestTest >> testChannel [
 { #category : #test }
 DDPointOfInterestTest >> testChannel2 [
 	"This method checks if channel's getter and setter works given an input"
+	
 	| aDDPointOfInterest |
 	aDDPointOfInterest  := DDPointOfInterest new.
 	
@@ -30,6 +32,7 @@ DDPointOfInterestTest >> testChannel2 [
 { #category : #test }
 DDPointOfInterestTest >> testCriteria [
 	"This method checks if criteria's getter and setter works without giving any input"
+	
 	| aDDPointOfInterest |
 	aDDPointOfInterest  := DDPointOfInterest new.
 
@@ -39,6 +42,7 @@ DDPointOfInterestTest >> testCriteria [
 { #category : #test }
 DDPointOfInterestTest >> testCriteria2 [
 	"This method checks if criteria's getter and setter works given an input"
+	
 	| aDDPointOfInterest |
 	aDDPointOfInterest  := DDPointOfInterest new.
 	
@@ -50,6 +54,7 @@ DDPointOfInterestTest >> testCriteria2 [
 { #category : #test }
 DDPointOfInterestTest >> testMessage [
 	"This method checks if message's getter and setter works without giving any input"
+	
 	| aDDPointOfInterest |
 	aDDPointOfInterest  := DDPointOfInterest new.
 
@@ -59,6 +64,7 @@ DDPointOfInterestTest >> testMessage [
 { #category : #test }
 DDPointOfInterestTest >> testMessage2 [
 	"This method checks if message's getter and setter works given an input"
+	
 	| aDDPointOfInterest |
 	aDDPointOfInterest  := DDPointOfInterest new.
 	
@@ -70,6 +76,7 @@ DDPointOfInterestTest >> testMessage2 [
 { #category : #test }
 DDPointOfInterestTest >> testName [
 	"This method checks if name's getter and setter works given an input"
+	
 	| aDDPointOfInterest |
 	aDDPointOfInterest  := DDPointOfInterest new.
 	

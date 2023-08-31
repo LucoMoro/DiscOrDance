@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDRoleTest >> testEquals [
 	"This method checks if id's getter and setter works given an input"
+	
 	| aDDRole aSecondDDRole |
 	aDDRole  := DDRole new.
 	aSecondDDRole := DDRole new.
@@ -21,6 +22,7 @@ DDRoleTest >> testEquals [
 { #category : #test }
 DDRoleTest >> testId [
 	"This method checks if id's getter and setter works without giving any input"
+	
 	| aDDRole |
 	aDDRole  := DDRole new.
 
@@ -30,6 +32,7 @@ DDRoleTest >> testId [
 { #category : #test }
 DDRoleTest >> testId2 [
 	"This method checks if id's getter and setter works given an input"
+	
 	| aDDRole |
 	aDDRole  := DDRole new.
 	

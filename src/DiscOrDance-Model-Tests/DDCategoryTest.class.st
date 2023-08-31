@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDCategoryTest >> testChannels [
 	"This method checks if channels' getter and setter works without giving any input"
+	
 	| aDDCategory |
 	aDDCategory := DDCategory new.
 	
@@ -19,6 +20,7 @@ DDCategoryTest >> testChannels [
 { #category : #test }
 DDCategoryTest >> testChannels2 [
 	"This method checks if channels' getter and setter works given an input"
+	
 	| aDDCategory |
 	aDDCategory := DDCategory new.
 	
@@ -30,6 +32,7 @@ DDCategoryTest >> testChannels2 [
 { #category : #test }
 DDCategoryTest >> testGetAuthors [
 	"This method checks if getAuthors works properly"
+	
 	| aDDCategory aDDChannelMock |
 	aDDCategory := DDCategory new.
 	aDDChannelMock := Mock new.
@@ -42,6 +45,7 @@ DDCategoryTest >> testGetAuthors [
 { #category : #test }
 DDCategoryTest >> testGetContainerServer [
 	"This method checks if getContainerServer works properly without giving any input" 
+	
 	| aDDCategory |
 	aDDCategory := DDCategory new.
 	
@@ -50,7 +54,8 @@ DDCategoryTest >> testGetContainerServer [
 
 { #category : #test }
 DDCategoryTest >> testGetContainerServer2 [
-	"This method checks if getContainerServer works properly given an input" 
+	"This method checks if getContainerServer works properly given an input"
+	
 	| aDDCategory |
 	aDDCategory := DDCategory new.
 	
@@ -62,6 +67,7 @@ DDCategoryTest >> testGetContainerServer2 [
 { #category : #test }
 DDCategoryTest >> testGetMessagesByAuthor [
 	"This method checks if getMessagesByAuthor works properly"
+	
 	| aDDCategory aDDChannelMock |
 	aDDCategory := DDCategory new.
 	aDDChannelMock := Mock new.
@@ -74,6 +80,7 @@ DDCategoryTest >> testGetMessagesByAuthor [
 { #category : #test }
 DDCategoryTest >> testParent [
 	"This method checks if parent's getter and setter works without giving any input"
+	
 	| aDDCategory |
 	aDDCategory := DDCategory new.
 	
@@ -83,6 +90,7 @@ DDCategoryTest >> testParent [
 { #category : #test }
 DDCategoryTest >> testParent2 [
 	"This method checks if parent's getter and setter works given an input"
+	
 	| aDDCategory |
 	aDDCategory := DDCategory new.
 	
@@ -94,6 +102,7 @@ DDCategoryTest >> testParent2 [
 { #category : #test }
 DDCategoryTest >> testServer [
 	"This method checks if server's getter and setter works without giving any input"
+	
 	| aDDCategory |
 	aDDCategory := DDCategory new.
 
@@ -103,6 +112,7 @@ DDCategoryTest >> testServer [
 { #category : #test }
 DDCategoryTest >> testServer2 [
 	"This method checks if server's getter and setter works given an input"
+	
 	| aDDCategory |
 	aDDCategory := DDCategory new.
 	
@@ -114,6 +124,7 @@ DDCategoryTest >> testServer2 [
 { #category : #test }
 DDCategoryTest >> testTextChannels [
 	"This method checks if textChannels works properly"
+	
 	| aDDCategory aDDChannelMock |
 	aDDCategory := DDCategory new.
 	aDDChannelMock := Mock new.
@@ -126,6 +137,7 @@ DDCategoryTest >> testTextChannels [
 { #category : #test }
 DDCategoryTest >> testVoiceChannels [
 	"This method checks if voiceChannels works properly"
+	
 	| aDDCategory aDDChannelMock |
 	aDDCategory := DDCategory new.
 	aDDChannelMock := Mock new.

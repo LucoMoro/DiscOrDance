@@ -10,6 +10,7 @@ Class {
 { #category : #test }
 DDMethodElementTest >> testName [
 	"This method checks if name's getter and setter works given an input"
+	
 	| aDDMethodElement |
 	aDDMethodElement  := DDMethodElement new.
 	
@@ -21,6 +22,7 @@ DDMethodElementTest >> testName [
 { #category : #test }
 DDMethodElementTest >> testReferencedMethodName [
 	"This method checks if referencedMethodName's getter and setter works without giving any input"
+	
 	| aDDMethodElement |
 	aDDMethodElement  := DDMethodElement new.
 
@@ -30,6 +32,7 @@ DDMethodElementTest >> testReferencedMethodName [
 { #category : #test }
 DDMethodElementTest >> testReferencedMethodName2 [
 	"This method checks if referencedMethodName's getter and setter works given an input"
+	
 	| aDDMethodElement |
 	aDDMethodElement  := DDMethodElement new.
 	
