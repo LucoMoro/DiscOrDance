@@ -9,9 +9,10 @@ Class {
 
 { #category : #test }
 DDUserMentionTest >> testIsUserMention [
-	"This test checks if isUserMention's getter works witout giving any input"
+	"This method checks if isUserMention's getter works witout giving any input"
+	
 	| aDDUserMention |
 	aDDUserMention := DDUserMention new.
 	
-	self assert: (aDDUserMention isUserMention) equals: true.
+	self assert: aDDUserMention isUserMention equals: true.
 ]

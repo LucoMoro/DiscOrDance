@@ -9,9 +9,10 @@ Class {
 
 { #category : #test }
 DDRoleMentionTest >> testIsRoleMention [
-	"This test checks if isRoleMention's getter works witout giving any input"
+	"This method checks if isRoleMention's getter works witout giving any input"
+	
 	| aDDRoleMention |
 	aDDRoleMention := DDRoleMention new.
 	
-	self assert: (aDDRoleMention isRoleMention) equals: true.
+	self assert: aDDRoleMention isRoleMention equals: true.
 ]
