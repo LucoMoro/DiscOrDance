@@ -9,19 +9,21 @@ Class {
 
 { #category : #test }
 DDMentionTest >> testChangeMentionee [
-	"This test checks if changeMentionee works properly without entering in the true branch"
+	"This method checks if changeMentionee works properly without entering in the true branch"
+	
 	| aDDMention aSecondMention|
 	aDDMention := DDMention new.
 	aSecondMention := DDMention new.
 	
 	aDDMention changeMentionee: aSecondMention.
 	
-	self assert: (aDDMention mentionedEntity) equals: aSecondMention.
+	self assert: aDDMention mentionedEntity equals: aSecondMention.
 ]
 
 { #category : #test }
 DDMentionTest >> testChangeMentionee2 [
-	"This test checks if changeMentionee works properly entering in the true branch"
+	"This method checks if changeMentionee works properly entering in the true branch"
+	
 	| aDDMention aSecondMention|
 	aDDMention := DDMention new.
 	aSecondMention := DDMention new.
@@ -30,12 +32,13 @@ DDMentionTest >> testChangeMentionee2 [
 	aDDMention mentionedEntity: aSecondMention.
 	aDDMention changeMentionee: aSecondMention.
 	
-	self assert: (aDDMention mentioningEntity) equals: aSecondMention.
+	self assert: aDDMention mentioningEntity equals: aSecondMention.
 ]
 
 { #category : #test }
 DDMentionTest >> testChangeMentioner [
-	"This test checks if changeMentionee works properly without entering in the true branch"
+	"This method checks if changeMentionee works properly without entering in the true branch"
+	
 	| aDDMention aSecondMention|
 	aDDMention := DDMention new.
 	aSecondMention := DDMention new.
@@ -44,12 +47,13 @@ DDMentionTest >> testChangeMentioner [
 	aDDMention mentionedEntity: aSecondMention.
 	aDDMention changeMentionee: aSecondMention.
 	
-	self assert: (aDDMention mentioningEntity) equals: aSecondMention.
+	self assert: aDDMention mentioningEntity equals: aSecondMention.
 ]
 
 { #category : #test }
 DDMentionTest >> testChangeMentioner2 [
-	"This test checks if changeMentionee works properly entering in the true branch"
+	"This method checks if changeMentionee works properly entering in the true branch"
+	
 	| aDDMention aSecondMention|
 	aDDMention := DDMention new.
 	aSecondMention := DDMention new.
@@ -58,81 +62,89 @@ DDMentionTest >> testChangeMentioner2 [
 	aDDMention mentionedEntity: aSecondMention.
 	aDDMention changeMentionee: aSecondMention.
 	
-	self assert: (aDDMention mentionedEntity) equals: aSecondMention.
+	self assert: aDDMention mentionedEntity equals: aSecondMention.
 ]
 
 { #category : #test }
 DDMentionTest >> testIsChannelMention [
-	"This test checks if isChannelMention works properly"
+	"This method checks if isChannelMention works properly"
+	
 	| aDDMention |
 	aDDMention := DDMention new.
 	
-	self assert: (aDDMention isChannelMention) equals: false.
+	self assert: aDDMention isChannelMention equals: false.
 ]
 
 { #category : #test }
 DDMentionTest >> testIsRoleMention [
-	"This test checks if isRoleMention works properly"
+	"This method checks if isRoleMention works properly"
+	
 	| aDDMention |
 	aDDMention := DDMention new.
 	
-	self assert: (aDDMention isRoleMention) equals: false.
+	self assert: aDDMention isRoleMention equals: false.
 ]
 
 { #category : #test }
 DDMentionTest >> testIsSpecialMention [
-	"This test checks if isSpecialMention works properly"
+	"This method checks if isSpecialMention works properly"
+	
 	| aDDMention |
 	aDDMention := DDMention new.
 	
-	self assert: (aDDMention isSpecialMention) equals: false.
+	self assert: aDDMention isSpecialMention equals: false.
 ]
 
 { #category : #test }
 DDMentionTest >> testIsUserMention [
-	"This test checks if mentionedEntity's setter and getter works without giving any input"
+	"This method checks if mentionedEntity's getter works without giving any input"
+	
 	| aDDMention |
 	aDDMention := DDMention new.
 	
-	self assert: (aDDMention isUserMention) equals: false.
+	self assert: aDDMention isUserMention equals: false.
 ]
 
 { #category : #test }
 DDMentionTest >> testMentionedEntity [
-	"This test checks if mentionedEntity's setter and getter works without giving any input"
+	"This method checks if mentionedEntity's getter works without giving any input"
+	
 	| aDDMention |
 	aDDMention := DDMention new.
 	
-	self assert: (aDDMention mentionedEntity) equals: nil.
+	self assert: aDDMention mentionedEntity equals: nil.
 ]
 
 { #category : #test }
 DDMentionTest >> testMentionedEntity2 [
-	"This test checks if mentionedEntity's setter and getter works given an input"
+	"This method checks if mentionedEntity's getter and setter works given an input"
+	
 	| aDDMention |
 	aDDMention := DDMention new.
 	
 	aDDMention mentionedEntity: 'mention-mentionedEntity'.
 	
-	self assert: (aDDMention mentionedEntity) equals: 'mention-mentionedEntity'.
+	self assert: aDDMention mentionedEntity equals: 'mention-mentionedEntity'.
 ]
 
 { #category : #test }
 DDMentionTest >> testMentioningEntity [
-	"This test checks if mentioningEntity's setter and getter works without giving any input"
+	"This method checks if mentioningEntity's getter works without giving any input"
+	
 	| aDDMention |
 	aDDMention := DDMention new.
 	
-	self assert: (aDDMention mentioningEntity) equals: nil.
+	self assert: aDDMention mentioningEntity equals: nil.
 ]
 
 { #category : #test }
 DDMentionTest >> testMentioningEntity2 [
-	"This test checks if mentioningEntity's setter and getter works given an input"
+	"This method checks if mentioningEntity's getter and setter works given an input"
+	
 	| aDDMention |
 	aDDMention := DDMention new.
 	
 	aDDMention mentioningEntity: 'mention-mentioningEntity'.
 	
-	self assert: (aDDMention mentioningEntity) equals: 'mention-mentioningEntity'.
+	self assert: aDDMention mentioningEntity equals: 'mention-mentioningEntity'.
 ]

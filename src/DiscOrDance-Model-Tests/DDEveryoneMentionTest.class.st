@@ -9,9 +9,10 @@ Class {
 
 { #category : #test }
 DDEveryoneMentionTest >> testIsAtEveryone [
-	"This test checks if isAtEveryone's getter works witout giving any input"
+	"This method checks if isAtEveryone's getter works witout giving any input"
+	
 	| aDDEveryoneMention |
 	aDDEveryoneMention := DDEveryoneMention new.
 	
-	self assert: (aDDEveryoneMention isAtEveryone) equals: true.
+	self assert: aDDEveryoneMention isAtEveryone equals: true.
 ]

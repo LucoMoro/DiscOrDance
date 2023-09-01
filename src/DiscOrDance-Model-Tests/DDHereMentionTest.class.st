@@ -9,9 +9,10 @@ Class {
 
 { #category : #test }
 DDHereMentionTest >> testIsAtHere [
-	"This test checks if isAtHere's getter works witout giving any input"
+	"This method checks if isAtHere's getter works witout giving any input"
+	
 	| aDDHereMention |
 	aDDHereMention := DDHereMention new.
 	
-	self assert: (aDDHereMention isAtHere) equals: true.
+	self assert: aDDHereMention isAtHere equals: true.
 ]

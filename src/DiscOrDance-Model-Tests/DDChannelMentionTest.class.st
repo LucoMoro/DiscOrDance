@@ -9,9 +9,10 @@ Class {
 
 { #category : #test }
 DDChannelMentionTest >> testIsChannelMention [
-	"This test checks if isChannelMention's getter works witout giving any input"
+	"This method checks if isChannelMention's getter works witout giving any input"
+	
 	| aDDChannelMention |
 	aDDChannelMention := DDChannelMention new.
 	
-	self assert: (aDDChannelMention isChannelMention) equals: true.
+	self assert: aDDChannelMention isChannelMention equals: true.
 ]
