@@ -23,6 +23,16 @@ DDConversationTest >> testAdd [
 ]
 
 { #category : #test }
+DDConversationTest >> testCodeElements [
+	"This method checks if span works properly"
+	
+	| aDDConversation |
+	aDDConversation := DDConversation new.
+
+	self assert: aDDConversation codeElements equals: OrderedCollection new.
+]
+
+{ #category : #test }
 DDConversationTest >> testEnd [
 	"This method checks if end's gette works without giving any input"
 	
@@ -145,6 +155,21 @@ DDConversationTest >> testSpan [
 	aDDConversation end: aDDMessageMock.
 	aDDConversation start: aDDMessageMock.
 	(aDDMessageMock stub createdAt) willReturn: '12/08/2023'. 
+
+	self assert: (aDDConversation span)asString equals: '0:00:00:00'.
+]
+
+{ #category : #test }
+DDConversationTest >> testSpan2 [
+	"This method checks if span works properly without mocking the DDMessage class"
+	
+	| aDDConversation aDDMessage |
+	aDDConversation := DDConversation new.
+	aDDMessage := DDMessage new.
+	
+	aDDConversation end: aDDMessage.
+	aDDConversation start: aDDMessage.
+	aDDMessage createdAt: '12/08/2023'. 
 
 	self assert: (aDDConversation span)asString equals: '0:00:00:00'.
 ]

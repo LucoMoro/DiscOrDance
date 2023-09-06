@@ -212,6 +212,24 @@ DDAuthorTest >> testFirstMessage [
 ]
 
 { #category : #test }
+DDAuthorTest >> testFirstMessage2 [
+	"This method checks if firstMessage returns the only message that aDDAuthor has without mocking the 	DDMessage class"
+	
+	| aDDAuthor aDDMessage aSecondDDMessage |
+	aDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	
+	aDDMessage createdAt: '05-06-23'.
+	aSecondDDMessage createdAt: '04-06-23'.
+
+	aDDAuthor addSentMessage: aDDMessage.
+	aDDAuthor addSentMessage: aSecondDDMessage.	
+		
+	self assert: aDDAuthor firstMessage equals: aSecondDDMessage.
+]
+
+{ #category : #test }
 DDAuthorTest >> testHasAvatar [
 	"Thsi method checks if hasAvatar works properly"
 	
@@ -325,6 +343,23 @@ DDAuthorTest >> testIsMember2 [
 ]
 
 { #category : #test }
+DDAuthorTest >> testIsMember3 [
+	"this method checks if isMember's getter and setter works initializing the server array, without 	mocking the Server class "
+		
+	| aDDAuthor aSet aDDServer |
+	aDDAuthor  := DDAuthor new.
+	aSet := Set new.
+	aDDServer := DDServer new.
+	
+	aSet add: aDDAuthor.
+	aDDAuthor server: aDDServer.
+	
+	aDDServer members: aSet.
+	
+	self assert: aDDAuthor isMember equals: true.
+]
+
+{ #category : #test }
 DDAuthorTest >> testLastMessage [
 	"This method checks if lastMessage returns the only message that aDDAuthor has"
 	
@@ -336,6 +371,24 @@ DDAuthorTest >> testLastMessage [
 	(aDDMessageMock timeSorted: aDDAuthor sentMessages) willReturn: aDDMessageMock.
 	
 	self assert: aDDAuthor lastMessage equals: aDDMessageMock.
+]
+
+{ #category : #test }
+DDAuthorTest >> testLastMessage2 [
+	"This method checks if lastMessage returns the only message that aDDAuthor has without moking the 	DDMessage class"
+	
+	| aDDAuthor aDDMessage aSecondDDMessage |
+	aDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	
+	aDDMessage createdAt: '05-06-23'.
+	aSecondDDMessage createdAt: '04-06-23'.
+
+	aDDAuthor addSentMessage: aDDMessage.
+	aDDAuthor addSentMessage: aSecondDDMessage.	
+		
+	self assert: aDDAuthor lastMessage equals: aDDMessage.
 ]
 
 { #category : #test }
