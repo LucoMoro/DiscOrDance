@@ -43,6 +43,21 @@ DDCategoryTest >> testGetAuthors [
 ]
 
 { #category : #test }
+DDCategoryTest >> testGetAuthors2 [
+	"This method checks if getAuthors works properly without mocking the DDChannel class"
+	
+	| aDDCategory aDDChannel aSet|
+	aDDCategory := DDCategory new.
+	aDDChannel := DDChannel new.
+	aSet := Set new.
+	
+	aSet add: aDDChannel.
+	aDDCategory channels: aSet.
+	
+	self assert: aDDCategory getAuthors equals: Set new. 
+]
+
+{ #category : #test }
 DDCategoryTest >> testGetContainerServer [
 	"This method checks if getContainerServer works properly without giving any input" 
 	
@@ -75,6 +90,40 @@ DDCategoryTest >> testGetMessagesByAuthor [
 	(aDDChannelMock stub collect: OrderedCollection new) willReturn: OrderedCollection new.
 	
 	self assert: aDDCategory getMessagesByAuthor equals: Bag new. 
+]
+
+{ #category : #test }
+DDCategoryTest >> testGetMessagesByAuthor2 [
+	"This method checks if getMessagesByAuthor works properly without mocking the DDChannel class"
+	
+	| aDDCategory aDDChannel aSet |
+	aDDCategory := DDCategory new.
+	aDDChannel := DDChannel new.
+	aSet := Set new.
+	
+	aSet add: aDDChannel.
+	aDDCategory channels: aSet.
+	
+	self assert: aDDCategory getMessagesByAuthor equals: Bag new. 
+]
+
+{ #category : #test }
+DDCategoryTest >> testMaxMessagesInChannels [
+	"This method checks if getMessagesByAuthor works properly without mocking the DDChannel class"
+	
+	| aDDCategory aDDChannel aSet aSecondDDChannel |
+	aDDCategory := DDCategory new.
+	aDDChannel := DDChannel new.
+	aSet := Set new.
+	aSecondDDChannel := DDChannel new.
+	
+	aSet add: aDDChannel.
+	aSet add: aSecondDDChannel.
+	aDDChannel messages: 'hello'.
+	aSecondDDChannel messages: 'hello there'.
+	aDDCategory channels: aSet.
+	
+	self assert: aDDCategory maxMessagesInChannels equals: 11. 
 ]
 
 { #category : #test }
