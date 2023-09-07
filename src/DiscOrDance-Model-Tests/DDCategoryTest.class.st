@@ -184,6 +184,21 @@ DDCategoryTest >> testTextChannels [
 ]
 
 { #category : #test }
+DDCategoryTest >> testTextChannels2 [
+	"This method checks if textChannels works properly without mocking the DDChannel subclass"
+	
+	| aDDCategory aDDTextChannel aSet |
+	aDDCategory := DDCategory new.
+	aDDTextChannel := DDTextChannel new.
+	aSet := Set new.
+	
+	aSet add: aDDTextChannel.
+	aDDCategory channels: aSet.	
+	
+	self assert: aDDCategory textChannels equals: aSet. 
+]
+
+{ #category : #test }
 DDCategoryTest >> testVoiceChannels [
 	"This method checks if voiceChannels works properly"
 	
@@ -194,4 +209,19 @@ DDCategoryTest >> testVoiceChannels [
 	(aDDChannelMock collect: OrderedCollection new) willReturn: OrderedCollection new.
 	
 	self assert: aDDCategory voiceChannels equals: OrderedCollection new. 
+]
+
+{ #category : #test }
+DDCategoryTest >> testVoiceChannels2 [
+	"This method checks if voiceChannels works properly without mocking the DDChannel subclass"
+	
+	| aDDCategory aDDVoiceChannel aSet |
+	aDDCategory := DDCategory new.
+	aDDVoiceChannel := DDVoiceChannel new.
+	aSet := Set new.
+	
+	aSet add: aDDVoiceChannel.
+	aDDCategory channels: aSet.	
+	
+	self assert: aDDCategory voiceChannels equals: aSet. 
 ]
