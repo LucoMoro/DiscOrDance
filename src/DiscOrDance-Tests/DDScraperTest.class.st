@@ -156,3 +156,13 @@ DDScraperTest >> testGetServersList [
 	self assert: list isNotEmpty.
 	self assert: (list includes: 'Wolfenmark bot development server')
 ]
+
+{ #category : #test }
+DDScraperTest >> testGlobalConfiguration [
+	| aConfiguration |
+	aConfiguration := DDGlobalConfiguration new limitMessages: true; messagesPerChannel: 1000.
+	scraper globalConfiguration: aConfiguration.
+	
+	self assert: scraper globalConfiguration limitMessages equals: true.
+	self assert: scraper globalConfiguration messagesPerChannel equals: 1000.
+]
