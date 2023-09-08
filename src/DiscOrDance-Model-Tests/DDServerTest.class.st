@@ -87,6 +87,24 @@ DDServerTest >> testActivitySortedAuthors [
 ]
 
 { #category : #test }
+DDServerTest >> testActivitySortedAuthors2 [
+	"Tist method checks if activitySortedAuthors works properly without mocking the DDAuthor class"
+	
+	| aDDServer aDDAuthor aSet anOrderedCollection |
+	aDDServer := DDServer new.
+	aSet := Set new.
+	aDDAuthor := DDAuthor new.
+	anOrderedCollection := OrderedCollection new.
+	
+	aSet add: aDDAuthor.
+	anOrderedCollection add: aDDAuthor.
+	aDDServer authors: aSet.
+	
+	self assert: aDDServer activitySortedAuthors equals: anOrderedCollection.
+
+]
+
+{ #category : #test }
 DDServerTest >> testAddActiveAuthor [
 	"Tist method checks if addActiveAuthor works properly without initializing the array"
 	
@@ -405,6 +423,23 @@ DDServerTest >> testGetEmojiWithId [
 ]
 
 { #category : #test }
+DDServerTest >> testGetMessageWithId [
+	"Tist method checks if getEmojiWithId works properly"
+	
+	| aDDServer aDDMessageMock aSet|
+	aDDServer := DDServer new.
+	aDDMessageMock := Mock new.
+	aSet := Set new.
+
+	aSet add: aDDMessageMock.
+	aDDServer emojis: aSet.
+	(aDDMessageMock stub id) willReturn: 'message-id'.
+	
+	self assert: (aDDServer getEmojiWithId: 'message-id') equals: aDDMessageMock.
+
+]
+
+{ #category : #test }
 DDServerTest >> testGetRoleWithId [
 	"Tist method checks if getRoleWithId first branch works properly"
 	
@@ -535,6 +570,22 @@ DDServerTest >> testMaxMessagesForAuthors2 [
 	aSet add: aDDAuthorMock.
 	aDDServer authors: aSet.
 	(aDDAuthorMock stub sentMessages) willReturn: aMessageSet.
+	
+	self assert: aDDServer maxMessagesForAuthors equals: 1.
+]
+
+{ #category : #test }
+DDServerTest >> testMaxMessagesForAuthors3 [
+	"This method checks if maxMessagesForAuthors works properly given an initialized array of messages 	without mocking the DDAuthor class"
+	
+	| aDDServer aDDAuthor aSet |
+	aDDServer := DDServer new.
+	aDDAuthor := DDAuthor new.
+	aSet := Set new.
+	
+	aDDAuthor addSentMessage: DDMessage new.
+	aSet add: aDDAuthor.
+	aDDServer authors: aSet.
 	
 	self assert: aDDServer maxMessagesForAuthors equals: 1.
 ]
