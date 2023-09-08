@@ -240,20 +240,34 @@ DDServerTest >> testAuthorsNamed [
 
 { #category : #test }
 DDServerTest >> testAuthorsNamed2 [
+	"Tist method checks if authorsNamed function works properly if the array is initialized"
+	
+	| aDDServer aDDAuthorMock aSet|
+	aDDServer := DDServer new.
+	aDDAuthorMock := Mock new.
+	aSet := Set new.
+
+	aSet add: aDDAuthorMock.
+	aDDServer authors: aSet.
+	(aDDAuthorMock stub name) willReturn: 'author-name'.
+
+	self assert: (aDDServer authorsNamed: 'author-name') equals: aSet.
+]
+
+{ #category : #test }
+DDServerTest >> testAuthorsNamed3 [
 	"Tist method checks if authorsNamed function works properly if the array is initialized without 	mocking the DDAuthor class"
 	
 	| aDDServer aDDAuthor aSet|
 	aDDServer := DDServer new.
 	aDDAuthor := DDAuthor new.
 	aSet := Set new.
-	
+
 	aSet add: aDDAuthor.
-	aDDAuthor name: 'author-name'.
 	aDDServer authors: aSet.
 	aDDAuthor name: 'author-name'.
-	
-	self assert: (aDDServer authorsNamed: 'author-name') equals: aSet.
 
+	self assert: (aDDServer authorsNamed: 'author-name') equals: aSet.
 ]
 
 { #category : #test }
