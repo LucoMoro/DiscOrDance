@@ -1,0 +1,23 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'DiscOrDance',
+      #directory : 'src',
+      #platforms : [ #pharo ]
+    }
+  ],
+  #testing : {
+    #include : {
+      #packages : [ 'DiscOrDance-Model-Tests' ],
+      #projects : [ 'BaselineOfDiscOrDance' ]
+    },
+    #exclude : {
+      #packages : [ 'DiscOrDance-Tests' ],
+      #projects : [ 'BaselineOfDiscOrDance' ]
+    },
+    #coverage : {
+      #packages : [ 'DiscOrDance', 'DiscOrDance-Exceptions', 'DiscOrDance-Model', 'DiscOrDance-Model-Unused', 'DiscOrDance-Visualization' ],
+      #format : #coveralls
+    }
+  }
+}
