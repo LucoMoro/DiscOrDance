@@ -12,11 +12,6 @@ SmalltalkCISpec {
       #packages : [ 'DiscOrDance-Model-Tests' ],
       #projects : [ 'BaselineOfDiscOrDance' ]
     },
-    #exclude : {
-      #categories : [ 'DiscOrDance-Tests-Base', 'DiscOrDance-Tests-Scraper' ],
-      #packages : [ 'DiscOrDance-Tests' ],
-      #projects : [ 'BaselineOfDiscOrDance' ]
-    },
     #coverage : {
       #packages : [ 
         'DiscOrDance',
