@@ -8,16 +8,24 @@ SmalltalkCISpec {
   ],
   #testing : {
     #include : {
-      #packages : [ 'DiscOrDance-Model-Tests' ],
+      #packages : [ 'DiscOrDance-Model-Tests-Base' ],
       #projects : [ 'BaselineOfDiscOrDance' ]
     },
     #exclude : {
-      #classes : [ #DDTestCase, #DDScraperTest ],
-      #packages : [ 'DiscOrDance-Tests' ],
+      #packages : [ 'DiscOrDance-Tests', 'DiscOrDance-Tests-Base', 'DiscOrDance-Tests-Scraper' ],
       #projects : [ 'BaselineOfDiscOrDance' ]
     },
     #coverage : {
-      #packages : [ 'DiscOrDance', 'DiscOrDance-Exceptions', 'DiscOrDance-Model', 'DiscOrDance-Model-Unused', 'DiscOrDance-Visualization' ],
+      #packages : [ 
+        'DiscOrDance',
+        'DiscOrDance-Base',
+        'DiscOrDance-Commands',
+        'DiscOrDance-Scraper-Examples',
+        'DiscOrDance-Exceptions', 
+        'DiscOrDance-Model*', 
+        'DiscOrDance-Model-Unused', 
+        'DiscOrDance-Visualization*' 
+      ],
       #format : #coveralls
     }
   }
