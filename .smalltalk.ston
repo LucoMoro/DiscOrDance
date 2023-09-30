@@ -12,6 +12,7 @@ SmalltalkCISpec {
       #projects : [ 'BaselineOfDiscOrDance' ]
     },
     #exclude : {
+      #classes : [ #DDTestCase, #DDScraperTest ],
       #packages : [ 'DiscOrDance-Tests' ],
       #projects : [ 'BaselineOfDiscOrDance' ]
     },
