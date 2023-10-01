@@ -7,11 +7,7 @@ SmalltalkCISpec {
     }
   ],
   #testing : {
-    #include : {
-      #categories : [ 'DiscOrDance-Model-Tests-Base' ],
-      #packages : [ 'DiscOrDance-Model-Tests' ],
-      #projects : [ 'BaselineOfDiscOrDance' ]
-    },
+    #packages : [ 'DiscOrDance-Model-Tests' ],
     #coverage : {
       #packages : [ 
         'DiscOrDance',
