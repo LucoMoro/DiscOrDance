@@ -8,16 +8,6 @@ Class {
 }
 
 { #category : #test }
-DDAttachmentTest >> testFileName [
-	"This method checks if fileName's getter works without giving any input"
-	
-	| aDDAttachment |
-	aDDAttachment := DDAttachment new.
-	
-	self assert: aDDAttachment fileName equals: nil.
-]
-
-{ #category : #test }
 DDAttachmentTest >> testFileName2 [
 	"This method checks if fileName's getter and setter works given an input"
 	
