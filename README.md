@@ -26,7 +26,7 @@ To start using DiscOrDance in Pharo create a fresh image of __Pharo 8__ and run 
 ```st
 Metacello new
     baseline: 'DiscOrDance';
-    repository: 'github://USIREVEAL/discordance:main';
+    repository: 'github://LucoMoro/discordance:main';
 	onWarning: [ :ex | (ex isKindOf: MCMergeOrLoadWarning) ifTrue: [ ex load ] ifFalse: [ ex resume ] ];
 	load.
 ```
