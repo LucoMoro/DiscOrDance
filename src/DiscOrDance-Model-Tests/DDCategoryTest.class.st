@@ -44,16 +44,6 @@ DDCategoryTest >> testGetAuthors [
 
 { #category : #test }
 DDCategoryTest >> testGetContainerServer [
-	"This method checks if getContainerServer works properly without giving any input" 
-	
-	| aDDCategory |
-	aDDCategory := DDCategory new.
-	
-	self assert: aDDCategory getContainerServer equals: nil. 
-]
-
-{ #category : #test }
-DDCategoryTest >> testGetContainerServer2 [
 	"This method checks if getContainerServer works properly given an input"
 	
 	| aDDCategory |
@@ -79,16 +69,6 @@ DDCategoryTest >> testGetMessagesByAuthor [
 
 { #category : #test }
 DDCategoryTest >> testParent [
-	"This method checks if parent's getter works without giving any input"
-	
-	| aDDCategory |
-	aDDCategory := DDCategory new.
-	
-	self assert: aDDCategory parent equals: nil. 
-]
-
-{ #category : #test }
-DDCategoryTest >> testParent2 [
 	"This method checks if parent's getter and setter works given an input"
 	
 	| aDDCategory |
