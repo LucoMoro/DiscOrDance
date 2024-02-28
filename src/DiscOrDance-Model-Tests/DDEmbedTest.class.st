@@ -57,10 +57,12 @@ DDEmbedTest >> testType [
 
 { #category : #test }
 DDEmbedTest >> testUrl [
-	"This method checks if url's getter works without giving any input"
-	
+	"This method checks if url's getter and setter works given an input"
+
 	| aDDEmbed |
 	aDDEmbed := DDEmbed new.
 
-	self assert: aDDEmbed url equals: nil.
+	aDDEmbed url: 'embed-url'.
+
+	self assert: aDDEmbed url equals: 'embed-url'.
 ]
