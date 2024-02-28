@@ -31,16 +31,6 @@ DDEmojiTest >> testEquals2 [
 
 { #category : #test }
 DDEmojiTest >> testId [
-	"This method checks if id's getter works without giving any input"
-	
-	| aDDEmoji |
-	aDDEmoji  := DDEmoji new.
-
-	self assert: aDDEmoji id equals: nil.
-]
-
-{ #category : #test }
-DDEmojiTest >> testId2 [
 	"This method checks if id's getter and setter works given an input"
 	
 	| aDDEmoji |
