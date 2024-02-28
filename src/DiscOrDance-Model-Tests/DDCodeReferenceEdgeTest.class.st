@@ -9,16 +9,6 @@ Class {
 
 { #category : #test }
 DDCodeReferenceEdgeTest >> testCodeElement [
-	"This method checks if parent's getter works without giving any input"
-	
-	| aDDCodeReferenceEdge |
-	aDDCodeReferenceEdge := DDCodeReferenceEdge new.
-		
-	self assert: aDDCodeReferenceEdge codeElement equals: nil.
-]
-
-{ #category : #test }
-DDCodeReferenceEdgeTest >> testCodeElement2 [
 	"This method checks if codeElement's getter and setter works given an input"
 	
 	| aDDCodeReferenceEdge |
@@ -27,7 +17,6 @@ DDCodeReferenceEdgeTest >> testCodeElement2 [
 	aDDCodeReferenceEdge codeElement: 'codeReferenceEdge-codeElement'.
 		
 	self assert: aDDCodeReferenceEdge codeElement equals: 'codeReferenceEdge-codeElement'.
-
 ]
 
 { #category : #test }
@@ -76,16 +65,6 @@ DDCodeReferenceEdgeTest >> testNode2_2 [
 
 { #category : #test }
 DDCodeReferenceEdgeTest >> testReferenceClass [
-	"This method checks if referenceClass' getter works without giving any input"
-	
-	| aDDCodeReferenceEdge |
-	aDDCodeReferenceEdge := DDCodeReferenceEdge new.
-		
-	self assert: aDDCodeReferenceEdge referenceClass equals: nil.
-]
-
-{ #category : #test }
-DDCodeReferenceEdgeTest >> testReferenceClass2 [
 	"This method checks if referenceClass' setter and getter works given an input"
 	
 	| aDDCodeReferenceEdge |

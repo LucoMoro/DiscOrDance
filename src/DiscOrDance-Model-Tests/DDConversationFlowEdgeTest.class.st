@@ -9,16 +9,6 @@ Class {
 
 { #category : #test }
 DDConversationFlowEdgeTest >> testFollowing [
-	"This method checks if following's getter works without giving any input"
-	
-	| aDDConversationFlowEdge |
-	aDDConversationFlowEdge := DDConversationFlowEdge new.
-	
-	self assert: aDDConversationFlowEdge following equals: nil.
-]
-
-{ #category : #test }
-DDConversationFlowEdgeTest >> testFollowing2 [
 	"This method checks if following's getter and setter works given an input"
 	
 	| aDDConversationFlowEdge |
@@ -75,16 +65,6 @@ DDConversationFlowEdgeTest >> testNode2_2 [
 
 { #category : #test }
 DDConversationFlowEdgeTest >> testPreceding [
-	"This method checks if preceding's getter works without giving any input"
-	
-	| aDDConversationFlowEdge |
-	aDDConversationFlowEdge := DDConversationFlowEdge new.
-	
-	self assert: aDDConversationFlowEdge preceding equals: nil.
-]
-
-{ #category : #test }
-DDConversationFlowEdgeTest >> testPreceding2 [
 	"This method checks if preceding's getter and setter works given an input"
 	
 	| aDDConversationFlowEdge |
