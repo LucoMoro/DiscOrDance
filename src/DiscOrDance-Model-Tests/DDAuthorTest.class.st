@@ -90,7 +90,7 @@ DDAuthorTest >> testAddActiveChannel [
 
 { #category : #test }
 DDAuthorTest >> testAddSentMessage [
-	"this method checks if addSentMessages works without initializing the array"
+	"this method checks if addSentMessages works without initializing the array of messages"
 	
 	| aDDAuthor aDDMessageMock|
 	aDDAuthor  := DDAuthor new.
