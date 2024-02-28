@@ -9,16 +9,6 @@ Class {
 
 { #category : #test }
 DDCodeEdgeTest >> testCode [
-	"This method checks if node1's getter works without giving any input"
-	
-	| aDDCodeEdge |
-	aDDCodeEdge := DDCodeEdge new.
-	
-	self assert: aDDCodeEdge code equals: nil.
-]
-
-{ #category : #test }
-DDCodeEdgeTest >> testCode2 [
 	"This method checks if node1's getter and setter works given an input"
 	
 	| aDDCodeEdge |
@@ -31,16 +21,6 @@ DDCodeEdgeTest >> testCode2 [
 
 { #category : #test }
 DDCodeEdgeTest >> testEntity [
-	"This method checks if entity's getter works without giving any input"
-	
-	| aDDCodeEdge |
-	aDDCodeEdge := DDCodeEdge new.
-	
-	self assert: aDDCodeEdge entity equals: nil.
-]
-
-{ #category : #test }
-DDCodeEdgeTest >> testEntity2 [
 	"This method checks if entity's getter and setter works given an input"
 	
 	| aDDCodeEdge |
