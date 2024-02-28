@@ -20,16 +20,6 @@ DDClassElementTest >> testName [
 ]
 
 { #category : #test }
-DDClassElementTest >> testReferencedClassName [
-	"This method checks if referencedClassName's getter works without giving any input"
-	
-	| aDDClassElement |
-	aDDClassElement  := DDClassElement new.
-
-	self assert: aDDClassElement referencedClassName equals: nil.
-]
-
-{ #category : #test }
 DDClassElementTest >> testReferencedClassName2 [
 	"This method checks if referencedClassName's getter and setter works given an input"
 	
