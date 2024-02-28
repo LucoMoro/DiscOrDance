@@ -33,6 +33,16 @@ DDAutorshipEdgeTest >> testMessage [
 
 { #category : #test }
 DDAutorshipEdgeTest >> testNode1 [
+"This method checks if node1's getter works without giving any input"
+
+	| aDDAutorshipEdge |
+	aDDAutorshipEdge := DDAutorshipEdge new.
+
+	self assert: aDDAutorshipEdge node1 equals: nil.
+]
+
+{ #category : #test }
+DDAutorshipEdgeTest >> testNode1_2 [
 	"This method checks if node1's getter and setter works given an input"
 	
 	| aDDAutorshipEdge |
@@ -45,6 +55,16 @@ DDAutorshipEdgeTest >> testNode1 [
 
 { #category : #test }
 DDAutorshipEdgeTest >> testNode2 [
+	"This method checks if node2's getter works without giving any input"
+
+	| aDDAutorshipEdge |
+	aDDAutorshipEdge := DDAutorshipEdge new.
+
+	self assert: aDDAutorshipEdge node2 equals: nil.
+]
+
+{ #category : #test }
+DDAutorshipEdgeTest >> testNode2_2 [
 	"This method checks if node2's getter and setter works without giving any input"
 	
 	| aDDAutorshipEdge |
