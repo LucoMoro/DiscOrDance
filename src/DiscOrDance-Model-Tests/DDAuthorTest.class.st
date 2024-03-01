@@ -318,12 +318,39 @@ DDAuthorTest >> testFirstMessage2 [
 	aSecondDDMessage := DDMessage new.
 	
 	aDDMessage createdAt: '05-06-23'.
-	aSecondDDMessage createdAt: '04-06-23'.
+	aSecondDDMessage createdAt: '02-06-23'.
 
 	aDDAuthor addSentMessage: aDDMessage.
 	aDDAuthor addSentMessage: aSecondDDMessage.	
 		
 	self assert: aDDAuthor firstMessage equals: aSecondDDMessage.
+]
+
+{ #category : #test }
+DDAuthorTest >> testFirstMessageSorted [
+	"This method checks if firstMessageSorted returns the DDAuthors in a correct oreder basaed on their sent messages"
+	
+	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+		
+	aFirstDDAuthor addSentMessage: aFirstDDMessage.
+	aFirstDDMessage createdAt: '01-03-21'.
+	aSecondDDAuthor addSentMessage: aSecondDDMessage.
+	aSecondDDMessage createdAt: '01-04-22'.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+		
+	self assert: (DDAuthor firstMessageSorted: aCollectionOfDDAuthor ) equals: anOrderedCollection.
 ]
 
 { #category : #test }
@@ -489,6 +516,32 @@ DDAuthorTest >> testLastMessage2 [
 ]
 
 { #category : #test }
+DDAuthorTest >> testLastMessageSorted [
+	"This method checks if firstMessageSorted returns the DDAuthors in a correct oreder basaed on their sent messages"
+	
+	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+		
+	aFirstDDAuthor addSentMessage: aFirstDDMessage.
+	aFirstDDMessage createdAt: '01-04-22'.
+	aSecondDDAuthor addSentMessage: aSecondDDMessage.
+	aSecondDDMessage createdAt: '01-02-21'.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+		
+	self assert: (DDAuthor firstMessageSorted: aCollectionOfDDAuthor ) equals: anOrderedCollection.
+]
+
+{ #category : #test }
 DDAuthorTest >> testMergedInto [
 	"This method checks mergedInto getter and setter works given an input"
 	
@@ -589,6 +642,18 @@ DDAuthorTest >> testNickname2 [
 	aDDAuthor nickname: 'user-nickname'.
 	
 	self assert: aDDAuthor nickname equals: 'user-nickname'.
+]
+
+{ #category : #test }
+DDAuthorTest >> testNormalizedName [
+	"This method checks if normalizedName correctly modify a DDAuthor's name"
+	
+	| aDDAuthor |
+	aDDAuthor := DDAuthor new.
+	
+	aDDAuthor name: 'IaMaFuLlNaMe'.
+	
+	self assert: (DDAuthor normalizedName: 'IaMaFuLlNaMe') equals: 'iamafullname'.
 ]
 
 { #category : #test }

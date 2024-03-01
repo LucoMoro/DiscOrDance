@@ -273,9 +273,9 @@ DDMessageTest >> testCreatedAt2 [
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	aDDMessage createdAt: 'message-creation-time'.
+	aDDMessage createdAt: '05-01-22'.
 	
-	self assert: aDDMessage createdAt equals: 'message-creation-time'.
+	self assert: aDDMessage createdAt equals: '05-01-22'.
 ]
 
 { #category : #tests }
