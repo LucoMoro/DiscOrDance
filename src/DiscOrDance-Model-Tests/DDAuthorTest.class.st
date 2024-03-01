@@ -59,6 +59,81 @@ DDAuthorTest >> testActiveChannels2 [
 ]
 
 { #category : #test }
+DDAuthorTest >> testActivitySorted [
+	"This method checks if activitySorted works properly given two Authors without sent messages"
+	
+	| aFirstDDAuthor aSecondDDAuthor anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+	self assert: (DDAuthor activitySorted: aCollectionOfDDAuthor) equals: anOrderedCollection.
+
+]
+
+{ #category : #test }
+DDAuthorTest >> testActivitySorted2 [
+	"This method checks if activitySorted works properly given two Authors and a message sent only by one of them"
+	
+	| aFirstDDAuthor aSecondDDAuthor aDDMessage anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	aDDMessage author: aFirstDDAuthor.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+	self assert: (DDAuthor activitySorted: aCollectionOfDDAuthor) equals: anOrderedCollection.
+]
+
+{ #category : #test }
+DDAuthorTest >> testActivitySorted3 [
+	"This method checks if activitySorted works properly given two Authors and a message sent by both of them"
+	
+	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage aThirdDDMessage anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	aThirdDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	aFirstDDMessage author: aFirstDDAuthor.
+	aSecondDDMessage author: aSecondDDAuthor.
+	aThirdDDMessage author: aSecondDDAuthor.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+	self assert: (DDAuthor activitySorted: aCollectionOfDDAuthor) equals: anOrderedCollection.
+]
+
+{ #category : #test }
 DDAuthorTest >> testAddActiveCategory [
 	"this method checks if addActiveCategory works initializing the array with a DDcategory"
 	
@@ -100,6 +175,28 @@ DDAuthorTest >> testAddSentMessage [
 	aDDAuthor addSentMessage: aDDMessageMock.
 	
 	self assert: aDDAuthor hasMessages equals: true.
+]
+
+{ #category : #test }
+DDAuthorTest >> testAlphaSorted [
+	"This method checks if activitySorted works properly given two Authors and a message sent by both of them"
+	
+	| aFirstDDAuthor aSecondDDAuthor anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'first'.
+	aSecondDDAuthor name: 'second'.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+	self assert: (DDAuthor alphaSorted: aCollectionOfDDAuthor) equals: anOrderedCollection.
 ]
 
 { #category : #test }
