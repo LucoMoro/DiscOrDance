@@ -28,6 +28,22 @@ BaselineOfDiscOrDance >> baseline: spec [
 				package: 'DiscOrDance-Visualization' with: [ spec requires: #('DiscOrDance') ];
 				package: 'DiscOrDance-Model-Tests' with: [ spec requires: #('DiscOrDance') ].
 		].
+		spec for: #'pharo11.x' do: [
+			"Dependencies"
+			self vizor: spec.
+			self discordST: spec.
+			self mocketry: spec.
+
+			"Packages"
+			spec
+				package: 'DiscOrDance';
+				package: 'DiscOrDance-Exceptions' with: [ spec requires: #('DiscOrDance') ];
+				package: 'DiscOrDance-Model' with: [ spec requires: #('DiscOrDance') ];
+				package: 'DiscOrDance-Model-Unused' with: [ spec requires: #('DiscOrDance') ];
+				package: 'DiscOrDance-Tests' with: [ spec requires: #('DiscOrDance') ];
+				package: 'DiscOrDance-Visualization' with: [ spec requires: #('DiscOrDance') ];
+				package: 'DiscOrDance-Model-Tests' with: [ spec requires: #('DiscOrDance') ].
+		].
 	].
 ]
 
