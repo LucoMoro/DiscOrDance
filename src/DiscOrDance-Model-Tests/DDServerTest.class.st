@@ -562,6 +562,50 @@ DDServerTest >> testFlatChannels3 [
 ]
 
 { #category : #test }
+DDServerTest >> testGenerateConversation [
+	"This method checks if generateConversation works properly without initializing the DDServer"
+	
+	| aDDServer aDDCategory aSet aChannelSet aDDChannel |
+	aDDServer := DDServer new.
+	aDDCategory := DDCategory new.
+	aSet := Set new.
+	aChannelSet := Set new.
+	aDDChannel := DDChannel new.
+	
+	aChannelSet add: aDDChannel.
+	aSet add: aDDCategory.
+	aDDServer categories: aSet.
+	aDDCategory channels: aChannelSet.
+	
+	self assert: aDDServer generateConversations equals: aDDServer.
+]
+
+{ #category : #test }
+DDServerTest >> testGenerateConversation2 [
+	"This method checks if generateConversation works properly initializing the DDServer's conversation whit one message"
+	
+	| aDDServer aDDCategory aSet aChannelSet aDDChannel aDDMessage anOrderedCollection |
+	aDDServer := DDServer new.
+	aDDCategory := DDCategory new.
+	aSet := Set new.
+	aChannelSet := Set new.
+	aDDChannel := DDChannel new.
+	aDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	
+	aChannelSet add: aDDChannel.
+	anOrderedCollection add: aDDMessage.
+	aDDChannel messages: anOrderedCollection.
+	aDDMessage content: 'message-content'.
+	aDDMessage createdAt: '01/02/23'.
+	aSet add: aDDCategory.
+	aDDServer categories: aSet.
+	aDDCategory channels: aChannelSet.
+	
+	self assert: aDDServer generateConversations equals: aDDServer.
+]
+
+{ #category : #test }
 DDServerTest >> testGetActiveAuthorLike [
 	"Tist method checks if getActiveAuthorLike works properly without initializing the array"
 	
@@ -619,6 +663,27 @@ DDServerTest >> testGetAuthorWithId2 [
 ]
 
 { #category : #test }
+DDServerTest >> testGetChannelWithId [
+	"Tist method checks if getChannelWithId first branch works properly"
+	
+	| aDDServer aDDCategory aSet aChannelSet aDDChannel|
+	aDDServer := DDServer new.
+	aDDCategory := DDCategory new.
+	aSet := Set new.
+	aChannelSet := Set new.
+	aDDChannel := DDChannel new.
+	
+	aChannelSet add: aDDChannel.
+	aDDChannel id: 'channel-id'.
+	aSet add: aDDCategory.
+	aDDServer categories: aSet.
+	aDDCategory channels: aChannelSet.
+	
+	self assert: (aDDServer getChannelWithId: 'channel-id') equals: aDDChannel.
+
+]
+
+{ #category : #test }
 DDServerTest >> testGetEmojiWithId [
 	"Tist method checks if getEmojiWithId works properly"
 	
@@ -649,6 +714,26 @@ DDServerTest >> testGetEmojiWithId2 [
 	aDDEmoji id: 'emoji-id'.
 	
 	self assert: (aDDServer getEmojiWithId: 'emoji-id') equals: aDDEmoji.
+
+]
+
+{ #category : #test }
+DDServerTest >> testGetMessageByAuthor [
+	"Tist method checks if getMessageByAuthor works with a Server whitout messages"
+	
+	| aDDServer  aSet  aDDCategory aChannelSet aDDChannel  |
+	aDDServer := DDServer new.
+	aSet := Set new.
+	aDDCategory := DDCategory new.
+	aChannelSet := Set new.
+	aDDChannel := DDChannel new.
+	
+	aChannelSet add: aDDChannel.
+	aSet add: aDDCategory.
+	aDDServer categories: aSet.
+	aDDCategory channels: aChannelSet.
+	
+	self assert: (aDDServer getMessagesByAuthor) equals: Bag new.
 
 ]
 
