@@ -107,7 +107,7 @@ DDAuthorTest >> testActivitySorted2 [
 
 { #category : #test }
 DDAuthorTest >> testActivitySorted3 [
-	"This method checks if activitySorted works properly given two Authors and a message sent by both of them"
+	"This method checks if activitySorted works properly given two Authors and messages sent by both of them"
 	
 	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage aThirdDDMessage anOrderedCollection aCollectionOfDDAuthor |
 	aFirstDDAuthor := DDAuthor new.

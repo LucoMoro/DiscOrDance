@@ -105,6 +105,56 @@ DDServerTest >> testActivitySortedAuthors2 [
 ]
 
 { #category : #test }
+DDServerTest >> testActivitySortedAuthors3 [
+	"This method checks if activitySortedAuthors works properly given two Authors and messages sent by only one both of them"
+	
+	| aDDServer aFirstDDAuthor aSecondDDAuthor aFirstDDMessage anOrderedCollection |
+	aDDServer := DDServer new.
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	aFirstDDMessage author: aFirstDDAuthor.
+	
+	aDDServer addAuthor: aFirstDDAuthor.
+	aDDServer addAuthor: aSecondDDAuthor.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+
+	self assert: (aDDServer activitySortedAuthors) equals: anOrderedCollection.
+]
+
+{ #category : #test }
+DDServerTest >> testActivitySortedAuthors4 [
+	"This method checks if activitySortedAuthors works properly given two Authors and messages sent by both of them"
+	
+	| aDDServer aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage aThirdDDMessage anOrderedCollection |
+	aDDServer := DDServer new.
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	aThirdDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	aFirstDDMessage author: aFirstDDAuthor.
+	aSecondDDMessage author: aSecondDDAuthor.
+	aThirdDDMessage author: aSecondDDAuthor.
+	
+	aDDServer addAuthor: aFirstDDAuthor.
+	aDDServer addAuthor: aSecondDDAuthor.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+
+	self assert: (aDDServer activitySortedAuthors) equals: anOrderedCollection.
+]
+
+{ #category : #test }
 DDServerTest >> testAddActiveAuthor [
 	"Tist method checks if addActiveAuthor works properly without initializing the array"
 	
@@ -204,6 +254,17 @@ DDServerTest >> testAlphaSortedAuthors [
 ]
 
 { #category : #test }
+DDServerTest >> testAlphaSortedAuthors2 [
+	"Tist method checks if activitySortedAuthors works properly, creating a Server whitout DDAuthors"
+	
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	self assert: aDDServer alphaSortedAuthors equals: Array new.
+
+]
+
+{ #category : #test }
 DDServerTest >> testAuthors [
 	"Tist method checks if authors' getter works without giving any input"
 	
@@ -295,6 +356,62 @@ DDServerTest >> testCategories2 [
 ]
 
 { #category : #test }
+DDServerTest >> testChannelsNamed [
+	"Tist method checks if channelsNamed works properly without giving any channel to the Server"
+	
+	| aDDServer |
+	aDDServer := DDServer new.
+	
+	self assert: (aDDServer channelsNamed: 'a-channel') equals: OrderedCollection new.
+
+]
+
+{ #category : #test }
+DDServerTest >> testChannelsNamed2 [
+	"Tist method checks if channelsNamed works properly adding a DDChannel without a name"
+	
+	| aDDServer aDDChannel aDDCategory anOrderedCollection aSet aChannelSet |
+	aDDServer := DDServer new.
+	aDDChannel := DDChannel new.
+	anOrderedCollection := OrderedCollection new.
+	aDDCategory := DDCategory new.
+	aSet := Set new.
+	aChannelSet := Set new.
+	
+	aChannelSet add: aDDChannel.
+	aSet add: aDDCategory.
+	aDDServer categories: aSet.
+	aDDCategory channels: aChannelSet.
+	anOrderedCollection add: aDDChannel.
+	
+	self assert: (aDDServer channelsNamed: 'a-channel') equals: OrderedCollection new.
+
+]
+
+{ #category : #test }
+DDServerTest >> testChannelsNamed3 [
+	"Tist method checks if channelsNamed works properly adding a DDChannel with a name"
+	
+	| aDDServer aDDChannel aDDCategory anOrderedCollection aSet aChannelSet |
+	aDDServer := DDServer new.
+	aDDChannel := DDChannel new.
+	anOrderedCollection := OrderedCollection new.
+	aDDCategory := DDCategory new.
+	aSet := Set new.
+	aChannelSet := Set new.
+	
+	aChannelSet add: aDDChannel.
+	aSet add: aDDCategory.
+	aDDServer categories: aSet.
+	aDDCategory channels: aChannelSet.
+	aDDChannel name: 'a-channel'.
+	anOrderedCollection add: aDDChannel.
+	
+	self assert: (aDDServer channelsNamed: 'a-channel') equals: anOrderedCollection.
+
+]
+
+{ #category : #test }
 DDServerTest >> testConversations [
 	"Tist method checks if conversations' getter works without giving any input"
 	
@@ -340,6 +457,50 @@ DDServerTest >> testEmojis2 [
 	
 	self assert: aDDServer emojis equals: 'server-emojis'.
 
+]
+
+{ #category : #test }
+DDServerTest >> testFirstChannelNamed [
+	"This method checks if firstChannelNamed works properly having only one channel"
+	
+	| aDDServer aDDChannel aDDCategory aSet aChannelSet |
+	aDDServer := DDServer new.
+	aDDChannel := DDChannel new.
+	aDDCategory := DDCategory new.
+	aSet := Set new.
+	aChannelSet := Set new.
+	
+	aDDChannel name: 'a-channel'.
+	
+	aChannelSet add: aDDChannel.
+	aSet add: aDDCategory.
+	aDDServer categories: aSet.
+	aDDCategory channels: aChannelSet.
+	
+	self assert: (aDDServer firstChannelNamed: 'a-channel') equals: aDDChannel.
+]
+
+{ #category : #test }
+DDServerTest >> testFirstChannelNamed2 [
+	"This method checks if firstChannelNamed works properly having more than one channel"
+	
+	| aDDServer aFirstDDChannel aSecondDDChannel aDDCategory aSet aChannelSet |
+	aDDServer := DDServer new.
+	aFirstDDChannel := DDChannel new.
+	aSecondDDChannel := DDChannel new.
+	aDDCategory := DDCategory new.
+	aSet := Set new.
+	aChannelSet := Set new.
+	
+	aFirstDDChannel name: 'a-channel'.
+	aSecondDDChannel name: 'a-second-channel'.
+	
+	aChannelSet add: aFirstDDChannel.
+	aSet add: aDDCategory.
+	aDDServer categories: aSet.
+	aDDCategory channels: aChannelSet.
+	
+	self assert: (aDDServer firstChannelNamed: 'a-channel') equals: aFirstDDChannel.
 ]
 
 { #category : #test }
