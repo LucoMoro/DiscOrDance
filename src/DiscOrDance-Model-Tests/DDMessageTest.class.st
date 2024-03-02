@@ -149,6 +149,33 @@ DDMessageTest >> testAuthor2 [
 ]
 
 { #category : #tests }
+DDMessageTest >> testAuthorSorted [
+	"This method checks if authorSorted works properly given two Authors"
+	
+	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage anOrderedCollection aCollectionOfDDMessage |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDMessage := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	
+	aFirstDDMessage author: aFirstDDAuthor.
+	aSecondDDMessage author: aSecondDDAuthor.
+	
+	anOrderedCollection add: aFirstDDMessage.
+ 	anOrderedCollection add: aSecondDDMessage.
+	
+	aCollectionOfDDMessage add: aSecondDDMessage.
+	aCollectionOfDDMessage add: aFirstDDMessage.	
+	
+	self assert: (DDMessage authorSorted: aCollectionOfDDMessage) equals: anOrderedCollection.
+]
+
+{ #category : #tests }
 DDMessageTest >> testChannelMentions [
 	"This method checks if channelMentions' getter works without giving any input"
 	
@@ -676,6 +703,28 @@ DDMessageTest >> testSpecialMentions2 [
 	aDDMessage specialMentions: 'message-specialMention'.
 
 	self assert: aDDMessage specialMentions equals: 'message-specialMention'.
+]
+
+{ #category : #tests }
+DDMessageTest >> testTimeSorted [
+	"This method checks if timeSorted works properly given two Messages"
+	
+	| aFirstDDMessage aSecondDDMessage anOrderedCollection aCollectionOfDDMessage |
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDMessage := OrderedCollection new.
+	
+	aFirstDDMessage createdAt: '08/03/22'.
+	aSecondDDMessage createdAt: '09/03/22'.
+	
+	anOrderedCollection add: aFirstDDMessage.
+ 	anOrderedCollection add: aSecondDDMessage.
+	
+	aCollectionOfDDMessage add: aSecondDDMessage.
+	aCollectionOfDDMessage add: aFirstDDMessage.	
+	
+	self assert: (DDMessage timeSorted: aCollectionOfDDMessage) equals: anOrderedCollection.
 ]
 
 { #category : #tests }

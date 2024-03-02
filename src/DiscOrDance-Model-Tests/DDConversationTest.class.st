@@ -195,3 +195,31 @@ DDConversationTest >> testStart2 [
 
 	self assert: aDDConversation start equals: 'conversation-start'.
 ]
+
+{ #category : #test }
+DDConversationTest >> testTimeSorted [
+	"This method checks if timeSorted works properly given two conversations with messages"
+	
+	| aFirstDDConversation aFirstDDMessage aSecondDDConversation aSecondDDMessage anOrderedCollection aCollectionOfDDConversation|
+	aFirstDDConversation := DDConversation new.
+	aSecondDDConversation := DDConversation new.
+	aFirstDDMessage := DDMessage  new.
+	aSecondDDMessage := DDMessage  new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDConversation := OrderedCollection new.
+	
+	aFirstDDConversation start: aFirstDDMessage.
+	aFirstDDMessage createdAt: '12/08/2023'. 
+	
+	aSecondDDConversation start: aFirstDDMessage.
+	aSecondDDMessage createdAt: '13/08/2023'. 
+	
+	anOrderedCollection add: aFirstDDConversation.
+ 	anOrderedCollection add: aSecondDDConversation.
+	
+	aCollectionOfDDConversation add: aSecondDDConversation.
+	aCollectionOfDDConversation add: aFirstDDConversation.
+
+
+	self assert: (DDConversation timeSorted: aCollectionOfDDConversation) equals: anOrderedCollection.
+]
