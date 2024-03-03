@@ -590,6 +590,26 @@ DDAuthorTest >> testMessageCreationDates2 [
 ]
 
 { #category : #test }
+DDAuthorTest >> testMessageCreationDates3 [
+	"This method checks if messageCreationDates' works initializing the sentMessages array and without mocking the DDMessage class"
+		
+	| aDDAuthor aDDMessage anOrderedCollection |
+	aDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+
+	aDDMessage author: aDDAuthor.
+	aDDMessage createdAt: '05/02/23'.
+	aDDAuthor addSentMessage: aDDMessage.
+	aDDAuthor messageCreationDates.
+	anOrderedCollection add: aDDMessage.
+
+	self assert: aDDAuthor sentMessages equals: anOrderedCollection.
+	
+	
+]
+
+{ #category : #test }
 DDAuthorTest >> testMessagesByDay [
 	"This method checks if messagesByDay's works if sentMessages is not initialized"
 		
@@ -616,6 +636,26 @@ DDAuthorTest >> testMessagesByDay2 [
 	aDDAuthor addSentMessage: aDDMessageMock.
 	aDDAuthor messagesByDay.
 	anOrderedCollection add: aDDMessageMock.
+
+	self assert: aDDAuthor sentMessages equals: anOrderedCollection.
+	
+	
+]
+
+{ #category : #test }
+DDAuthorTest >> testMessagesByDay3 [
+	"This method checks if messagesByDay's method works if sentMessages is initialized without mocking the DDMessage class"
+		
+	| aDDAuthor aDDMessage anOrderedCollection |
+	aDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+
+	aDDMessage author: aDDAuthor.
+	aDDMessage createdAt: '05/02/23'.
+	aDDAuthor messagesByDay.
+	aDDAuthor addSentMessage: aDDMessage.
+	anOrderedCollection add: aDDMessage.
 
 	self assert: aDDAuthor sentMessages equals: anOrderedCollection.
 	
