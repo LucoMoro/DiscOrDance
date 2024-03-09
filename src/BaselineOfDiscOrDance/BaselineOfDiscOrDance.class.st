@@ -74,6 +74,6 @@ BaselineOfDiscOrDance >> mocketry: spec [
 { #category : #baselines }
 BaselineOfDiscOrDance >> vizor: spec [
 	spec baseline: 'Vizor'
-		with: [ spec repository: 'github://USIREVEAL/vizor:main' ].
+		with: [ spec repository: 'github://USIREVEAL/vizor:v1.1.0' ].
 
 ]
