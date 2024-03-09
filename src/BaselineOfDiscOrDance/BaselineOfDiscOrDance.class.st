@@ -37,7 +37,7 @@ BaselineOfDiscOrDance >> discordST: spec [
 		"Original repository from Juraj Kubelka"
 		"with: [ spec repository: 'github://JurajKubelka/DiscordSt/src' ]."
 		"My forked repository"
-		with: [ spec repository: 'github://wolfenmark/DiscordSt/src' ].
+		with: [ spec repository: 'github://DG266/DiscordSt/src' ].
 
 ]
 
