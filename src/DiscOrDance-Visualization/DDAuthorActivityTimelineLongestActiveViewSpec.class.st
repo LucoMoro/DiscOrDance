@@ -13,8 +13,11 @@ DDAuthorActivityTimelineLongestActiveViewSpec >> initialize [
 	self
 		name: 'Author activity span timeline - longest active';
 		sortingBlock: [ :entities | | authors others |
-			authors := entities select: [ :each | each isKindOf: DDAuthor ].
-			others := entities reject: [ :each | each isKindOf: DDAuthor ].
+    authors := OrderedCollection new.
+    others := OrderedCollection new.
+    entities do: [ :each | (each isKindOf: DDAuthor)
+            ifTrue: [ authors add: each ]
+            ifFalse: [ others add: each ].].
 			authors := DDAuthor lifespanSorted: authors.
 			(authors, others) ].
 

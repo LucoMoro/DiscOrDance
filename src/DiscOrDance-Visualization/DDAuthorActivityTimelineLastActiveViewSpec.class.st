@@ -13,8 +13,11 @@ DDAuthorActivityTimelineLastActiveViewSpec >> initialize [
 	self
 		name: 'Author activity span timeline - last active';
 		sortingBlock: [ :entities | | authors others |
-			authors := entities select: [ :each | each isKindOf: DDAuthor ].
-			others := entities reject: [ :each | each isKindOf: DDAuthor ].
+    authors := OrderedCollection new.
+    others := OrderedCollection new.
+    entities do: [ :each | (each isKindOf: DDAuthor)
+            ifTrue: [ authors add: each ]
+            ifFalse: [ others add: each ].].
 			authors := DDAuthor lastMessageSorted: authors.
 			(authors, others) ].
 
