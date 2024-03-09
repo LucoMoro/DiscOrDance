@@ -80,6 +80,74 @@ DDMessageTest >> testAddMention4 [
 ]
 
 { #category : #tests }
+DDMessageTest >> testAddMention5 [
+	"This method checks if addMessage's first branch without mocking the DDRoleMention class"
+	
+	| aDDMessage aDDMention anOrderedCollection |
+	aDDMessage := DDMessage new.
+	aDDMention := DDRoleMention new.
+	anOrderedCollection := OrderedCollection new.
+	
+	aDDMessage addMention: aDDMention.
+	anOrderedCollection add: aDDMention.
+	
+	self assert: aDDMessage roleMentions equals: anOrderedCollection.
+	
+
+]
+
+{ #category : #tests }
+DDMessageTest >> testAddMention6 [
+	"This method checks if addMessage's second branch without mocking the DDChannelMention class"
+	
+	| aDDMessage aDDMention anOrderedCollection |
+	aDDMessage := DDMessage new.
+	aDDMention := DDChannelMention new.
+	anOrderedCollection := OrderedCollection new.
+	
+	aDDMessage addMention: aDDMention.
+	anOrderedCollection add: aDDMention.
+	
+	self assert: aDDMessage channelMentions equals: anOrderedCollection.
+	
+
+]
+
+{ #category : #tests }
+DDMessageTest >> testAddMention7 [
+	"This method checks if addMessage's third branch without mocking the DDUserMention class"
+	
+	| aDDMessage aDDMention anOrderedCollection |
+	aDDMessage := DDMessage new.
+	aDDMention := DDUserMention  new.
+	anOrderedCollection := OrderedCollection new.
+	
+	aDDMessage addMention: aDDMention.
+	anOrderedCollection add: aDDMention.
+	
+	self assert: aDDMessage userMentions equals: anOrderedCollection.
+	
+
+]
+
+{ #category : #tests }
+DDMessageTest >> testAddMention8 [
+	"This method checks if addMessage's fourth branch without mocking the DDSpecialMention class"
+	
+	| aDDMessage aDDMention anOrderedCollection |
+	aDDMessage := DDMessage new.
+	aDDMention := DDSpecialMention new.
+	anOrderedCollection := OrderedCollection new.
+	
+	aDDMessage addMention: aDDMention.
+	anOrderedCollection add: aDDMention.
+	
+	self assert: aDDMessage specialMentions equals: anOrderedCollection.
+	
+
+]
+
+{ #category : #tests }
 DDMessageTest >> testAddReply [
 	"This method checks if addReply creates an empty array of replies without initializing it"
 	
@@ -146,6 +214,33 @@ DDMessageTest >> testAuthor2 [
 	aDDMessage author: 'message-author'.
 	
 	self assert: aDDMessage author equals: 'message-author'.
+]
+
+{ #category : #tests }
+DDMessageTest >> testAuthorSorted [
+	"This method checks if authorSorted works properly given two Authors"
+	
+	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage anOrderedCollection aCollectionOfDDMessage |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDMessage := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	
+	aFirstDDMessage author: aFirstDDAuthor.
+	aSecondDDMessage author: aSecondDDAuthor.
+	
+	anOrderedCollection add: aFirstDDMessage.
+ 	anOrderedCollection add: aSecondDDMessage.
+	
+	aCollectionOfDDMessage add: aSecondDDMessage.
+	aCollectionOfDDMessage add: aFirstDDMessage.	
+	
+	self assert: (DDMessage authorSorted: aCollectionOfDDMessage) equals: anOrderedCollection.
 ]
 
 { #category : #tests }
@@ -273,9 +368,9 @@ DDMessageTest >> testCreatedAt2 [
 	| aDDMessage |
 	aDDMessage := DDMessage new.
 	
-	aDDMessage createdAt: 'message-creation-time'.
+	aDDMessage createdAt: '05-01-22'.
 	
-	self assert: aDDMessage createdAt equals: 'message-creation-time'.
+	self assert: aDDMessage createdAt equals: '05-01-22'.
 ]
 
 { #category : #tests }
@@ -419,6 +514,38 @@ DDMessageTest >> testIsInConversationWith2 [
 	(aDDChannelMock stub class) willReturn: DDChannel.
 	(DDChannel stub defaultConversationBreakTime) willReturn: (Duration hours: 2).	
 	aDDMessage containerChannel: aDDChannelMock.
+	
+	self assert: (aDDMessage isInConversationWith: aSecondDDMessage) equals: false.
+]
+
+{ #category : #tests }
+DDMessageTest >> testIsInConversationWith3 [
+	"This method checks if two messages are in conversation bases on the dateTime. The message's day is 	the same and the DDChannel class will not be mocked"
+	
+	| aDDMessage aSecondDDMessage aDDChannel |
+	aDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	aDDChannel := DDChannel new.
+	
+	aDDMessage createdAt: '12/08/23'.
+	aSecondDDMessage createdAt: '12/08/23'.
+	aDDMessage containerChannel: aDDChannel.
+	
+	self assert: (aDDMessage isInConversationWith: aSecondDDMessage) equals: true.
+]
+
+{ #category : #tests }
+DDMessageTest >> testIsInConversationWith4 [
+	"This method checks if two messages are in conversation bases on the dateTime. The message's day is 	different and the DDChannel class will not be mocked"
+	
+	| aDDMessage aSecondDDMessage aDDChannel |
+	aDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	aDDChannel := DDChannel new.
+	
+	aDDMessage createdAt: '12/03/23'.
+	aSecondDDMessage createdAt: '12/08/23'.
+	aDDMessage containerChannel: aDDChannel.
 	
 	self assert: (aDDMessage isInConversationWith: aSecondDDMessage) equals: false.
 ]
@@ -676,6 +803,28 @@ DDMessageTest >> testSpecialMentions2 [
 	aDDMessage specialMentions: 'message-specialMention'.
 
 	self assert: aDDMessage specialMentions equals: 'message-specialMention'.
+]
+
+{ #category : #tests }
+DDMessageTest >> testTimeSorted [
+	"This method checks if timeSorted works properly given two Messages"
+	
+	| aFirstDDMessage aSecondDDMessage anOrderedCollection aCollectionOfDDMessage |
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDMessage := OrderedCollection new.
+	
+	aFirstDDMessage createdAt: '08/03/22'.
+	aSecondDDMessage createdAt: '09/03/22'.
+	
+	anOrderedCollection add: aFirstDDMessage.
+ 	anOrderedCollection add: aSecondDDMessage.
+	
+	aCollectionOfDDMessage add: aSecondDDMessage.
+	aCollectionOfDDMessage add: aFirstDDMessage.	
+	
+	self assert: (DDMessage timeSorted: aCollectionOfDDMessage) equals: anOrderedCollection.
 ]
 
 { #category : #tests }

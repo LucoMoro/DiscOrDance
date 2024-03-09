@@ -59,6 +59,81 @@ DDAuthorTest >> testActiveChannels2 [
 ]
 
 { #category : #test }
+DDAuthorTest >> testActivitySorted [
+	"This method checks if activitySorted works properly given two Authors without sent messages"
+	
+	| aFirstDDAuthor aSecondDDAuthor anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+	self assert: (DDAuthor activitySorted: aCollectionOfDDAuthor) equals: anOrderedCollection.
+
+]
+
+{ #category : #test }
+DDAuthorTest >> testActivitySorted2 [
+	"This method checks if activitySorted works properly given two Authors and a message sent only by one of them"
+	
+	| aFirstDDAuthor aSecondDDAuthor aDDMessage anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	aDDMessage author: aFirstDDAuthor.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+	self assert: (DDAuthor activitySorted: aCollectionOfDDAuthor) equals: anOrderedCollection.
+]
+
+{ #category : #test }
+DDAuthorTest >> testActivitySorted3 [
+	"This method checks if activitySorted works properly given two Authors and messages sent by both of them"
+	
+	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage aThirdDDMessage anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	aThirdDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'First'.
+	aSecondDDAuthor name: 'Second'.
+	aFirstDDMessage author: aFirstDDAuthor.
+	aSecondDDMessage author: aSecondDDAuthor.
+	aThirdDDMessage author: aSecondDDAuthor.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+	self assert: (DDAuthor activitySorted: aCollectionOfDDAuthor) equals: anOrderedCollection.
+]
+
+{ #category : #test }
 DDAuthorTest >> testAddActiveCategory [
 	"this method checks if addActiveCategory works initializing the array with a DDcategory"
 	
@@ -100,6 +175,28 @@ DDAuthorTest >> testAddSentMessage [
 	aDDAuthor addSentMessage: aDDMessageMock.
 	
 	self assert: aDDAuthor hasMessages equals: true.
+]
+
+{ #category : #test }
+DDAuthorTest >> testAlphaSorted [
+	"This method checks if activitySorted works properly given two Authors and a message sent by both of them"
+	
+	| aFirstDDAuthor aSecondDDAuthor anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+	
+	aFirstDDAuthor name: 'first'.
+	aSecondDDAuthor name: 'second'.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+	self assert: (DDAuthor alphaSorted: aCollectionOfDDAuthor) equals: anOrderedCollection.
 ]
 
 { #category : #test }
@@ -209,6 +306,51 @@ DDAuthorTest >> testFirstMessage [
 	(aDDMessageMock timeSorted: aDDAuthor sentMessages) willReturn: aDDMessageMock.
 		
 	self assert: aDDAuthor firstMessage equals: aDDMessageMock.
+]
+
+{ #category : #test }
+DDAuthorTest >> testFirstMessage2 [
+	"This method checks if firstMessage returns the only message that aDDAuthor has without mocking the 	DDMessage class"
+	
+	| aDDAuthor aDDMessage aSecondDDMessage |
+	aDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	
+	aDDMessage createdAt: '05-06-23'.
+	aSecondDDMessage createdAt: '02-06-23'.
+
+	aDDAuthor addSentMessage: aDDMessage.
+	aDDAuthor addSentMessage: aSecondDDMessage.	
+		
+	self assert: aDDAuthor firstMessage equals: aSecondDDMessage.
+]
+
+{ #category : #test }
+DDAuthorTest >> testFirstMessageSorted [
+	"This method checks if firstMessageSorted returns the DDAuthors in a correct oreder basaed on their sent messages"
+	
+	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+		
+	aFirstDDAuthor addSentMessage: aFirstDDMessage.
+	aFirstDDMessage createdAt: '01-03-21'.
+	aSecondDDAuthor addSentMessage: aSecondDDMessage.
+	aSecondDDMessage createdAt: '01-04-22'.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+
+		
+	self assert: (DDAuthor firstMessageSorted: aCollectionOfDDAuthor ) equals: anOrderedCollection.
 ]
 
 { #category : #test }
@@ -325,6 +467,23 @@ DDAuthorTest >> testIsMember2 [
 ]
 
 { #category : #test }
+DDAuthorTest >> testIsMember3 [
+	"this method checks if isMember's getter and setter works initializing the server array, without 	mocking the Server class "
+		
+	| aDDAuthor aSet aDDServer |
+	aDDAuthor  := DDAuthor new.
+	aSet := Set new.
+	aDDServer := DDServer new.
+	
+	aSet add: aDDAuthor.
+	aDDAuthor server: aDDServer.
+	
+	aDDServer members: aSet.
+	
+	self assert: aDDAuthor isMember equals: true.
+]
+
+{ #category : #test }
 DDAuthorTest >> testLastMessage [
 	"This method checks if lastMessage returns the only message that aDDAuthor has"
 	
@@ -336,6 +495,50 @@ DDAuthorTest >> testLastMessage [
 	(aDDMessageMock timeSorted: aDDAuthor sentMessages) willReturn: aDDMessageMock.
 	
 	self assert: aDDAuthor lastMessage equals: aDDMessageMock.
+]
+
+{ #category : #test }
+DDAuthorTest >> testLastMessage2 [
+	"This method checks if lastMessage returns the only message that aDDAuthor has without moking the 	DDMessage class"
+	
+	| aDDAuthor aDDMessage aSecondDDMessage |
+	aDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	
+	aDDMessage createdAt: '05-06-23'.
+	aSecondDDMessage createdAt: '04-06-23'.
+
+	aDDAuthor addSentMessage: aDDMessage.
+	aDDAuthor addSentMessage: aSecondDDMessage.	
+		
+	self assert: aDDAuthor lastMessage equals: aDDMessage.
+]
+
+{ #category : #test }
+DDAuthorTest >> testLastMessageSorted [
+	"This method checks if firstMessageSorted returns the DDAuthors in a correct oreder basaed on their sent messages"
+	
+	| aFirstDDAuthor aSecondDDAuthor aFirstDDMessage aSecondDDMessage anOrderedCollection aCollectionOfDDAuthor |
+	aFirstDDAuthor := DDAuthor new.
+	aSecondDDAuthor := DDAuthor new.
+	aFirstDDMessage := DDMessage new.
+	aSecondDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+	aCollectionOfDDAuthor := OrderedCollection new.
+		
+	aFirstDDAuthor addSentMessage: aFirstDDMessage.
+	aFirstDDMessage createdAt: '01-04-22'.
+	aSecondDDAuthor addSentMessage: aSecondDDMessage.
+	aSecondDDMessage createdAt: '01-02-21'.
+	
+	anOrderedCollection add: aFirstDDAuthor.
+ 	anOrderedCollection add: aSecondDDAuthor.
+	
+	aCollectionOfDDAuthor add: aSecondDDAuthor.
+	aCollectionOfDDAuthor add: aFirstDDAuthor.
+		
+	self assert: (DDAuthor firstMessageSorted: aCollectionOfDDAuthor ) equals: anOrderedCollection.
 ]
 
 { #category : #test }
@@ -387,6 +590,26 @@ DDAuthorTest >> testMessageCreationDates2 [
 ]
 
 { #category : #test }
+DDAuthorTest >> testMessageCreationDates3 [
+	"This method checks if messageCreationDates' works initializing the sentMessages array and without mocking the DDMessage class"
+		
+	| aDDAuthor aDDMessage anOrderedCollection |
+	aDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+
+	aDDMessage author: aDDAuthor.
+	aDDMessage createdAt: '05/02/23'.
+	aDDAuthor addSentMessage: aDDMessage.
+	aDDAuthor messageCreationDates.
+	anOrderedCollection add: aDDMessage.
+
+	self assert: aDDAuthor sentMessages equals: anOrderedCollection.
+	
+	
+]
+
+{ #category : #test }
 DDAuthorTest >> testMessagesByDay [
 	"This method checks if messagesByDay's works if sentMessages is not initialized"
 		
@@ -420,6 +643,26 @@ DDAuthorTest >> testMessagesByDay2 [
 ]
 
 { #category : #test }
+DDAuthorTest >> testMessagesByDay3 [
+	"This method checks if messagesByDay's method works if sentMessages is initialized without mocking the DDMessage class"
+		
+	| aDDAuthor aDDMessage anOrderedCollection |
+	aDDAuthor := DDAuthor new.
+	aDDMessage := DDMessage new.
+	anOrderedCollection := OrderedCollection new.
+
+	aDDMessage author: aDDAuthor.
+	aDDMessage createdAt: '05/02/23'.
+	aDDAuthor messagesByDay.
+	aDDAuthor addSentMessage: aDDMessage.
+	anOrderedCollection add: aDDMessage.
+
+	self assert: aDDAuthor sentMessages equals: anOrderedCollection.
+	
+	
+]
+
+{ #category : #test }
 DDAuthorTest >> testNickname [
 	"This method checks if nickname's getter works without giving any input"
 	
@@ -439,6 +682,18 @@ DDAuthorTest >> testNickname2 [
 	aDDAuthor nickname: 'user-nickname'.
 	
 	self assert: aDDAuthor nickname equals: 'user-nickname'.
+]
+
+{ #category : #test }
+DDAuthorTest >> testNormalizedName [
+	"This method checks if normalizedName correctly modify a DDAuthor's name"
+	
+	| aDDAuthor |
+	aDDAuthor := DDAuthor new.
+	
+	aDDAuthor name: 'IaMaFuLlNaMe'.
+	
+	self assert: (DDAuthor normalizedName: 'IaMaFuLlNaMe') equals: 'iamafullname'.
 ]
 
 { #category : #test }
